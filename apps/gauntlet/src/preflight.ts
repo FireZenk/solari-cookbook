@@ -6,6 +6,7 @@
  *  from a half-finished audit. */
 import { Solari, SolariError } from "@solarisdk/browser"
 import { SolariClient } from "@solarisdk/sdk"
+import { resolveApiKey } from "./apikey.ts"
 
 type Status = "ok" | "blocked" | "failed"
 interface Check { name: string; status: Status; note: string; ms: number }
@@ -29,11 +30,7 @@ async function check(name: string, fn: () => Promise<string>): Promise<void> {
 }
 
 async function main(): Promise<void> {
-  const apiKey = process.env.SOLARI_API_KEY
-  if (!apiKey) {
-    console.error("SOLARI_API_KEY is not set. Grab a key at console.getsolari.com.")
-    process.exit(1)
-  }
+  const apiKey = resolveApiKey()
   const solari = new Solari({ apiKey })
   const client = new SolariClient({ apiKey })
 

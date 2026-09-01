@@ -9,6 +9,7 @@
 import { readdirSync, readFileSync, statSync } from "node:fs"
 import { join, relative } from "node:path"
 import { SolariClient } from "@solarisdk/sdk"
+import { resolveApiKey } from "./apikey.ts"
 
 const PORT = 8080
 
@@ -24,9 +25,8 @@ function walk(dir: string, base = dir): string[] {
 
 async function main(): Promise<void> {
   const runDir = process.argv[2]
-  const apiKey = process.env.SOLARI_API_KEY
+  const apiKey = resolveApiKey()
   if (!runDir) { console.error("usage: node src/serve.ts <run-directory>"); process.exit(1) }
-  if (!apiKey) { console.error("SOLARI_API_KEY is not set."); process.exit(1) }
 
   const files = walk(runDir)
   if (!files.includes("report.html")) {

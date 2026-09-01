@@ -12,6 +12,7 @@ import type { BrowserContext, Page } from "patchright-core"
 import { NetworkCapture, readWebStorage } from "../capture.ts"
 import { dumpAxTree, keyboardWalk } from "../a11y/axwalk.ts"
 import { clickReject, detectCmp } from "./cmp.ts"
+import { blockedFinding, detectBlock } from "./blocked.ts"
 import { consentFindings, sortFindings } from "./findings.ts"
 import { ensureDir, writeCountryEvidence } from "../evidence/bundle.ts"
 import type { A11yReport, CountryAudit } from "../types.ts"
@@ -68,6 +69,14 @@ export async function auditCountry(opts: ProbeOptions): Promise<CountryAudit> {
   }
 
   let axTree: unknown = null
+
+  const finish = async (): Promise<CountryAudit> => {
+    await browser.close()
+    if (recording) audit.replayUrl = await fetchReplayUrl(opts.solari, audit.sessionId, errors)
+    writeCountryEvidence(dir, audit, axTree)
+    return audit
+  }
+
   try {
     const context: BrowserContext = browser.contexts()[0] ?? (await browser.newContext())
     const page: Page = await context.newPage()
@@ -101,8 +110,24 @@ export async function auditCountry(opts: ProbeOptions): Promise<CountryAudit> {
       errors.push(`screenshot: ${(err as Error).message.slice(0, 120)}`)
     }
 
+    // ── Gate: did we reach the site at all? ──
+    const block = detectBlock(audit.preConsent.requests, page.url())
+    if (block.blocked) {
+      audit.blocked = { reason: block.reason, evidence: block.evidence }
+      audit.findings = [blockedFinding(block)]
+      await capture.detach()
+      return await finish()
+    }
+
     // ── Phase 2: read the consent layer (tags the DOM, sends no events) ──
-    const detection = await detectCmp(page)
+    let detection = await detectCmp(page)
+    // Plenty of CMPs inject the banner a couple of seconds after load, well past
+    // network quiet. Looking once and concluding "no banner" is how you file a
+    // false report.
+    if (!detection.report.bannerVisible) {
+      await new Promise((r) => setTimeout(r, 3000))
+      detection = await detectCmp(page)
+    }
     audit.cmp = detection.report
 
     // ── Phase 3: keyboard walk. Tab presses only — no clicks, so the consent
@@ -139,6 +164,20 @@ export async function auditCountry(opts: ProbeOptions): Promise<CountryAudit> {
       }
     }
 
+    const vantageNote = audit.proxy
+      ? []
+      : [{
+          code: "VANTAGE_POINT_NOT_EU",
+          severity: "none" as const,
+          title: "Measured from Solari's default egress (us-west), not from an EU member state",
+          detail:
+            "Sites routinely serve a different consent experience by geography — often no banner at all to " +
+            "visitors outside the EU. This run therefore describes what a US visitor sees. Re-run with " +
+            "--countries to measure the jurisdiction that actually applies.",
+          reference: "—",
+          evidence: [],
+        }]
+
     audit.findings = sortFindings([
       ...consentFindings({
         preRequests: audit.preConsent.requests,
@@ -148,23 +187,22 @@ export async function auditCountry(opts: ProbeOptions): Promise<CountryAudit> {
         afterReject: audit.afterReject,
       }),
       ...audit.a11y.findings,
+      ...vantageNote,
     ])
 
     await capture.detach()
-  } finally {
+  } catch (err) {
+    errors.push(`audit: ${(err as Error).message.slice(0, 200)}`)
     // close() ends the browser AND releases the session. Skipping it holds the
     // slot until the plan deadline.
-    await browser.close()
+    await browser.close().catch(() => {})
+    writeCountryEvidence(dir, audit, axTree)
+    throw err
   }
 
   // The replay upload is async: it only exists once the session is released,
-  // which is why this lives after close().
-  if (recording) {
-    audit.replayUrl = await fetchReplayUrl(opts.solari, audit.sessionId, errors)
-  }
-
-  writeCountryEvidence(dir, audit, axTree)
-  return audit
+  // which is why finish() closes first and asks for the replay after.
+  return await finish()
 }
 
 /** Poll for the replay. The docs say 1-3s after release; the cookbook warns it

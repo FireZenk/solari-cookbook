@@ -22,6 +22,12 @@ const CAT_COLOR: Record<string, string> = {
   unclassified: "#8a94a6",
 }
 
+/** Session ids are ~90 characters of host and org prefix. Show enough to match
+ *  a console entry without breaking the page. */
+function shortSession(id: string): string {
+  return id.length <= 28 ? id : `…${id.slice(-24)}`
+}
+
 function esc(s: unknown): string {
   return String(s ?? "")
     .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
@@ -84,10 +90,24 @@ function countryBlock(c: CountryAudit): string {
         .join("")}</tbody></table>${c.a11y.stops.length > 25 ? `<p class="muted">${c.a11y.stops.length - 25} further stops in keyboard-walk.json</p>` : ""}`
     : `<p class="muted">Keyboard walk not run${c.a11y.skippedReason ? `: ${esc(c.a11y.skippedReason)}` : ""}.</p>`
 
+  if (c.blocked) {
+    return `
+  <section class="country">
+    <h2>${esc(c.country.toUpperCase())} <span class="badge" style="--c:#8a94a6">no measurement</span></h2>
+    <p class="meta">${proxy} · session <code>${esc(shortSession(c.sessionId))}</code>${c.replayUrl ? ` · <a href="${esc(c.replayUrl)}">session replay</a>` : ""}</p>
+    <div class="blocked">
+      <h4>The browser never reached this site — ${esc(c.blocked.reason)}</h4>
+      <p>Nothing on this page describes the target. Whatever loaded belonged to the challenge page, and
+      reporting it would be reporting on the wrong document.</p>
+      <pre>${c.blocked.evidence.map(esc).join("\n")}</pre>
+    </div>
+  </section>`
+  }
+
   return `
   <section class="country">
     <h2>${esc(c.country.toUpperCase())} ${severityBadge(worst)}</h2>
-    <p class="meta">${proxy} · session <code>${esc(c.sessionId)}</code> · navigation ${c.navigationMs}ms
+    <p class="meta">${proxy} · session <code>${esc(shortSession(c.sessionId))}</code> · navigation ${c.navigationMs}ms
       ${c.replayUrl ? ` · <a href="${esc(c.replayUrl)}">session replay</a>` : ""}</p>
 
     <div class="stats">
@@ -162,6 +182,8 @@ export function renderReport(run: AuditRun): string {
   table.walk td { padding:5px 8px; border-bottom:1px solid #1b2230 }
   ul.cmp { padding-left:18px; margin:0 }
   footer { color:var(--muted); font-size:12px; border-top:1px solid var(--line); margin-top:40px; padding-top:20px }
+  .blocked { border:1px solid #4a5568; border-left:3px solid #8a94a6; border-radius:8px; padding:14px 16px; background:#0d1117 }
+  .blocked h4 { margin:0 0 8px }
   @media print { body { background:#fff; color:#000 } .country { break-inside:avoid } }
 </style></head><body><div class="wrap">
   <h1>Gauntlet report</h1>

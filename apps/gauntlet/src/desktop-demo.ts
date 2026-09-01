@@ -19,6 +19,7 @@
 import { mkdirSync, writeFileSync } from "node:fs"
 import { join } from "node:path"
 import { SolariClient } from "@solarisdk/sdk"
+import { resolveApiKey } from "./apikey.ts"
 import type { Desktop } from "@solarisdk/sdk"
 
 const TABS = 25
@@ -55,8 +56,7 @@ async function sh(desktop: Desktop, script: string, timeoutLabel: string): Promi
 
 async function main(): Promise<void> {
   const target = process.argv[2] ?? "https://example.com"
-  const apiKey = process.env.SOLARI_API_KEY
-  if (!apiKey) { console.error("SOLARI_API_KEY is not set."); process.exit(1) }
+  const apiKey = resolveApiKey()
 
   const outDir = join("runs", `desktop-${new Date().toISOString().replace(/[:.]/g, "-")}`)
   mkdirSync(outDir, { recursive: true })

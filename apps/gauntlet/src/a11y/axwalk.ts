@@ -99,6 +99,9 @@ export async function keyboardWalk(
   let reachedBanner = false
   let reachedReject = false
   let stopsBeforeBanner: number | undefined
+  let lastSignature = ""
+  let stuckRun = 0
+  let stuck = false
 
   try {
     // Start from the top of the document without clicking anything — a click
@@ -114,7 +117,16 @@ export async function keyboardWalk(
       const focused = await page.evaluate(readFocused)
       if (!focused) continue
 
-      // Focus cycled back to something we already visited: the tab ring closed.
+      // Two different reasons the same element comes back, and they mean
+      // opposite things: the tab ring closing is normal, whereas focus refusing
+      // to move is a keyboard trap — the thing SC 2.1.2 is about.
+      if (focused.signature === lastSignature) {
+        stuckRun++
+        if (stuckRun >= 3) { stuck = true; break }
+        continue
+      }
+      stuckRun = 0
+      lastSignature = focused.signature
       if (seen.has(focused.signature)) break
       seen.add(focused.signature)
 
@@ -144,8 +156,21 @@ export async function keyboardWalk(
     }
   }
 
+  if (stuck) {
+    findings.push({
+      code: "KEYBOARD_FOCUS_STUCK",
+      severity: "high",
+      title: `Focus stopped moving after ${stops.length} tab stop(s)`,
+      detail:
+        "Repeated Tab presses left focus on the same element. Either a component is holding focus, or the " +
+        "page has nothing further in its tab order — both leave a keyboard user unable to continue.",
+      reference: "EN 301 549 §9.2.1.2 / WCAG 2.1 SC 2.1.2 (No Keyboard Trap)",
+      evidence: stops.slice(-3).map((s) => `stop ${s.index}: ${s.role} "${s.name || "(no name)"}"`),
+    })
+  }
+
   // ── The crossover finding ──
-  if (opts.bannerPresent && !reachedBanner) {
+  if (opts.bannerPresent && !reachedBanner && !stuck) {
     findings.push({
       code: "BANNER_KEYBOARD_UNREACHABLE",
       severity: "critical",

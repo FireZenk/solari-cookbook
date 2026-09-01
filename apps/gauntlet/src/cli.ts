@@ -8,6 +8,7 @@
 import { writeFileSync } from "node:fs"
 import { join } from "node:path"
 import { Solari, SolariError } from "@solarisdk/browser"
+import { resolveApiKey } from "./apikey.ts"
 import { auditCountry } from "./consent/probe.ts"
 import { trackerListVersion } from "./consent/classify.ts"
 import { ensureDir, writeJson, writeManifest } from "./evidence/bundle.ts"
@@ -68,11 +69,7 @@ function isPlanError(err: unknown): boolean {
 
 async function main(): Promise<void> {
   const args = parseArgs(process.argv.slice(2))
-  const apiKey = process.env.SOLARI_API_KEY
-  if (!apiKey) {
-    console.error("SOLARI_API_KEY is not set. Grab a key at console.getsolari.com.")
-    process.exit(1)
-  }
+  const apiKey = resolveApiKey()
 
   const startedAt = new Date().toISOString()
   const runDir = ensureDir(join(args.out, `${slug(args.target)}-${startedAt.replace(/[:.]/g, "-")}`))
@@ -100,9 +97,13 @@ async function main(): Promise<void> {
           recording: args.recording,
         })
         audits.push(audit)
-        const worst = audit.findings[0]?.severity ?? "none"
-        const tp = audit.preConsent.requests.filter((r) => !r.firstParty).length
-        console.log(`${worst.toUpperCase()} · ${tp} third-party requests pre-consent · ${audit.findings.length} findings`)
+        if (audit.blocked) {
+          console.log(`NO MEASUREMENT — ${audit.blocked.reason}`)
+        } else {
+          const worst = audit.findings[0]?.severity ?? "none"
+          const tp = audit.preConsent.requests.filter((r) => !r.firstParty).length
+          console.log(`${worst.toUpperCase()} · ${tp} third-party requests pre-consent · ${audit.findings.length} findings`)
+        }
       } catch (err) {
         if (isPlanError(err) && country) {
           proxyBlocked = true

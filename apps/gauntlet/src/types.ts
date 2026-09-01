@@ -132,6 +132,9 @@ export interface CountryAudit {
   replayUrl?: string
   screenshots: string[]
   errors: string[]
+  /** Set when a bot wall or an error page stood between us and the site. When
+   *  this is true the findings list carries exactly one entry saying so. */
+  blocked?: { reason: string; evidence: string[] }
 }
 
 export interface AuditRun {

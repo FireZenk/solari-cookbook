@@ -86,54 +86,96 @@ function inPageDetect(): InPageResult {
   const SETTINGS =
     /\b(settings|manage|preferences|customi[sz]e|options|configurar|personalizar|ajustes|preferencias|einstellungen|verwalten|anpassen|param[eè]tres|g[eé]rer|personnaliser|impostazioni|gestisci|instellingen|beheren)\b/i
 
-  // Smallest visible container that mentions consent and holds a button. Going
-  // smallest-first avoids tagging <body> on sites where the banner is inline.
+  // A container mentioning "cookie" is not a consent banner. Footers say
+  // "Cookie policy" too — the first run of this tool matched one and invented a
+  // finding out of it. A banner has to either offer a consent decision (accept /
+  // reject) or behave like an overlay (fixed, sticky, or a modal dialog).
+  function overlayTraits(el: Element): { overlay: boolean; why: string } {
+    const cs = getComputedStyle(el)
+    const fixed = cs.position === "fixed" || cs.position === "sticky"
+    const z = parseInt(cs.zIndex || "0", 10)
+    const dialog = el.getAttribute("role") === "dialog" ||
+      el.getAttribute("role") === "alertdialog" ||
+      el.hasAttribute("aria-modal")
+    const why = [fixed ? `position:${cs.position}` : "", z >= 10 ? `z-index:${z}` : "", dialog ? "role=dialog" : ""]
+      .filter(Boolean).join(" ")
+    return { overlay: fixed || z >= 10 || dialog, why }
+  }
+
+  function labelsOf(el: Element): { accept?: Element; reject?: Element; settings?: Element } {
+    const controls = Array.from(
+      el.querySelectorAll("button, a, [role=button], input[type=button], input[type=submit]"),
+    ).filter((c) => visible(c))
+    const found: { accept?: Element; reject?: Element; settings?: Element } = {}
+    for (const c of controls) {
+      const label = ((c.textContent || "") + " " + (c.getAttribute("aria-label") || "")).trim().replace(/\s+/g, " ")
+      if (!label || label.length > 80) continue
+      if (!found.reject && REJECT.test(label)) { found.reject = c; continue }
+      if (!found.accept && ACCEPT.test(label)) { found.accept = c; continue }
+      if (!found.settings && SETTINGS.test(label)) found.settings = c
+    }
+    return found
+  }
+
   let banner: Element | undefined
   let bannerArea = Number.POSITIVE_INFINITY
+  let bannerLabels: { accept?: Element; reject?: Element; settings?: Element } = {}
+  const nearMisses: string[] = []
+
   for (const el of elements) {
     const text = (el.textContent || "").slice(0, 4000)
     if (text.length < 15 || text.length > 3000) continue
     if (!BANNER_WORDS.test(text)) continue
     if (!visible(el)) continue
-    const hasButton = el.querySelector("button, a[role=button], [role=button], input[type=button], input[type=submit]")
-    if (!hasButton) continue
+    const found = labelsOf(el)
+    const { overlay, why } = overlayTraits(el)
+
+    // Strong: it offers a decision. Weak: only a settings link, which needs to
+    // look like an overlay before we believe it. Otherwise: not a banner.
+    const decides = Boolean(found.accept || found.reject)
+    const qualifies = decides || (Boolean(found.settings) && overlay) || (overlay && Boolean(vendor))
+    if (!qualifies) {
+      if (Object.keys(found).length > 0 || overlay) {
+        nearMisses.push(
+          `${el.tagName.toLowerCase()}${el.id ? "#" + el.id : ""}: consent wording but no decision control${why ? ` (${why})` : ""}`,
+        )
+      }
+      continue
+    }
+
     const r = el.getBoundingClientRect()
     const area = r.width * r.height
-    if (area < bannerArea) { banner = el; bannerArea = area }
+    if (area < bannerArea) { banner = el; bannerArea = area; bannerLabels = found }
   }
 
   if (!banner) {
-    return { vendor, tcfApi, bannerVisible: false, bannerText: "", notes }
+    return {
+      vendor,
+      tcfApi,
+      bannerVisible: false,
+      bannerText: "",
+      notes: [...notes, ...nearMisses.slice(0, 3)],
+    }
   }
   banner.setAttribute("data-gauntlet-banner", "1")
-
-  const controls = Array.from(
-    banner.querySelectorAll("button, a, [role=button], input[type=button], input[type=submit]"),
-  ).filter((el) => visible(el))
 
   let acceptLabel: string | undefined
   let rejectLabel: string | undefined
   let settingsLabel: string | undefined
-  for (const el of controls) {
-    const label = ((el.textContent || "") + " " + (el.getAttribute("aria-label") || "")).trim().replace(/\s+/g, " ")
-    if (!label || label.length > 80) continue
-    if (!rejectLabel && REJECT.test(label)) {
-      rejectLabel = label
-      el.setAttribute("data-gauntlet-role", "reject")
-      continue
-    }
-    if (!acceptLabel && ACCEPT.test(label)) {
-      acceptLabel = label
-      el.setAttribute("data-gauntlet-role", "accept")
-      continue
-    }
-    if (!settingsLabel && SETTINGS.test(label)) {
-      settingsLabel = label
-      el.setAttribute("data-gauntlet-role", "settings")
-    }
+  const readLabel = (el: Element): string =>
+    ((el.textContent || "") + " " + (el.getAttribute("aria-label") || "")).trim().replace(/\s+/g, " ").slice(0, 80)
+
+  if (bannerLabels.accept) {
+    acceptLabel = readLabel(bannerLabels.accept)
+    bannerLabels.accept.setAttribute("data-gauntlet-role", "accept")
   }
-  if (controls.length > 0 && !acceptLabel && !rejectLabel && !settingsLabel) {
-    notes.push(`banner found with ${controls.length} controls but no recognised labels`)
+  if (bannerLabels.reject) {
+    rejectLabel = readLabel(bannerLabels.reject)
+    bannerLabels.reject.setAttribute("data-gauntlet-role", "reject")
+  }
+  if (bannerLabels.settings) {
+    settingsLabel = readLabel(bannerLabels.settings)
+    bannerLabels.settings.setAttribute("data-gauntlet-role", "settings")
   }
 
   return {
