@@ -20,8 +20,9 @@ node src/cli.ts https://example.com --countries es,de,fr # audit as a Spaniard, 
 node src/serve.ts ./runs/example.com-…                   # publish the report on a public URL
 ```
 
-[Sample report](docs/sample-report.html) — generated from synthetic data, so you can
-see the output shape before spending a session.
+**[Live report](https://firezenk.github.io/solari-cookbook/)** — a real run against a site
+the author owns, from five EU member states, with the whole evidence bundle published next
+to it. Every number on that page links to the file it came from.
 
 ---
 
@@ -73,6 +74,50 @@ Which is two violations at once, and the reason these two audits belong in one t
 person who cannot reach the reject button has not freely given consent — the
 accessibility failure *is* a consent failure. The European Accessibility Act has applied
 since June 2025; the consent rules have applied since 2009.
+
+## What it found, and how it was checked
+
+Against the published target, from five member states:
+
+- The site is genuinely clean — no trackers, no cookies, no web storage before consent.
+  A tool that only ever reports violations is a tool nobody can trust with a clean site.
+- Google Fonts discloses the visitor's IP to a US host on load (`low`).
+- **The consent banner is the last thing a keyboard user reaches** — 21 tab stops deep,
+  behind the entire page it is covering (`medium`).
+
+That last one was then checked by a second, independent instrument. `desktop-demo.ts`
+opens the same page on a Linux VM with Orca running and presses nothing but Tab:
+
+```
+ 2. HOME — link [focused]
+ 7. SHOP NOW — push button [focused]
+ 9. View details for Core - Zero — push button [focused]
+22. ACCEPT — push button [focused]
+23. Decline — push button [focused]
+```
+
+The cloud browser said "21 tab stops deep" by walking the AX tree. The desktop, which
+knows nothing about that measurement, announces the banner at stop 22. Two instruments,
+one answer.
+
+What the demonstrator captures is not audio. Orca decides what to say by reading the
+AT-SPI accessibility tree over D-Bus; the demo listens on the same bus and writes down the
+same facts — the name and role the toolkit exposed, with no synthesiser and no
+transcription in between. (The audio path was tried first: `sd_generic`, the
+speech-dispatcher module that would have logged utterances, refuses to load on that image
+under any configuration. AT-SPI turned out to be the better source anyway — it is where
+the announcement comes from before it is spoken.)
+
+## When it refuses to answer
+
+Large sites answer datacenter IPs with a 403 and a CAPTCHA interstitial that has its own
+scripts, its own cookies and no consent banner. Auditing that page produces findings that
+read like an accusation and belong to the challenge page.
+
+So Gauntlet checks whether it reached the site at all — seven bot-wall vendors and the
+main document's status — and a blocked run emits exactly one finding saying no measurement
+was possible. A report that says nothing is fine. A report that says the wrong thing
+confidently is not.
 
 ## The evidence bundle
 
@@ -133,6 +178,10 @@ src/evidence/bundle.ts    HAR reconstruction, sha256 manifest
 src/report/render.ts      the single-file report
 src/serve.ts              publish a run from a disposable sandbox
 src/preflight.ts          what can this key actually do
+src/desktop-demo.ts       the human-visible demonstration: a VM, a screen reader, Tab
+src/consent/blocked.ts    did we reach the site, or a bot wall
+scripts/probe-template.ts asks a desktop template what it contains
+scripts/rerender.ts       rebuild a report from its run.json, no re-auditing
 ```
 
 Built on the [Solari](https://getsolari.com) cookbook this repository is forked from.

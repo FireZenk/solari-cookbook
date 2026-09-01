@@ -8,8 +8,13 @@
 > The finding that needs all of it at once: *the consent banner cannot be reached with
 > the keyboard* — an accessibility failure and a consent failure in the same breath.
 >
-> → [**apps/gauntlet**](apps/gauntlet) · [sample report](apps/gauntlet/docs/sample-report.html) ·
+> Checked twice: the cloud browser measured the banner at 21 tab stops deep; a Linux VM
+> running Orca, told nothing about that, announced it at stop 22.
+>
+> → [**apps/gauntlet**](apps/gauntlet) ·
+> [**live report + evidence**](https://firezenk.github.io/solari-cookbook/) ·
 > cookbook-sized version: [examples/eu-consent-evidence-ts](examples/eu-consent-evidence-ts)
+> ([PR upstream](https://github.com/solari-sdk/solari-cookbook/pull/18))
 >
 > Everything below is the upstream Solari cookbook, unchanged.
 
