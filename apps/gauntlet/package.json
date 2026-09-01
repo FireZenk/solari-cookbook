@@ -3,11 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "EU compliance evidence engine built on Solari — pre-consent tracker forensics and real keyboard/accessibility audits, with a reproducible evidence bundle.",
+  "description": "EU compliance evidence engine built on Solari \u2014 pre-consent tracker forensics and real keyboard/accessibility audits, with a reproducible evidence bundle.",
   "license": "MIT",
   "scripts": {
-    "gauntlet": "node src/cli.ts",
-    "preflight": "node src/preflight.ts",
+    "gauntlet": "node --env-file-if-exists=.env src/cli.ts",
+    "preflight": "node --env-file-if-exists=.env src/preflight.ts",
+    "serve": "node --env-file-if-exists=.env src/serve.ts",
+    "sample": "node scripts/sample-report.ts docs/sample-report.html",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {

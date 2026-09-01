@@ -1,0 +1,70 @@
+# Compliance gate: audit a URL for pre-consent tracking and keyboard accessibility,
+# publish the evidence bundle as a build artifact, and fail the job on a critical
+# finding. Nothing here needs a browser on the runner — the browsers are Solari's.
+name: gauntlet
+
+on:
+  workflow_dispatch:
+    inputs:
+      url:
+        description: URL to audit
+        required: true
+        default: https://example.com
+      countries:
+        description: "Comma-separated egress countries (needs a paid plan; leave empty for direct)"
+        required: false
+        default: ""
+  schedule:
+    # Weekly drift check: consent banners change when marketing ships, not when
+    # engineering does, so the audit has to run on a clock rather than on push.
+    - cron: "17 6 * * 1"
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+
+      - name: Install
+        working-directory: apps/gauntlet
+        run: npm ci || npm install
+
+      - name: Probe what this key can do
+        working-directory: apps/gauntlet
+        env:
+          SOLARI_API_KEY: ${{ secrets.SOLARI_API_KEY }}
+        run: node src/preflight.ts || true
+
+      - name: Audit
+        id: audit
+        working-directory: apps/gauntlet
+        env:
+          SOLARI_API_KEY: ${{ secrets.SOLARI_API_KEY }}
+        run: |
+          set +e
+          node src/cli.ts "${{ inputs.url || 'https://example.com' }}" \
+            ${{ inputs.countries && format('--countries {0}', inputs.countries) || '' }}
+          echo "exit=$?" >> "$GITHUB_OUTPUT"
+
+      - name: Job summary
+        working-directory: apps/gauntlet
+        run: |
+          RUN=$(ls -dt runs/*/ | head -1)
+          node scripts/summary.ts "${RUN}run.json" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload evidence bundle
+        uses: actions/upload-artifact@v4
+        with:
+          name: gauntlet-evidence
+          path: apps/gauntlet/runs/
+          retention-days: 90
+
+      - name: Fail on critical findings
+        if: steps.audit.outputs.exit == '2'
+        run: |
+          echo "::error::Gauntlet measured at least one critical finding. See the job summary."
+          exit 1
