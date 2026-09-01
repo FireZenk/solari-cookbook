@@ -119,6 +119,9 @@ export async function auditCountry(opts: ProbeOptions): Promise<CountryAudit> {
       return await finish()
     }
 
+    // From here on every phase is best-effort. A session that dies during the
+    // keyboard walk should still yield the pre-consent measurement, which is the
+    // expensive half and the one the findings rest on.
     // ── Phase 2: read the consent layer (tags the DOM, sends no events) ──
     let detection = await detectCmp(page)
     // Plenty of CMPs inject the banner a couple of seconds after load, well past
@@ -133,34 +136,42 @@ export async function auditCountry(opts: ProbeOptions): Promise<CountryAudit> {
     // ── Phase 3: keyboard walk. Tab presses only — no clicks, so the consent
     //    state is still untouched when we ask whether the banner is reachable. ──
     if (a11y) {
-      const walk: A11yReport = await keyboardWalk(page, context, {
-        bannerPresent: detection.report.bannerVisible,
-        rejectInFirstLayer: detection.report.rejectInFirstLayer,
-      })
-      audit.a11y = walk
-      axTree = await dumpAxTree(context, page)
+      try {
+        audit.a11y = await keyboardWalk(page, context, {
+          bannerPresent: detection.report.bannerVisible,
+          rejectInFirstLayer: detection.report.rejectInFirstLayer,
+        })
+        axTree = await dumpAxTree(context, page)
+      } catch (err) {
+        errors.push(`a11y: ${(err as Error).message.slice(0, 160)}`)
+        audit.a11y = { ran: false, stops: [], reachedBanner: false, findings: [], skippedReason: "session ended during the walk" }
+      }
     }
 
     // ── Phase 4: now we may interact. Refuse, and watch what happens next. ──
     if (detection.report.rejectInFirstLayer) {
-      capture.reset()
-      const clicked = await clickReject(detection)
-      if (clicked) {
-        await capture.waitForQuiet(2000, 8000)
-        audit.afterReject = {
-          clicked: true,
-          label: detection.report.rejectLabel,
-          requests: capture.requests(),
-          cookies: await capture.cookies(),
+      try {
+        capture.reset()
+        const clicked = await clickReject(detection)
+        if (clicked) {
+          await capture.waitForQuiet(2000, 8000)
+          audit.afterReject = {
+            clicked: true,
+            label: detection.report.rejectLabel,
+            requests: capture.requests(),
+            cookies: await capture.cookies(),
+          }
+          try {
+            const shot = await page.screenshot({ fullPage: false })
+            const name = "02-after-reject.png"
+            writeFileSync(join(dir, name), shot)
+            screenshots.push(name)
+          } catch { /* the page may have navigated away on reject */ }
+        } else {
+          errors.push("reject control was detected but could not be clicked")
         }
-        try {
-          const shot = await page.screenshot({ fullPage: false })
-          const name = "02-after-reject.png"
-          writeFileSync(join(dir, name), shot)
-          screenshots.push(name)
-        } catch { /* the page may have navigated away on reject */ }
-      } else {
-        errors.push("reject control was detected but could not be clicked")
+      } catch (err) {
+        errors.push(`reject phase: ${(err as Error).message.slice(0, 160)}`)
       }
     }
 

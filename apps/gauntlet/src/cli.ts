@@ -88,14 +88,25 @@ async function main(): Promise<void> {
       const label = country ?? "direct"
       process.stdout.write(`  [${label}] auditing… `)
       try {
-        const audit = await auditCountry({
-          solari,
-          target: args.target,
-          country,
-          evidenceRoot: runDir,
-          a11y: args.a11y,
-          recording: args.recording,
-        })
+        // Cloud browsers die occasionally — a dropped proxy, a lost slot. Losing
+        // a whole vantage point to one flake would quietly change the report.
+        let audit
+        for (let attempt = 1; ; attempt++) {
+          try {
+            audit = await auditCountry({
+              solari,
+              target: args.target,
+              country,
+              evidenceRoot: runDir,
+              a11y: args.a11y,
+              recording: args.recording,
+            })
+            break
+          } catch (err) {
+            if (attempt >= 2 || isPlanError(err)) throw err
+            process.stdout.write("retrying… ")
+          }
+        }
         audits.push(audit)
         if (audit.blocked) {
           console.log(`NO MEASUREMENT — ${audit.blocked.reason}`)

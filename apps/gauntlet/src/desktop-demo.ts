@@ -1,174 +1,151 @@
 /** The demonstrator: a real Linux desktop, a real screen reader, no mouse.
  *
- *   node src/desktop-demo.ts https://example.com
+ *   node --env-file-if-exists=.env src/desktop-demo.ts https://example.com
  *
- *  The audit in `cli.ts` is the instrument — deterministic, cheap, CI-able. This
- *  is the thing you show a person who does not believe the instrument. Chrome
- *  opens on a VM, Orca starts, and the only input is the Tab key. Whatever the
- *  screen reader announces is captured as text, so the transcript sits next to
- *  the video and says the same thing.
+ *  `cli.ts` is the instrument — deterministic, cheap, runs in CI. This is what
+ *  you show someone who does not believe the instrument. Chrome opens on a VM,
+ *  Orca starts, and the only input for the rest of the run is the Tab key.
  *
- *  The capture trick: speech-dispatcher's `generic` output module runs an
- *  arbitrary command per utterance. Point that command at a log file instead of
- *  a synthesiser and the speech stream becomes a file you can read — no audio
- *  processing, no transcription, exactly the words Orca chose.
+ *  What gets captured is not audio. Orca decides what to announce by reading the
+ *  AT-SPI accessibility tree over D-Bus; this listens to the same bus and writes
+ *  down the same facts — one line per focus change, exactly the name and role
+ *  the toolkit exposed. No synthesiser, no transcription, nothing to mishear.
  *
- *  Best-effort by design. If Orca or the AT-SPI bus refuses to come up on the
- *  template, the run degrades to a keyboard-only walk with screenshots: still a
- *  demonstration, minus the transcript. It never blocks the audit itself. */
-import { mkdirSync, writeFileSync } from "node:fs"
+ *  The result cross-checks the audit: if the cloud browser says a control has no
+ *  accessible name, the desktop announces it as a bare "push button". Two
+ *  independent instruments, same answer. */
+import { mkdirSync, readFileSync, writeFileSync } from "node:fs"
 import { join } from "node:path"
+import { fileURLToPath } from "node:url"
 import { SolariClient } from "@solarisdk/sdk"
-import { resolveApiKey } from "./apikey.ts"
 import type { Desktop } from "@solarisdk/sdk"
+import { resolveApiKey } from "./apikey.ts"
 
 const TABS = 25
-const SPEECH_LOG = "/tmp/gauntlet-speech.log"
+const LOG = "/tmp/gauntlet-speech.log"
 
-/** speech-dispatcher generic module that writes utterances to a file. */
-const GENERIC_CONF = `
-GenericExecuteSynth "printf '%s\\n' \\"$DATA\\" >> ${SPEECH_LOG}"
-GenericCmdDependency "printf"
-GenericDelimiters " " "." ","
-GenericPunctNone ""
-GenericPunctSome "--punct=some"
-GenericPunctAll "--punct=all"
-AddVoice "en" "MALE1" "en"
-DefaultVoice "MALE1"
-`
+const asset = (name: string): string =>
+  readFileSync(fileURLToPath(new URL(`../data/${name}`, import.meta.url)), "utf8")
 
-const SPEECHD_CONF = `
-AddModule "gauntletlog" "sd_generic" "gauntletlog.conf"
-DefaultModule gauntletlog
-DefaultVoiceType "MALE1"
-DefaultLanguage "en"
-LogLevel 3
-`
+const sleep = (ms: number): Promise<void> => new Promise((r) => setTimeout(r, ms))
 
-async function sh(desktop: Desktop, script: string, timeoutLabel: string): Promise<string> {
-  // `exec` takes a binary plus argv; a shell has to be asked for explicitly.
-  const res = await desktop.exec("sh", { args: ["-c", script] })
-  if (res.exitCode !== 0) {
-    console.log(`    · ${timeoutLabel}: exit ${res.exitCode} ${String(res.stderr ?? "").slice(0, 160)}`)
-  }
-  return String(res.stdout ?? "")
+async function sh(desktop: Desktop, script: string): Promise<string> {
+  const r = await desktop.exec("sh", { args: ["-c", script] })
+  return String(r.stdout ?? "")
 }
 
 async function main(): Promise<void> {
   const target = process.argv[2] ?? "https://example.com"
-  const apiKey = resolveApiKey()
-
   const outDir = join("runs", `desktop-${new Date().toISOString().replace(/[:.]/g, "-")}`)
   mkdirSync(outDir, { recursive: true })
 
-  const client = new SolariClient({ apiKey })
+  const client = new SolariClient({ apiKey: resolveApiKey() })
   const desktop = await client.desktops.create({
-    template: "default",          // ships Chrome, VS Code, LibreOffice, Thunar
+    template: "default",     // ships Chrome, VS Code, LibreOffice, Thunar
     resolution: "1280x720",
-    memMb: 4096,                  // Chrome plus a screen reader on 2 GB is tight
-    record: true,                 // server-side mp4; the URL resolves after record.stop()
-    timeoutMs: 15 * 60_000,       // rolling idle window, not a hard deadline
+    memMb: 4096,             // Chrome plus a screen reader on 2 GB is tight
+    record: true,            // server-side mp4; the URL resolves after record.stop()
+    timeoutMs: 15 * 60_000,  // rolling idle window, not a hard deadline
   })
 
-  console.log(`\n  desktop ${desktop.sessionId}`)
+  console.log(`\n  desktop ${desktop.sessionId.slice(0, 24)}…`)
   console.log(`  watch live: ${desktop.streamUrl}\n`)
 
-  let speechWorked = false
   try {
     await desktop.connect()
 
     process.stdout.write("  waiting for X11… ")
     for (let i = 0; i < 40; i++) {
-      const health = await desktop.health()
-      if ((health as { ready?: boolean }).ready) break
+      if ((await desktop.health() as { ready?: boolean }).ready) break
       await sleep(1000)
     }
     console.log("up")
 
     await desktop.record.start({ fps: 8 }).catch(() => console.log("  (server-side recording unavailable)"))
 
-    // ── Screen reader ──
-    process.stdout.write("  installing orca + speech-dispatcher… ")
-    const install = await desktop.pkg.install("apt", ["orca", "speech-dispatcher", "at-spi2-core"]).catch(() => null)
-    console.log(install ? "done" : "failed (continuing without a transcript)")
-
-    if (install) {
-      await desktop.fs.write("/etc/speech-dispatcher/modules/gauntletlog.conf", GENERIC_CONF).catch(() => {})
-      await sh(desktop, `mkdir -p /root/.config/speech-dispatcher && printf '%s' '${SPEECHD_CONF.replace(/'/g, "'\\''")}' > /root/.config/speech-dispatcher/speechd.conf`, "speechd config")
-      await sh(desktop, `: > ${SPEECH_LOG}`, "reset speech log")
-
-      // AT-SPI has to be switched on for the toolkit, and Chrome only exposes its
-      // accessibility tree when asked — without this flag Orca narrates an empty
-      // window and the demo silently proves nothing.
-      await sh(desktop, "gsettings set org.gnome.desktop.interface toolkit-accessibility true", "toolkit-accessibility")
-      await sh(desktop, "(/usr/libexec/at-spi-bus-launcher --launch-immediately &) ; sleep 1", "at-spi bus")
-      await sh(desktop, "(speech-dispatcher -d &) ; sleep 1", "speech-dispatcher")
-      await sh(desktop, "(orca --replace --no-setup &) ; sleep 4", "orca")
-      const speaking = await sh(desktop, `test -s ${SPEECH_LOG} && echo yes || echo no`, "speech probe")
-      speechWorked = speaking.trim() === "yes"
-      console.log(`  orca speech capture: ${speechWorked ? "live" : "no utterances yet (will re-check after tabbing)"}`)
+    // apt needs an update first or it claims at-spi2-core does not exist. And
+    // `pkg.install` reports failure in an exit code rather than throwing, which
+    // is how an earlier version of this file printed "done" over a failed
+    // install and then wondered why nothing spoke.
+    process.stdout.write("  installing orca + at-spi… ")
+    const install = await sh(
+      desktop,
+      "apt-get update -qq && DEBIAN_FRONTEND=noninteractive apt-get install -y -qq orca at-spi2-core dbus-x11 2>&1 | tail -1; echo rc=$?",
+    )
+    if (!install.includes("rc=0")) {
+      console.log("failed")
+      console.error(`  apt said: ${install.trim().slice(0, 300)}`)
+      return
     }
+    console.log("done")
 
-    // ── Chrome, keyboard only from here on ──
+    await desktop.fs.write("/root/a11y-setup.sh", asset("desktop-a11y-setup.sh"), 0o755)
+    await desktop.fs.write("/root/atspi-listener.py", asset("atspi-listener.py"), 0o755)
+
+    process.stdout.write("  starting at-spi + orca… ")
+    await desktop.process.start("sh", { args: ["/root/a11y-setup.sh"] })
+    for (let i = 0; i < 40; i++) {
+      if ((await sh(desktop, "cat /tmp/gauntlet-setup-done 2>/dev/null")).includes("done")) break
+      await sleep(2000)
+    }
+    const running = await sh(desktop, "pgrep -a orca | head -1")
+    console.log(running.trim() ? "orca running" : "orca not detected (continuing)")
+
+    await desktop.process.start("sh", {
+      args: ["-c", `export HOME=/root DISPLAY=:0 XDG_RUNTIME_DIR=/run/user/0; . /tmp/dbus.env; exec python3 /root/atspi-listener.py ${LOG} >> /tmp/listener.log 2>&1`],
+    })
+    await sleep(4000)
+    const attached = (await sh(desktop, `cat ${LOG} 2>/dev/null`)).includes("listener attached")
+    console.log(`  accessibility listener: ${attached ? "attached" : "not attached"}`)
+
+    // --app drops the browser chrome entirely. Without it, Tab walks Chrome's
+    // own toolbar forever and never enters the page — which is what the first
+    // version of this demo actually recorded.
     process.stdout.write("  opening chrome… ")
-    await desktop.process
-      .start("google-chrome", {
-        args: [
-          "--force-renderer-accessibility", // expose the AX tree to AT-SPI
-          "--no-first-run",
-          "--start-maximized",
-          target,
-        ],
-      })
-      .catch(async () => {
-        // Template naming differs between images; try the usual aliases.
-        await sh(desktop, `(chromium --force-renderer-accessibility --no-first-run "${target}" &) || (google-chrome-stable --force-renderer-accessibility "${target}" &)`, "chrome fallback")
-      })
-    await sleep(9000)
-    console.log("loaded")
+    await desktop.process.start("sh", {
+      args: ["-c", `export HOME=/root DISPLAY=:0; . /tmp/dbus.env; exec google-chrome --force-renderer-accessibility --no-first-run --no-sandbox --window-size=1280,720 --app="${target}" >> /tmp/chrome.log 2>&1`],
+    })
+    await sleep(12000)
+    const title = (await sh(desktop, "DISPLAY=:0 xdotool getactivewindow getwindowname 2>/dev/null")).trim()
+    console.log(title ? `"${title}"` : "loaded")
 
     const shot = async (name: string): Promise<void> => {
-      const png = await desktop.screenshot({ format: "png" })
-      writeFileSync(join(outDir, name), png)
+      writeFileSync(join(outDir, name), await desktop.screenshot({ format: "png" }))
     }
     await shot("00-loaded.png")
 
-    // ── The walk. Tab only. ──
     console.log(`\n  pressing Tab ${TABS} times — no mouse from here on\n`)
-    const transcript: Array<{ stop: number; spoken: string }> = []
-    let seen = 0
+    const transcript: Array<{ stop: number; announced: string }> = []
+    let seen = 1 // skip the "(listener attached)" line
+
     for (let i = 1; i <= TABS; i++) {
       await desktop.keyboard.press("Tab")
-      await sleep(700) // give Orca time to speak the new focus
+      await sleep(700) // let the toolkit emit the focus event
 
-      let spoken = ""
-      try {
-        const log = await desktop.fs.readText(SPEECH_LOG)
-        const lines = log.split("\n").filter(Boolean)
-        spoken = lines.slice(seen).join(" · ").slice(0, 160)
-        seen = lines.length
-      } catch { /* no log means no screen reader; the screenshots still land */ }
+      const lines = (await sh(desktop, `cat ${LOG} 2>/dev/null`)).split("\n").filter(Boolean)
+      const fresh = lines.slice(seen)
+      seen = lines.length
 
-      if (spoken) {
-        speechWorked = true
-        transcript.push({ stop: i, spoken })
-        console.log(`  ${String(i).padStart(2)}. 🔊 ${spoken}`)
+      if (fresh.length > 0) {
+        const announced = fresh.join(" · ").slice(0, 160)
+        transcript.push({ stop: i, announced })
+        console.log(`  ${String(i).padStart(2)}. 🔊 ${announced}`)
       } else {
-        console.log(`  ${String(i).padStart(2)}. (silence)`)
+        console.log(`  ${String(i).padStart(2)}. (focus did not move)`)
       }
       if (i % 5 === 0) await shot(`tab-${String(i).padStart(2, "0")}.png`)
     }
 
-    writeFileSync(join(outDir, "speech-transcript.json"), JSON.stringify(transcript, null, 2) + "\n")
+    writeFileSync(join(outDir, "announcements.json"), JSON.stringify(transcript, null, 2) + "\n")
 
-    console.log(
-      speechWorked
-        ? `\n  transcript: ${join(outDir, "speech-transcript.json")}`
-        : "\n  No speech was captured — the screenshots and the video still show the keyboard walk.",
-    )
+    const unnamed = transcript.filter((t) => t.announced.includes("(no accessible name)"))
+    console.log(`\n  ${transcript.length} announcements captured, ${unnamed.length} with no accessible name`)
+    console.log(`  transcript: ${join(outDir, "announcements.json")}`)
 
     const rec = await desktop.record.stop().catch(() => null)
-    if (rec) console.log(`  video: ${(rec as { url?: string }).url ?? desktop.recordingUrl ?? "(check the console)"}`)
+    const url = (rec as { url?: string } | null)?.url ?? desktop.recordingUrl
+    if (url) writeFileSync(join(outDir, "recording-url.txt"), url + "\n")
+    console.log(`  video: ${url ? join(outDir, "recording-url.txt") : "(not available)"}`)
     console.log(`  frames: ${outDir}\n`)
   } finally {
     // close() drops the local channel only; destroy() ends the session.
@@ -177,19 +154,10 @@ async function main(): Promise<void> {
   }
 }
 
-function sleep(ms: number): Promise<void> {
-  return new Promise((r) => setTimeout(r, ms))
-}
-
 main().catch((err) => {
   const code = (err as { code?: string }).code
   if (code === "FeatureRequiresPlan" || /requires a paid plan/i.test(String((err as Error).message))) {
-    console.error(
-      "\n  Desktops need a paid plan.\n\n" +
-      "  The audit itself (`npm run gauntlet`) does not — it runs on cloud browsers, which the free\n" +
-      "  tier includes. This demonstrator is the part that shows a human what the audit measured:\n" +
-      "  a real GUI, a real screen reader, and no mouse. Upgrade at console.getsolari.com.\n",
-    )
+    console.error("\n  Desktops need a paid plan. The audit itself (`npm run gauntlet`) does not.\n")
     process.exit(3)
   }
   console.error(err)

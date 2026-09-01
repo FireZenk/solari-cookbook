@@ -141,7 +141,14 @@ export class NetworkCapture {
    *  only returns what matches the URLs you pass it, which is exactly the wrong
    *  shape when the point is to find cookies you did not expect. */
   async cookies(): Promise<CapturedCookie[]> {
-    const res = (await this.cdp.send("Network.getAllCookies")) as any
+    // If the browser died mid-run we still hold every request already captured;
+    // losing the jar is worth far less than losing the run.
+    let res: any
+    try {
+      res = await this.cdp.send("Network.getAllCookies")
+    } catch {
+      return []
+    }
     const now = Date.now() / 1000
     const out: CapturedCookie[] = []
     for (const c of res.cookies ?? []) {
