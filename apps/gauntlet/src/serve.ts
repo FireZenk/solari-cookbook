@@ -72,9 +72,18 @@ async function main(): Promise<void> {
     await new Promise((r) => setTimeout(r, 1200))
 
     const preview = await sandbox.previewUrl(PORT)
-    const url = preview.token ? `${preview.url}?token=${preview.token}` : preview.url
-    console.log(`\n  live report: ${url}/report.html`)
-    console.log(`  evidence:    ${url}/\n`)
+    // The gateway already signs the URL with `?pt_token=…`, so the token must go
+    // into the query it hands back rather than onto the end of the string — and
+    // the path has to be set on the URL, not appended after the query. Doing
+    // either naively yields a link that 404s in a way that looks like the
+    // sandbox is broken.
+    const base = new URL(preview.url)
+    if (preview.token && !base.searchParams.has("pt_token")) base.searchParams.set("token", preview.token)
+    const report = new URL(base)
+    report.pathname = "/report.html"
+
+    console.log(`\n  live report: ${report.toString()}`)
+    console.log(`  evidence:    ${base.toString()}\n`)
     console.log("  Ctrl-C to tear the sandbox down.")
 
     // Keep the process alive while the machine serves.

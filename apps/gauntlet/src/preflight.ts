@@ -19,7 +19,11 @@ async function check(name: string, fn: () => Promise<string>): Promise<void> {
     const note = await fn()
     results.push({ name, status: "ok", note, ms: Date.now() - t0 })
   } catch (err) {
-    const planGated = err instanceof SolariError && (err.code === "FeatureRequiresPlan" || /plan/i.test(err.message))
+    const code = (err as { code?: string }).code
+    const planGated =
+      code === "FeatureRequiresPlan" ||
+      (err instanceof SolariError && /plan/i.test(err.message)) ||
+      /requires a paid plan/i.test((err as Error).message)
     results.push({
       name,
       status: planGated ? "blocked" : "failed",
@@ -72,6 +76,16 @@ async function main(): Promise<void> {
       throw new Error("replay never appeared within 30s")
     })
 
+    await check("desktop: GUI session + VNC stream", async () => {
+      const desktop = await client.desktops.create({ template: "default", resolution: "1280x720", timeoutMs: 60_000 })
+      try {
+        return `session ${desktop.sessionId} · stream ${desktop.streamUrl.slice(0, 60)}…`
+      } finally {
+        desktop.close()
+        await client.desktops.destroy(desktop.sessionId).catch(() => {})
+      }
+    })
+
     await check("sandbox: create + public port preview", async () => {
       const sbx = await client.sandboxes.create({ template: "base", timeoutMs: 2 * 60_000 })
       try {
@@ -96,13 +110,14 @@ async function main(): Promise<void> {
     console.log(`  ${mark} ${r.name.padEnd(pad)}  ${String(r.ms).padStart(6)}ms  ${r.note}`)
   }
 
-  const proxy = results.find((r) => r.name.includes("proxy"))
-  console.log(
-    proxy?.status === "ok"
-      ? "\n  Multi-country auditing is available on this key.\n"
-      : "\n  Managed proxies are not available on this key — run gauntlet without --countries,\n" +
-        "  or upgrade at console.getsolari.com to audit from several member states.\n",
-  )
+  const blocked = results.filter((r) => r.status === "blocked").map((r) => r.name)
+  if (blocked.length === 0) {
+    console.log("\n  Everything Gauntlet uses is available on this key.\n")
+  } else {
+    console.log(`\n  Plan-gated on this key: ${blocked.join(", ")}`)
+    console.log("  Audits still run from the default egress (us-west) — which is a US vantage point,")
+    console.log("  so EU-specific consent behaviour may not be visible. Upgrade at console.getsolari.com.\n")
+  }
   process.exit(results.some((r) => r.status === "failed") ? 1 : 0)
 }
 

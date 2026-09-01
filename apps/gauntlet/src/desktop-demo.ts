@@ -181,4 +181,17 @@ function sleep(ms: number): Promise<void> {
   return new Promise((r) => setTimeout(r, ms))
 }
 
-main().catch((err) => { console.error(err); process.exit(1) })
+main().catch((err) => {
+  const code = (err as { code?: string }).code
+  if (code === "FeatureRequiresPlan" || /requires a paid plan/i.test(String((err as Error).message))) {
+    console.error(
+      "\n  Desktops need a paid plan.\n\n" +
+      "  The audit itself (`npm run gauntlet`) does not — it runs on cloud browsers, which the free\n" +
+      "  tier includes. This demonstrator is the part that shows a human what the audit measured:\n" +
+      "  a real GUI, a real screen reader, and no mouse. Upgrade at console.getsolari.com.\n",
+    )
+    process.exit(3)
+  }
+  console.error(err)
+  process.exit(1)
+})
