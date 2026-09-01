@@ -11,6 +11,12 @@ the device, at 181ms, before the banner existed".
 `proxy` requires `stealth: true`, and both are paid-plan features — drop the `proxy`
 option to run the same audit from the default egress.
 
+Two things worth knowing before you trust the output. The default egress is `us-west`,
+so without a proxy you are measuring what a US visitor sees, and plenty of sites serve a
+different consent experience — or none — outside the EU. And large sites answer
+datacenter IPs with a 403 and a CAPTCHA page that has its own scripts and cookies;
+measure that and you get a confident report about the bot wall.
+
 ## Run
 
 ```bash
