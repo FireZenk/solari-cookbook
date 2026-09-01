@@ -10,7 +10,8 @@
     "preflight": "node --env-file-if-exists=.env src/preflight.ts",
     "serve": "node --env-file-if-exists=.env src/serve.ts",
     "sample": "node scripts/sample-report.ts docs/sample-report.html",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "replay": "node --env-file-if-exists=.env scripts/replay.ts"
   },
   "dependencies": {
     "@solarisdk/browser": "^0.1.2",

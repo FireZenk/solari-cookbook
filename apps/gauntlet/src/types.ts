@@ -129,7 +129,14 @@ export interface CountryAudit {
   cmp: CmpReport
   a11y: A11yReport
   findings: Finding[]
-  replayUrl?: string
+  /** Whether a replay exists for this session.
+   *
+   *  Deliberately NOT the replay URL. A presigned S3 link carries AWS temporary
+   *  credentials in its query string, so persisting one writes a credential into
+   *  a file that ends up in a report, a bundle, and eventually a public repo.
+   *  The session id is not a credential; mint a fresh link from it when needed
+   *  (`npm run replay <sessionId>`). */
+  replayAvailable?: boolean
   screenshots: string[]
   errors: string[]
   /** Set when a bot wall or an error page stood between us and the site. When

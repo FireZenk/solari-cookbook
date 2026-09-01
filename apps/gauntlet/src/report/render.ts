@@ -94,7 +94,7 @@ function countryBlock(c: CountryAudit): string {
     return `
   <section class="country">
     <h2>${esc(c.country.toUpperCase())} <span class="badge" style="--c:#8a94a6">no measurement</span></h2>
-    <p class="meta">${proxy} · session <code>${esc(shortSession(c.sessionId))}</code>${c.replayUrl ? ` · <a href="${esc(c.replayUrl)}">session replay</a>` : ""}</p>
+    <p class="meta">${proxy} · session <code>${esc(shortSession(c.sessionId))}</code>${c.replayAvailable ? " · session replay recorded" : ""}</p>
     <div class="blocked">
       <h4>The browser never reached this site — ${esc(c.blocked.reason)}</h4>
       <p>Nothing on this page describes the target. Whatever loaded belonged to the challenge page, and
@@ -108,7 +108,7 @@ function countryBlock(c: CountryAudit): string {
   <section class="country">
     <h2>${esc(c.country.toUpperCase())} ${severityBadge(worst)}</h2>
     <p class="meta">${proxy} · session <code>${esc(shortSession(c.sessionId))}</code> · navigation ${c.navigationMs}ms
-      ${c.replayUrl ? ` · <a href="${esc(c.replayUrl)}">session replay</a>` : ""}</p>
+      ${c.replayAvailable ? ` · session replay recorded (<code>npm run replay ${esc(c.sessionId)}</code>)` : ""}</p>
 
     <div class="stats">
       <div><b>${tp.length}</b><span>third-party requests before consent</span></div>

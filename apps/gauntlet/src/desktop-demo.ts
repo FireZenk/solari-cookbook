@@ -169,8 +169,14 @@ async function main(): Promise<void> {
 
     const rec = await desktop.record.stop().catch(() => null)
     const url = (rec as { url?: string } | null)?.url ?? desktop.recordingUrl
-    if (url) writeFileSync(join(outDir, "recording-url.txt"), url + "\n")
-    console.log(`  video: ${url ? join(outDir, "recording-url.txt") : "(not available)"}`)
+    if (url) {
+      // Printed, never written. The playback URL is presigned: its query string
+      // carries AWS temporary credentials, and a file in a run directory is one
+      // `git add -f` away from being public. Download it now or mint a new one.
+      console.log(`  video (presigned, expires — download now, do not commit):\n    ${url}`)
+    } else {
+      console.log("  video: not available")
+    }
     console.log(`  frames: ${outDir}\n`)
   } finally {
     // close() drops the local channel only; destroy() ends the session.

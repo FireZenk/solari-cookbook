@@ -72,7 +72,7 @@ export async function auditCountry(opts: ProbeOptions): Promise<CountryAudit> {
 
   const finish = async (): Promise<CountryAudit> => {
     await browser.close()
-    if (recording) audit.replayUrl = await fetchReplayUrl(opts.solari, audit.sessionId, errors)
+    if (recording) audit.replayAvailable = await waitForReplay(opts.solari, audit.sessionId, errors)
     writeCountryEvidence(dir, audit, axTree)
     return audit
   }
@@ -216,18 +216,26 @@ export async function auditCountry(opts: ProbeOptions): Promise<CountryAudit> {
   return await finish()
 }
 
-/** Poll for the replay. The docs say 1-3s after release; the cookbook warns it
- *  can take ~30s. Believe the cookbook. */
-async function fetchReplayUrl(solari: Solari, sessionId: string, errors: string[]): Promise<string | undefined> {
+/** Wait until a replay exists, and record only THAT — never the URL.
+ *
+ *  `getReplayUrl` returns a presigned S3 link whose query string contains AWS
+ *  temporary credentials. Writing one into run.json put five of them into a
+ *  public repository and a GitHub Pages site. The link is short-lived and scoped
+ *  to a single object, but it is still a credential, and a credential belongs in
+ *  a request, not in an artifact.
+ *
+ *  The docs say the replay lands 1-3s after release; the cookbook warns it can
+ *  take ~30s. Believe the cookbook. */
+async function waitForReplay(solari: Solari, sessionId: string, errors: string[]): Promise<boolean> {
   for (let attempt = 0; attempt < 12; attempt++) {
     try {
       const replay = await solari.sessions.getReplayUrl(sessionId)
-      if (replay?.url) return replay.url
+      if (replay?.url) return true
     } catch {
-      // 404 until the upload lands — expected, keep waiting.
+      // 404 until the async upload lands — expected, keep waiting.
     }
     await new Promise((r) => setTimeout(r, 2500))
   }
   errors.push("replay never became available (waited 30s)")
-  return undefined
+  return false
 }

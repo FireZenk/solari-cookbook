@@ -592,7 +592,7 @@
         "requests": [],
         "cookies": []
       },
-      "replayUrl": "[redacted-presigned-url]"
+      "replayAvailable": true
     },
     {
       "country": "de",
@@ -1181,7 +1181,7 @@
         "requests": [],
         "cookies": []
       },
-      "replayUrl": "[redacted-presigned-url]"
+      "replayAvailable": true
     },
     {
       "country": "fr",
@@ -1770,7 +1770,7 @@
         "requests": [],
         "cookies": []
       },
-      "replayUrl": "[redacted-presigned-url]"
+      "replayAvailable": true
     },
     {
       "country": "it",
@@ -2359,7 +2359,7 @@
         "requests": [],
         "cookies": []
       },
-      "replayUrl": "[redacted-presigned-url]"
+      "replayAvailable": true
     },
     {
       "country": "nl",
@@ -2948,7 +2948,7 @@
         "requests": [],
         "cookies": []
       },
-      "replayUrl": "[redacted-presigned-url]"
+      "replayAvailable": true
     }
   ],
   "evidenceDigest": "288cc9a43976aefecf5f9dbaaf9ba289edebc9aae9d5944a6b506f1e9ebaae8a"

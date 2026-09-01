@@ -29,7 +29,7 @@ for (const c of run.countries) {
     `${tp.length} third-party requests before consent · ${entities.length} distinct parties · ` +
     `banner ${c.cmp.bannerVisible ? "found" : "not found"} · ` +
     `reject in first layer: ${c.cmp.rejectInFirstLayer ? "yes" : "**no**"}` +
-    (c.replayUrl ? ` · [session replay](${c.replayUrl})` : "") + "\n",
+    (c.replayAvailable ? " · session replay recorded" : "") + "\n",
   )
   if (c.findings.length === 0) { console.log("_No findings._\n"); continue }
   console.log("| | Finding | Rule |")
