@@ -1,3 +1,20 @@
+> ### This fork ships [**Gauntlet**](apps/gauntlet) 🇪🇺
+>
+> An evidence-grade auditor for the two EU rules websites break silently.
+> Point it at a URL: it loads the page from real browsers in several member states,
+> records every tracker and cookie **before anything is clicked**, then presses Tab
+> sixty times to find out whether a keyboard user could have refused at all.
+>
+> The finding that needs all of it at once: *the consent banner cannot be reached with
+> the keyboard* — an accessibility failure and a consent failure in the same breath.
+>
+> → [**apps/gauntlet**](apps/gauntlet) · [sample report](apps/gauntlet/docs/sample-report.html) ·
+> cookbook-sized version: [examples/eu-consent-evidence-ts](examples/eu-consent-evidence-ts)
+>
+> Everything below is the upstream Solari cookbook, unchanged.
+
+---
+
 # Solari Cookbook
 
 Short, runnable examples for [Solari](https://getsolari.com) — cloud browsers,
@@ -18,6 +35,7 @@ past. Copy one into your project and change the parts you care about.
 | [browser-stealth-proxy-ts](examples/browser-stealth-proxy-ts) | TypeScript | Stealth mode + residential proxy egress |
 | [browser-profiles-ts](examples/browser-profiles-ts) | TypeScript | Log in once, reuse the session forever |
 | [browser-session-recording-py](examples/browser-session-recording-py) | Python | Record a session, download the replay |
+| [eu-consent-evidence-ts](examples/eu-consent-evidence-ts) | TypeScript | Pre-consent tracker evidence via raw CDP |
 
 ### Sandbox
 

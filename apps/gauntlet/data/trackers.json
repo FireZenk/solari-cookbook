@@ -1,0 +1,478 @@
+{
+  "version": "2026-09-01",
+  "provenance": {
+    "note": "Hand-curated subset of well-known third-party hosts, cross-checked against the public DuckDuckGo Tracker Radar entity list and EasyPrivacy filter rules. Deliberately small and versioned: a Gauntlet verdict must change only when the audited site changes, never because a remote list moved under us.",
+    "curatedAt": "2026-09-01",
+    "coverage": "Not exhaustive. An unmatched host is reported as `unclassified`, never silently treated as clean."
+  },
+  "categories": {
+    "advertising": {
+      "severity": "high",
+      "consentRequired": true,
+      "label": "Advertising / retargeting"
+    },
+    "analytics": {
+      "severity": "high",
+      "consentRequired": true,
+      "label": "Analytics"
+    },
+    "session-replay": {
+      "severity": "high",
+      "consentRequired": true,
+      "label": "Session replay / behavioural recording"
+    },
+    "social": {
+      "severity": "high",
+      "consentRequired": true,
+      "label": "Social plugin / social pixel"
+    },
+    "tag-manager": {
+      "severity": "medium",
+      "consentRequired": true,
+      "label": "Tag manager (loader for other tags)"
+    },
+    "data-transfer": {
+      "severity": "low",
+      "consentRequired": false,
+      "label": "Third-country data transfer (IP disclosed to a US host)"
+    },
+    "consent": {
+      "severity": "none",
+      "consentRequired": false,
+      "label": "Consent management platform (strictly necessary)"
+    },
+    "cdn": {
+      "severity": "none",
+      "consentRequired": false,
+      "label": "Static asset delivery"
+    }
+  },
+  "entities": [
+    {
+      "name": "Google Analytics",
+      "category": "analytics",
+      "domains": [
+        "google-analytics.com",
+        "analytics.google.com",
+        "ssl.google-analytics.com"
+      ]
+    },
+    {
+      "name": "Google Tag Manager",
+      "category": "tag-manager",
+      "domains": [
+        "googletagmanager.com"
+      ]
+    },
+    {
+      "name": "Google Ads / DoubleClick",
+      "category": "advertising",
+      "domains": [
+        "doubleclick.net",
+        "googleadservices.com",
+        "googlesyndication.com",
+        "adservice.google.com",
+        "pagead2.googlesyndication.com"
+      ]
+    },
+    {
+      "name": "Meta (Facebook Pixel)",
+      "category": "advertising",
+      "domains": [
+        "facebook.com",
+        "facebook.net",
+        "connect.facebook.net",
+        "fbcdn.net"
+      ]
+    },
+    {
+      "name": "TikTok",
+      "category": "advertising",
+      "domains": [
+        "tiktok.com",
+        "analytics.tiktok.com",
+        "tiktokcdn.com"
+      ]
+    },
+    {
+      "name": "LinkedIn Insight",
+      "category": "advertising",
+      "domains": [
+        "linkedin.com",
+        "licdn.com",
+        "snap.licdn.com"
+      ]
+    },
+    {
+      "name": "X / Twitter",
+      "category": "advertising",
+      "domains": [
+        "ads-twitter.com",
+        "t.co",
+        "twitter.com",
+        "x.com",
+        "static.ads-twitter.com"
+      ]
+    },
+    {
+      "name": "Microsoft Advertising",
+      "category": "advertising",
+      "domains": [
+        "bat.bing.com",
+        "clarity.ms"
+      ]
+    },
+    {
+      "name": "Microsoft Clarity",
+      "category": "session-replay",
+      "domains": [
+        "clarity.ms",
+        "c.clarity.ms"
+      ]
+    },
+    {
+      "name": "Hotjar",
+      "category": "session-replay",
+      "domains": [
+        "hotjar.com",
+        "hotjar.io",
+        "static.hotjar.com"
+      ]
+    },
+    {
+      "name": "FullStory",
+      "category": "session-replay",
+      "domains": [
+        "fullstory.com",
+        "fullstory.net"
+      ]
+    },
+    {
+      "name": "Smartlook",
+      "category": "session-replay",
+      "domains": [
+        "smartlook.com",
+        "smartlook.cloud"
+      ]
+    },
+    {
+      "name": "Mouseflow",
+      "category": "session-replay",
+      "domains": [
+        "mouseflow.com"
+      ]
+    },
+    {
+      "name": "Segment",
+      "category": "analytics",
+      "domains": [
+        "segment.com",
+        "segment.io",
+        "cdn.segment.com"
+      ]
+    },
+    {
+      "name": "Mixpanel",
+      "category": "analytics",
+      "domains": [
+        "mixpanel.com",
+        "mxpnl.com"
+      ]
+    },
+    {
+      "name": "Amplitude",
+      "category": "analytics",
+      "domains": [
+        "amplitude.com",
+        "api.amplitude.com"
+      ]
+    },
+    {
+      "name": "Heap",
+      "category": "analytics",
+      "domains": [
+        "heap.io",
+        "heapanalytics.com"
+      ]
+    },
+    {
+      "name": "Matomo Cloud",
+      "category": "analytics",
+      "domains": [
+        "matomo.cloud",
+        "matomo.org"
+      ]
+    },
+    {
+      "name": "Adobe Analytics",
+      "category": "analytics",
+      "domains": [
+        "omtrdc.net",
+        "demdex.net",
+        "adobedtm.com",
+        "everesttech.net"
+      ]
+    },
+    {
+      "name": "Yandex Metrica",
+      "category": "analytics",
+      "domains": [
+        "mc.yandex.ru",
+        "yandex.ru",
+        "metrika.yandex.ru"
+      ]
+    },
+    {
+      "name": "Criteo",
+      "category": "advertising",
+      "domains": [
+        "criteo.com",
+        "criteo.net"
+      ]
+    },
+    {
+      "name": "Taboola",
+      "category": "advertising",
+      "domains": [
+        "taboola.com"
+      ]
+    },
+    {
+      "name": "Outbrain",
+      "category": "advertising",
+      "domains": [
+        "outbrain.com"
+      ]
+    },
+    {
+      "name": "Amazon Advertising",
+      "category": "advertising",
+      "domains": [
+        "amazon-adsystem.com"
+      ]
+    },
+    {
+      "name": "The Trade Desk",
+      "category": "advertising",
+      "domains": [
+        "adsrvr.org"
+      ]
+    },
+    {
+      "name": "PubMatic",
+      "category": "advertising",
+      "domains": [
+        "pubmatic.com"
+      ]
+    },
+    {
+      "name": "Rubicon / Magnite",
+      "category": "advertising",
+      "domains": [
+        "rubiconproject.com",
+        "magnite.com"
+      ]
+    },
+    {
+      "name": "AppNexus / Xandr",
+      "category": "advertising",
+      "domains": [
+        "adnxs.com",
+        "xandr.com"
+      ]
+    },
+    {
+      "name": "Snapchat",
+      "category": "advertising",
+      "domains": [
+        "sc-static.net",
+        "snapchat.com"
+      ]
+    },
+    {
+      "name": "Pinterest",
+      "category": "advertising",
+      "domains": [
+        "pinimg.com",
+        "ct.pinterest.com"
+      ]
+    },
+    {
+      "name": "Reddit Ads",
+      "category": "advertising",
+      "domains": [
+        "redditstatic.com",
+        "reddit.com"
+      ]
+    },
+    {
+      "name": "Quantcast",
+      "category": "advertising",
+      "domains": [
+        "quantserve.com",
+        "quantcount.com"
+      ]
+    },
+    {
+      "name": "Hubspot",
+      "category": "analytics",
+      "domains": [
+        "hs-analytics.net",
+        "hs-scripts.com",
+        "hubspot.com",
+        "hsforms.net"
+      ]
+    },
+    {
+      "name": "Intercom",
+      "category": "analytics",
+      "domains": [
+        "intercom.io",
+        "intercomcdn.com"
+      ]
+    },
+    {
+      "name": "Drift",
+      "category": "analytics",
+      "domains": [
+        "drift.com",
+        "driftt.com"
+      ]
+    },
+    {
+      "name": "New Relic",
+      "category": "analytics",
+      "domains": [
+        "newrelic.com",
+        "nr-data.net"
+      ]
+    },
+    {
+      "name": "Cloudflare Web Analytics",
+      "category": "analytics",
+      "domains": [
+        "cloudflareinsights.com"
+      ]
+    },
+    {
+      "name": "Vercel Analytics",
+      "category": "analytics",
+      "domains": [
+        "vitals.vercel-insights.com",
+        "vercel-analytics.com"
+      ]
+    },
+    {
+      "name": "Plausible",
+      "category": "analytics",
+      "domains": [
+        "plausible.io"
+      ]
+    },
+    {
+      "name": "Fathom",
+      "category": "analytics",
+      "domains": [
+        "usefathom.com"
+      ]
+    },
+    {
+      "name": "OneTrust",
+      "category": "consent",
+      "domains": [
+        "onetrust.com",
+        "cookielaw.org",
+        "otsvc.com"
+      ]
+    },
+    {
+      "name": "Cookiebot",
+      "category": "consent",
+      "domains": [
+        "cookiebot.com",
+        "cookiebot.eu"
+      ]
+    },
+    {
+      "name": "Didomi",
+      "category": "consent",
+      "domains": [
+        "didomi.io"
+      ]
+    },
+    {
+      "name": "Usercentrics",
+      "category": "consent",
+      "domains": [
+        "usercentrics.eu",
+        "usercentrics.com"
+      ]
+    },
+    {
+      "name": "Iubenda",
+      "category": "consent",
+      "domains": [
+        "iubenda.com"
+      ]
+    },
+    {
+      "name": "Sourcepoint",
+      "category": "consent",
+      "domains": [
+        "sp-prod.net",
+        "sourcepoint.mgr.consensu.org"
+      ]
+    },
+    {
+      "name": "Osano",
+      "category": "consent",
+      "domains": [
+        "osano.com"
+      ]
+    },
+    {
+      "name": "Google Fonts",
+      "category": "data-transfer",
+      "domains": [
+        "fonts.googleapis.com",
+        "fonts.gstatic.com"
+      ]
+    },
+    {
+      "name": "Google reCAPTCHA",
+      "category": "data-transfer",
+      "domains": [
+        "recaptcha.net"
+      ]
+    },
+    {
+      "name": "jsDelivr",
+      "category": "cdn",
+      "domains": [
+        "jsdelivr.net"
+      ]
+    },
+    {
+      "name": "unpkg",
+      "category": "cdn",
+      "domains": [
+        "unpkg.com"
+      ]
+    },
+    {
+      "name": "cdnjs",
+      "category": "cdn",
+      "domains": [
+        "cdnjs.cloudflare.com"
+      ]
+    },
+    {
+      "name": "Font Awesome",
+      "category": "cdn",
+      "domains": [
+        "fontawesome.com",
+        "use.fontawesome.com"
+      ]
+    }
+  ]
+}

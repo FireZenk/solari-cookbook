@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gauntlet — https://shop.example.test</title>
+<style>
+  :root { color-scheme: dark; --bg:#0d1117; --panel:#161b22; --line:#26303d; --fg:#e6edf3; --muted:#8a94a6; }
+  * { box-sizing:border-box }
+  body { margin:0; background:var(--bg); color:var(--fg); font:15px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+  .wrap { max-width:980px; margin:0 auto; padding:40px 24px 80px }
+  h1 { font-size:26px; margin:0 0 4px } h2 { font-size:20px; margin:0 0 6px }
+  h3 { font-size:14px; text-transform:uppercase; letter-spacing:.08em; color:var(--muted); margin:28px 0 10px }
+  h4 { margin:0; font-size:15px; font-weight:600 }
+  code { font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:.88em; color:#9fd0ff }
+  a { color:#7bc4ff }
+  .muted { color:var(--muted) } .bad { color:#ff8c42 }
+  .lede { color:var(--muted); margin:0 0 24px }
+  .country { background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:24px; margin:24px 0 }
+  .meta { color:var(--muted); font-size:13px; margin:0 0 18px }
+  .stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:12px; margin:16px 0 }
+  .stats div { background:#0d1117; border:1px solid var(--line); border-radius:8px; padding:12px }
+  .stats b { display:block; font-size:24px; line-height:1.2 } .stats span { font-size:12px; color:var(--muted) }
+  .badge { display:inline-block; border:1px solid var(--c); color:var(--c); border-radius:999px;
+           padding:1px 10px; font-size:11px; text-transform:uppercase; letter-spacing:.06em; vertical-align:middle }
+  .timeline { margin:12px 0 }
+  .track { position:relative; height:44px; background:#0d1117; border:1px solid var(--line); border-radius:8px; overflow:hidden }
+  .track i { position:absolute; top:6px; width:3px; height:32px; border-radius:2px; opacity:.9 }
+  .axis { display:flex; justify-content:space-between; font-size:11px; color:var(--muted); margin-top:4px }
+  .finding { border:1px solid var(--line); border-left:3px solid var(--c); border-radius:8px; padding:14px 16px; margin:10px 0; background:#0d1117 }
+  .finding header { display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:6px }
+  .finding header code { margin-left:auto; color:var(--muted) }
+  .finding p { margin:6px 0 } .ref { font-size:12px; color:var(--muted) }
+  details { margin-top:8px } summary { cursor:pointer; font-size:13px; color:var(--muted) }
+  pre { background:#0a0e14; border:1px solid var(--line); border-radius:6px; padding:10px; overflow-x:auto; font-size:12px; white-space:pre-wrap; word-break:break-all }
+  table.walk { width:100%; border-collapse:collapse; font-size:13px }
+  table.walk th { text-align:left; color:var(--muted); font-weight:500; border-bottom:1px solid var(--line); padding:6px 8px }
+  table.walk td { padding:5px 8px; border-bottom:1px solid #1b2230 }
+  ul.cmp { padding-left:18px; margin:0 }
+  footer { color:var(--muted); font-size:12px; border-top:1px solid var(--line); margin-top:40px; padding-top:20px }
+  @media print { body { background:#fff; color:#000 } .country { break-inside:avoid } }
+</style></head><body><div class="wrap">
+  <h1>Gauntlet report</h1>
+  <p class="lede">
+    <code>https://shop.example.test</code> · 2026-09-01T09:14:00.000Z ·
+    1 vantage point ·
+    tracker list <code>2026-09-01</code>
+    · bundle <code>synthetic-fixtur…</code>
+  </p>
+  <p class="lede">
+    Highest finding: <span class="badge" style="--c:#ff4d4d">critical</span> — 1 critical, 8 high, 3 medium, 1 low.
+  </p>
+  
+  <section class="country">
+    <h2>ES <span class="badge" style="--c:#ff4d4d">critical</span></h2>
+    <p class="meta">egress ES · residential · tz Europe/Madrid · session <code>sess_synthetic_es</code> · navigation 1284ms
+      </p>
+
+    <div class="stats">
+      <div><b>9</b><span>third-party requests before consent</span></div>
+      <div><b>8</b><span>distinct third parties</span></div>
+      <div><b>3</b><span>third-party cookies</span></div>
+      <div><b>2</b><span>web-storage keys</span></div>
+    </div>
+
+    <h3>Before any interaction</h3>
+    
+    <div class="timeline"><div class="track"><i style="left:11.80%;background:#ffc93c" title="118ms · Google Tag Manager · tag-manager"></i><i style="left:18.10%;background:#ff8c42" title="181ms · Google Analytics · analytics"></i><i style="left:20.40%;background:#ff4d4d" title="204ms · Meta (Facebook Pixel) · advertising"></i><i style="left:33.10%;background:#ff4d4d" title="331ms · Meta (Facebook Pixel) · advertising"></i><i style="left:35.80%;background:#e05be0" title="358ms · Hotjar · session-replay"></i><i style="left:40.20%;background:#7bc4ff" title="402ms · Google Fonts · data-transfer"></i><i style="left:9.60%;background:#5fd68a" title="96ms · OneTrust · consent"></i><i style="left:61.10%;background:#ff4d4d" title="611ms · TikTok · advertising"></i><i style="left:72.00%;background:#8a94a6" title="720ms · widget.unknown-vendor.io · unclassified"></i></div>
+      <div class="axis"><span>0 ms</span><span>1000 ms since navigation started</span></div>
+    </div>
+
+    <h3>Consent layer</h3>
+    <ul class="cmp">
+      <li>Banner detected: <b>yes</b> · vendor <code>OneTrust</code> · IAB TCF v2 present</li>
+      <li>Accept in first layer: <b>Aceptar todas</b></li>
+      <li>Reject in first layer: <b class="bad">not found</b></li>
+      
+    </ul>
+
+    <h3>Keyboard walk</h3>
+    <table class="walk"><thead><tr><th>#</th><th>role</th><th>accessible name</th><th>focus visible</th><th>in banner</th></tr></thead><tbody><tr><td>1</td><td><code>link</code></td><td>Saltar al contenido</td><td>yes</td><td></td></tr><tr><td>2</td><td><code>link</code></td><td>Inicio</td><td><span class="bad">no</span></td><td></td></tr><tr><td>3</td><td><code>button</code></td><td><span class="muted">(none)</span></td><td><span class="bad">no</span></td><td></td></tr><tr><td>4</td><td><code>combobox</code></td><td>Buscar</td><td>yes</td><td></td></tr><tr><td>5</td><td><code>link</code></td><td>Cesta</td><td><span class="bad">no</span></td><td></td></tr></tbody></table>
+
+    <h3>Findings</h3>
+    
+    <article class="finding" style="--c:#ff4d4d">
+      <header><span class="badge" style="--c:#ff4d4d">critical</span><h4>The consent banner cannot be reached with the keyboard</h4><code>BANNER_KEYBOARD_UNREACHABLE</code></header>
+      <p>60 Tab presses from the top of the document never moved focus into the visible consent banner. A visitor who does not use a mouse cannot accept or refuse — which fails the keyboard requirement and, at the same time, means consent cannot be freely given by that visitor.</p>
+      <p class="ref">EN 301 549 §9.2.1.1 / WCAG 2.1 SC 2.1.1 (Keyboard) · Directive (EU) 2019/882 (European Accessibility Act)</p>
+      <details><summary>Evidence (1)</summary><pre>5 focus stops recorded, none inside the banner</pre></details>
+    </article>
+    <article class="finding" style="--c:#ff8c42">
+      <header><span class="badge" style="--c:#ff8c42">high</span><h4>Google Analytics contacted before any consent interaction</h4><code>PRE_CONSENT_TRACKER</code></header>
+      <p>1 request to Google Analytics (Analytics), the earliest 181ms after navigation started — before the page had been clicked, and therefore before consent could have been given.</p>
+      <p class="ref">ePrivacy Directive 2002/58/EC Art. 5(3) — storing or accessing information on a user&#39;s device requires prior consent unless strictly necessary</p>
+      <details><summary>Evidence (1)</summary><pre>t=181ms · GET https://www.google-analytics.com/g/collect?v=2&amp;tid=G-XXXX · loaded by https://www.googletagmanager.com/gtm.js?id=GTM-XXXX</pre></details>
+    </article>
+    <article class="finding" style="--c:#ff8c42">
+      <header><span class="badge" style="--c:#ff8c42">high</span><h4>Meta (Facebook Pixel) contacted before any consent interaction</h4><code>PRE_CONSENT_TRACKER</code></header>
+      <p>2 requests to Meta (Facebook Pixel) (Advertising / retargeting), the earliest 204ms after navigation started — before the page had been clicked, and therefore before consent could have been given.</p>
+      <p class="ref">ePrivacy Directive 2002/58/EC Art. 5(3) — storing or accessing information on a user&#39;s device requires prior consent unless strictly necessary</p>
+      <details><summary>Evidence (2)</summary><pre>t=204ms · GET https://connect.facebook.net/en_US/fbevents.js · loaded by https://www.googletagmanager.com/gtm.js?id=GTM-XXXX
+t=331ms · GET https://www.facebook.com/tr?id=1234567890&amp;ev=PageView · loaded by https://connect.facebook.net/en_US/fbevents.js</pre></details>
+    </article>
+    <article class="finding" style="--c:#ff8c42">
+      <header><span class="badge" style="--c:#ff8c42">high</span><h4>Hotjar contacted before any consent interaction</h4><code>PRE_CONSENT_TRACKER</code></header>
+      <p>1 request to Hotjar (Session replay / behavioural recording), the earliest 358ms after navigation started — before the page had been clicked, and therefore before consent could have been given.</p>
+      <p class="ref">ePrivacy Directive 2002/58/EC Art. 5(3) — storing or accessing information on a user&#39;s device requires prior consent unless strictly necessary</p>
+      <details><summary>Evidence (1)</summary><pre>t=358ms · GET https://static.hotjar.com/c/hotjar-1234567.js</pre></details>
+    </article>
+    <article class="finding" style="--c:#ff8c42">
+      <header><span class="badge" style="--c:#ff8c42">high</span><h4>TikTok contacted before any consent interaction</h4><code>PRE_CONSENT_TRACKER</code></header>
+      <p>1 request to TikTok (Advertising / retargeting), the earliest 611ms after navigation started — before the page had been clicked, and therefore before consent could have been given.</p>
+      <p class="ref">ePrivacy Directive 2002/58/EC Art. 5(3) — storing or accessing information on a user&#39;s device requires prior consent unless strictly necessary</p>
+      <details><summary>Evidence (1)</summary><pre>t=611ms · GET https://analytics.tiktok.com/i18n/pixel/events.js</pre></details>
+    </article>
+    <article class="finding" style="--c:#ff8c42">
+      <header><span class="badge" style="--c:#ff8c42">high</span><h4>Google Analytics set 1 cookie before consent</h4><code>PRE_CONSENT_COOKIE</code></header>
+      <p>The response at t=181ms carried Set-Cookie headers. This is storage written to the device, not merely a network contact.</p>
+      <p class="ref">ePrivacy Directive 2002/58/EC Art. 5(3) — storing or accessing information on a user&#39;s device requires prior consent unless strictly necessary</p>
+      <details><summary>Evidence (1)</summary><pre>_ga=GA1.1.…(26 chars); Max-Age=63072000; Path=/; SameSite=Lax</pre></details>
+    </article>
+    <article class="finding" style="--c:#ff8c42">
+      <header><span class="badge" style="--c:#ff8c42">high</span><h4>Meta (Facebook Pixel) set 1 cookie before consent</h4><code>PRE_CONSENT_COOKIE</code></header>
+      <p>The response at t=331ms carried Set-Cookie headers. This is storage written to the device, not merely a network contact.</p>
+      <p class="ref">ePrivacy Directive 2002/58/EC Art. 5(3) — storing or accessing information on a user&#39;s device requires prior consent unless strictly necessary</p>
+      <details><summary>Evidence (1)</summary><pre>_fbp=fb.1.1…(26 chars); Max-Age=7776000; Path=/; SameSite=Lax</pre></details>
+    </article>
+    <article class="finding" style="--c:#ff8c42">
+      <header><span class="badge" style="--c:#ff8c42">high</span><h4>3 persistent third-party cookie(s) present before consent</h4><code>PRE_CONSENT_COOKIE_JAR</code></header>
+      <p>Read from the browser cookie jar after load and before any interaction with the banner.</p>
+      <p class="ref">ePrivacy Directive 2002/58/EC Art. 5(3) — storing or accessing information on a user&#39;s device requires prior consent unless strictly necessary</p>
+      <details><summary>Evidence (3)</summary><pre>_ga · google-analytics.com · expires in 730 days · Google Analytics
+_fbp · facebook.com · expires in 90 days · Meta (Facebook Pixel)
+_hjSession · hotjar.com · expires in 1 days · Hotjar</pre></details>
+    </article>
+    <article class="finding" style="--c:#ff8c42">
+      <header><span class="badge" style="--c:#ff8c42">high</span><h4>1 focusable control with no accessible name</h4><code>UNNAMED_CONTROL</code></header>
+      <p>A screen reader announces these as their role alone — &quot;button&quot;, &quot;link&quot; — with nothing else.</p>
+      <p class="ref">EN 301 549 §9.4.1.2 / WCAG 2.1 SC 4.1.2 (Name, Role, Value)</p>
+      <details><summary>Evidence (1)</summary><pre>stop 3: &lt;button&gt; role=button</pre></details>
+    </article>
+    <article class="finding" style="--c:#ffc93c">
+      <header><span class="badge" style="--c:#ffc93c">medium</span><h4>Google Tag Manager contacted before any consent interaction</h4><code>PRE_CONSENT_TRACKER</code></header>
+      <p>1 request to Google Tag Manager (Tag manager (loader for other tags)), the earliest 118ms after navigation started — before the page had been clicked, and therefore before consent could have been given.</p>
+      <p class="ref">ePrivacy Directive 2002/58/EC Art. 5(3) — storing or accessing information on a user&#39;s device requires prior consent unless strictly necessary</p>
+      <details><summary>Evidence (1)</summary><pre>t=118ms · GET https://www.googletagmanager.com/gtm.js?id=GTM-XXXX</pre></details>
+    </article>
+    <article class="finding" style="--c:#ffc93c">
+      <header><span class="badge" style="--c:#ffc93c">medium</span><h4>2 localStorage/sessionStorage key(s) written before consent</h4><code>PRE_CONSENT_WEB_STORAGE</code></header>
+      <p>Art. 5(3) covers any storing of information on the user&#39;s terminal equipment, not just cookies. Some of these keys may be strictly necessary; the list is reported without judging purpose.</p>
+      <p class="ref">ePrivacy Directive 2002/58/EC Art. 5(3) — storing or accessing information on a user&#39;s device requires prior consent unless strictly necessary</p>
+      <details><summary>Evidence (2)</summary><pre>localStorage[&quot;_hjSessionUser_1234567&quot;] · 122 bytes · https://shop.example.test
+localStorage[&quot;ttq_session&quot;] · 64 bytes · https://shop.example.test</pre></details>
+    </article>
+    <article class="finding" style="--c:#ffc93c">
+      <header><span class="badge" style="--c:#ffc93c">medium</span><h4>Accept is one click; refusing is not offered in the first layer</h4><code>NO_REJECT_FIRST_LAYER</code></header>
+      <p>The banner offers &quot;Aceptar todas&quot; directly, but no reject-all control was found at the same level. Refusal is therefore more costly than acceptance.</p>
+      <p class="ref">EDPB Guidelines 03/2022 on deceptive design patterns — a refusal must be as easy as an acceptance</p>
+      <details><summary>Evidence (2)</summary><pre>accept: &quot;Aceptar todas&quot;
+reject: not found in first layer</pre></details>
+    </article>
+    <article class="finding" style="--c:#7bc4ff">
+      <header><span class="badge" style="--c:#7bc4ff">low</span><h4>IP address disclosed to Google Fonts on load</h4><code>THIRD_COUNTRY_TRANSFER</code></header>
+      <p>These hosts are not trackers, but loading them discloses the visitor&#39;s IP to a third-country recipient. German courts have treated the Google Fonts case as actionable; self-hosting removes it.</p>
+      <p class="ref">GDPR Chapter V — disclosing an IP address to a third-country recipient is a transfer</p>
+      <details><summary>Evidence (1)</summary><pre>t=402ms · GET https://fonts.gstatic.com/s/inter/v13/font.woff2</pre></details>
+    </article>
+    <article class="finding" style="--c:#5fd68a">
+      <header><span class="badge" style="--c:#5fd68a">none</span><h4>1 third-party host(s) not in the tracker list</h4><code>UNCLASSIFIED_THIRD_PARTY</code></header>
+      <p>Listed, not judged. The bundled list is a curated subset; an unmatched host is reported so a reviewer can decide, rather than being silently counted as clean.</p>
+      <p class="ref">—</p>
+      <details><summary>Evidence (1)</summary><pre>widget.unknown-vendor.io</pre></details>
+    </article>
+
+    
+  </section>
+  <footer>
+    Gauntlet 0.1.0 — built on Solari cloud browsers. Measurements, not legal advice:
+    each finding states what was observed and the provision it is relevant to. Whether a given site is
+    compliant depends on facts this tool cannot see. Every number here is reproducible from the evidence
+    bundle next to this file.
+  </footer>
+</div></body></html>
