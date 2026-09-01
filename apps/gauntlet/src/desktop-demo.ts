@@ -21,7 +21,7 @@ import { SolariClient } from "@solarisdk/sdk"
 import type { Desktop } from "@solarisdk/sdk"
 import { resolveApiKey } from "./apikey.ts"
 
-const TABS = 25
+const TABS = 30
 const LOG = "/tmp/gauntlet-speech.log"
 
 const asset = (name: string): string =>
@@ -61,8 +61,6 @@ async function main(): Promise<void> {
     }
     console.log("up")
 
-    await desktop.record.start({ fps: 8 }).catch(() => console.log("  (server-side recording unavailable)"))
-
     // apt needs an update first or it claims at-spi2-core does not exist. And
     // `pkg.install` reports failure in an exit code rather than throwing, which
     // is how an earlier version of this file printed "done" over a failed
@@ -70,7 +68,7 @@ async function main(): Promise<void> {
     process.stdout.write("  installing orca + at-spi… ")
     const install = await sh(
       desktop,
-      "apt-get update -qq && DEBIAN_FRONTEND=noninteractive apt-get install -y -qq orca at-spi2-core dbus-x11 2>&1 | tail -1; echo rc=$?",
+      "apt-get update -qq && DEBIAN_FRONTEND=noninteractive apt-get install -y -qq orca at-spi2-core dbus-x11 wmctrl xdotool 2>&1 | tail -1; echo rc=$?",
     )
     if (!install.includes("rc=0")) {
       console.log("failed")
@@ -103,16 +101,42 @@ async function main(): Promise<void> {
     // version of this demo actually recorded.
     process.stdout.write("  opening chrome… ")
     await desktop.process.start("sh", {
-      args: ["-c", `export HOME=/root DISPLAY=:0; . /tmp/dbus.env; exec google-chrome --force-renderer-accessibility --no-first-run --no-sandbox --window-size=1280,720 --app="${target}" >> /tmp/chrome.log 2>&1`],
+      args: ["-c", `export HOME=/root DISPLAY=:0; . /tmp/dbus.env; exec google-chrome --force-renderer-accessibility --no-first-run --no-sandbox --test-type --window-size=1280,505 --window-position=0,24 --app="${target}" >> /tmp/chrome.log 2>&1`],
     })
     await sleep(12000)
-    const title = (await sh(desktop, "DISPLAY=:0 xdotool getactivewindow getwindowname 2>/dev/null")).trim()
-    console.log(title ? `"${title}"` : "loaded")
+    const pageTitle = (await sh(desktop, "DISPLAY=:0 xdotool getactivewindow getwindowname 2>/dev/null")).trim()
+    console.log(pageTitle ? `"${pageTitle}"` : "loaded")
+
+    // Half the point of a demonstration is that the viewer can see what is being
+    // claimed. A terminal tailing the announcement log puts the screen reader's
+    // words on screen next to the focus ring that produced them.
+    await desktop.process.start("sh", {
+      args: ["-c", `export DISPLAY=:0; exec xfce4-terminal --title=announcements --geometry=150x11+0+532 --hide-menubar --hide-toolbar --command "tail -f ${LOG}" >> /tmp/term.log 2>&1`],
+    })
+    await sleep(3000)
 
     const shot = async (name: string): Promise<void> => {
       writeFileSync(join(outDir, name), await desktop.screenshot({ format: "png" }))
     }
     await shot("00-loaded.png")
+
+    // Opening the terminal took the focus, and the log says so in its own words:
+    // "Terminal — terminal [focused]". Tab would then go nowhere. Activate the
+    // browser window and confirm it took, rather than assuming.
+    let focused = false
+    for (let attempt = 0; attempt < 4 && !focused; attempt++) {
+      await sh(desktop, `DISPLAY=:0 wmctrl -a "${pageTitle}" 2>/dev/null || DISPLAY=:0 xdotool search --name "${pageTitle.slice(0, 20)}" windowactivate %1 2>/dev/null`)
+      await sleep(1200)
+      const active = (await sh(desktop, "DISPLAY=:0 xdotool getactivewindow getwindowname 2>/dev/null")).trim()
+      focused = active.length > 0 && !/announcements|terminal/i.test(active)
+      if (!focused) console.log(`  (focus was on "${active}", retrying)`)
+    }
+    if (!focused) console.log("  could not return focus to the browser — the walk will be empty")
+    await sleep(800)
+
+    // Everything before this was setup; the recording should only hold the walk.
+    await desktop.record.start({ fps: 12 }).catch(() => console.log("  (server-side recording unavailable)"))
+    await sleep(1500)
 
     console.log(`\n  pressing Tab ${TABS} times — no mouse from here on\n`)
     const transcript: Array<{ stop: number; announced: string }> = []
@@ -120,7 +144,7 @@ async function main(): Promise<void> {
 
     for (let i = 1; i <= TABS; i++) {
       await desktop.keyboard.press("Tab")
-      await sleep(700) // let the toolkit emit the focus event
+      await sleep(900) // let the toolkit emit the focus event, and let a viewer read it
 
       const lines = (await sh(desktop, `cat ${LOG} 2>/dev/null`)).split("\n").filter(Boolean)
       const fresh = lines.slice(seen)
@@ -136,6 +160,7 @@ async function main(): Promise<void> {
       if (i % 5 === 0) await shot(`tab-${String(i).padStart(2, "0")}.png`)
     }
 
+    await sleep(2500) // hold on the last announcement rather than cutting on it
     writeFileSync(join(outDir, "announcements.json"), JSON.stringify(transcript, null, 2) + "\n")
 
     const unnamed = transcript.filter((t) => t.announced.includes("(no accessible name)"))
