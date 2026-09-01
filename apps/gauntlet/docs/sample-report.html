@@ -35,6 +35,7 @@
   table.walk th { text-align:left; color:var(--muted); font-weight:500; border-bottom:1px solid var(--line); padding:6px 8px }
   table.walk td { padding:5px 8px; border-bottom:1px solid #1b2230 }
   ul.cmp { padding-left:18px; margin:0 }
+  .files { font-size:13px; line-height:2 } .files a { margin-right:2px }
   footer { color:var(--muted); font-size:12px; border-top:1px solid var(--line); margin-top:40px; padding-top:20px }
   .blocked { border:1px solid #4a5568; border-left:3px solid #8a94a6; border-radius:8px; padding:14px 16px; background:#0d1117 }
   .blocked h4 { margin:0 0 8px }
@@ -79,6 +80,9 @@
 
     <h3>Keyboard walk</h3>
     <table class="walk"><thead><tr><th>#</th><th>role</th><th>accessible name</th><th>focus visible</th><th>in banner</th></tr></thead><tbody><tr><td>1</td><td><code>link</code></td><td>Saltar al contenido</td><td>yes</td><td></td></tr><tr><td>2</td><td><code>link</code></td><td>Inicio</td><td><span class="bad">no</span></td><td></td></tr><tr><td>3</td><td><code>button</code></td><td><span class="muted">(none)</span></td><td><span class="bad">no</span></td><td></td></tr><tr><td>4</td><td><code>combobox</code></td><td>Buscar</td><td>yes</td><td></td></tr><tr><td>5</td><td><code>link</code></td><td>Cesta</td><td><span class="bad">no</span></td><td></td></tr></tbody></table>
+
+    <h3>Evidence</h3>
+    <p class="files"><a href="es/network-pre-consent.har">HAR</a> · <a href="es/requests-pre-consent.json">requests</a> · <a href="es/cookies-pre-consent.json">cookies</a> · <a href="es/web-storage-pre-consent.json">web storage</a> · <a href="es/keyboard-walk.json">keyboard walk</a> · <a href="es/ax-tree.json">AX tree</a> · <a href="es/cmp.json">consent layer</a> · <a href="es/findings.json">findings</a> · <a href="es/01-pre-consent.png">01-pre-consent</a></p>
 
     <h3>Findings</h3>
     

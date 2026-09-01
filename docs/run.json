@@ -1,0 +1,2955 @@
+{
+  "target": "https://optimusrex.web.app/",
+  "startedAt": "2026-09-01T15:38:15.623Z",
+  "finishedAt": "2026-09-01T15:40:44.443Z",
+  "gauntletVersion": "0.1.0",
+  "trackerListVersion": "2026-09-01",
+  "countries": [
+    {
+      "country": "es",
+      "sessionId": "ip-10-0-10-243:53d0ce22-7037-4013-9af7-df20b77982f5:cmtirt4xl0230o101q6i2cb9k:1788277096512.bnthbhRb9KlGyNE_wOB5dA",
+      "startedAt": "2026-09-01T15:38:15.624Z",
+      "navigationMs": 4064,
+      "preConsent": {
+        "requests": [
+          {
+            "requestId": "FA972CE4AC0A9B36065D8F66830D77D8",
+            "url": "https://optimusrex.web.app/",
+            "host": "optimusrex.web.app",
+            "method": "GET",
+            "resourceType": "Document",
+            "tMs": 206,
+            "status": 200,
+            "setCookie": [],
+            "category": "unclassified",
+            "firstParty": true,
+            "initiator": "(other)"
+          },
+          {
+            "requestId": "6765.2",
+            "url": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css",
+            "host": "cdnjs.cloudflare.com",
+            "method": "GET",
+            "resourceType": "Stylesheet",
+            "tMs": 2468,
+            "status": 200,
+            "setCookie": [],
+            "entity": "cdnjs",
+            "category": "cdn",
+            "firstParty": false,
+            "initiator": "https://optimusrex.web.app/"
+          },
+          {
+            "requestId": "6765.3",
+            "url": "https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css",
+            "host": "cdn.jsdelivr.net",
+            "method": "GET",
+            "resourceType": "Stylesheet",
+            "tMs": 2468,
+            "status": 200,
+            "setCookie": [],
+            "entity": "jsDelivr",
+            "category": "cdn",
+            "firstParty": false,
+            "initiator": "https://optimusrex.web.app/"
+          },
+          {
+            "requestId": "6765.4",
+            "url": "https://optimusrex.web.app/css/styles.min.css",
+            "host": "optimusrex.web.app",
+            "method": "GET",
+            "resourceType": "Stylesheet",
+            "tMs": 2468,
+            "status": 200,
+            "setCookie": [],
+            "category": "unclassified",
+            "firstParty": true,
+            "initiator": "https://optimusrex.web.app/"
+          },
+          {
+            "requestId": "6765.5",
+            "url": "https://unpkg.com/htmx.org@1.9.12/dist/htmx.min.js",
+            "host": "unpkg.com",
+            "method": "GET",
+            "resourceType": "Script",
+            "tMs": 3459,
+            "status": 200,
+            "setCookie": [],
+            "entity": "unpkg",
+            "category": "cdn",
+            "firstParty": false,
+            "initiator": "https://optimusrex.web.app/"
+          },
+          {
+            "requestId": "6765.6",
+            "url": "https://optimusrex.web.app/images/AbosluteZeroRatchetd.webp",
+            "host": "optimusrex.web.app",
+            "method": "GET",
+            "resourceType": "Image",
+            "tMs": 2468,
+            "status": 200,
+            "setCookie": [],
+            "category": "unclassified",
+            "firstParty": true,
+            "initiator": "https://optimusrex.web.app/"
+          },
+          {
+            "requestId": "6765.7",
+            "url": "https://optimusrex.web.app/images/Ring12FreeSpind.webp",
+            "host": "optimusrex.web.app",
+            "method": "GET",
+            "resourceType": "Image",
+            "tMs": 2468,
+            "status": 200,
+            "setCookie": [],
+            "category": "unclassified",
+            "firstParty": true,
+            "initiator": "https://optimusrex.web.app/"
+          },
+          {
+            "requestId": "6765.8",
+            "url": "https://optimusrex.web.app/images/MetalAdapterd.webp",
+            "host": "optimusrex.web.app",
+            "method": "GET",
+            "resourceType": "Image",
+            "tMs": 2469,
+            "status": 200,
+            "setCookie": [],
+            "category": "unclassified",
+            "firstParty": true,
+            "initiator": "https://optimusrex.web.app/"
+          },
+          {
+            "requestId": "6765.9",
+            "url": "https://optimusrex.web.app/scripts/cart.min.js",
+            "host": "optimusrex.web.app",
+            "method": "GET",
+            "resourceType": "Script",
+            "tMs": 2469,
+            "status": 200,
+            "setCookie": [],
+            "category": "unclassified",
+            "firstParty": true,
+            "initiator": "https://optimusrex.web.app/"
+          },
+          {
+            "requestId": "6765.10",
+            "url": "https://optimusrex.web.app/scripts/cookies.min.js",
+            "host": "optimusrex.web.app",
+            "method": "GET",
+            "resourceType": "Script",
+            "tMs": 2469,
+            "status": 200,
+            "setCookie": [],
+            "category": "unclassified",
+            "firstParty": true,
+            "initiator": "https://optimusrex.web.app/"
+          },
+          {
+            "requestId": "6765.15",
+            "url": "https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&display=swap",
+            "host": "fonts.googleapis.com",
+            "method": "GET",
+            "resourceType": "Stylesheet",
+            "tMs": 2964,
+            "status": 200,
+            "setCookie": [],
+            "entity": "Google Fonts",
+            "category": "data-transfer",
+            "firstParty": false,
+            "initiator": "https://optimusrex.web.app/css/styles.min.css"
+          },
+          {
+            "requestId": "6765.5",
+            "url": "https://unpkg.com/htmx.org@1.9.12/dist/htmx.min.js",
+            "host": "unpkg.com",
+            "method": "GET",
+            "resourceType": "Script",
+            "tMs": 3459,
+            "status": 200,
+            "setCookie": [],
+            "entity": "unpkg",
+            "category": "cdn",
+            "firstParty": false,
+            "initiator": "https://optimusrex.web.app/"
+          },
+          {
+            "requestId": "6765.70",
+            "url": "https://fonts.gstatic.com/s/rajdhani/v17/LDI2apCSOBg7S-QT7pa8FvOreec.woff2",
+            "host": "fonts.gstatic.com",
+            "method": "GET",
+            "resourceType": "Font",
+            "tMs": 4053,
+            "status": 200,
+            "setCookie": [],
+            "entity": "Google Fonts",
+            "category": "data-transfer",
+            "firstParty": false,
+            "initiator": "https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"
+          },
+          {
+            "requestId": "6765.47",
+            "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2",
+            "host": "fonts.gstatic.com",
+            "method": "GET",
+            "resourceType": "Font",
+            "tMs": 4053,
+            "status": 200,
+            "setCookie": [],
+            "entity": "Google Fonts",
+            "category": "data-transfer",
+            "firstParty": false,
+            "initiator": "https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"
+          },
+          {
+            "requestId": "6765.25",
+            "url": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/webfonts/fa-solid-900.woff2",
+            "host": "cdnjs.cloudflare.com",
+            "method": "GET",
+            "resourceType": "Font",
+            "tMs": 4053,
+            "status": 200,
+            "setCookie": [],
+            "entity": "cdnjs",
+            "category": "cdn",
+            "firstParty": false,
+            "initiator": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+          },
+          {
+            "requestId": "6765.67",
+            "url": "https://fonts.gstatic.com/s/rajdhani/v17/LDI2apCSOBg7S-QT7pbYF_Oreec.woff2",
+            "host": "fonts.gstatic.com",
+            "method": "GET",
+            "resourceType": "Font",
+            "tMs": 4053,
+            "status": 200,
+            "setCookie": [],
+            "entity": "Google Fonts",
+            "category": "data-transfer",
+            "firstParty": false,
+            "initiator": "https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"
+          },
+          {
+            "requestId": "6765.71",
+            "url": "https://optimusrex.web.app/header.html",
+            "host": "optimusrex.web.app",
+            "method": "GET",
+            "resourceType": "XHR",
+            "tMs": 4065,
+            "status": 200,
+            "setCookie": [],
+            "category": "unclassified",
+            "firstParty": true,
+            "initiator": "https://unpkg.com/htmx.org@1.9.12"
+          },
+          {
+            "requestId": "6765.72",
+            "url": "https://optimusrex.web.app/footer.html",
+            "host": "optimusrex.web.app",
+            "method": "GET",
+            "resourceType": "XHR",
+            "tMs": 4065,
+            "status": 200,
+            "setCookie": [],
+            "category": "unclassified",
+            "firstParty": true,
+            "initiator": "https://unpkg.com/htmx.org@1.9.12"
+          },
+          {
+            "requestId": "6765.73",
+            "url": "https://optimusrex.web.app/assets/logo.png",
+            "host": "optimusrex.web.app",
+            "method": "GET",
+            "resourceType": "Image",
+            "tMs": 4294,
+            "status": 200,
+            "setCookie": [],
+            "category": "unclassified",
+            "firstParty": true,
+            "initiator": "https://optimusrex.web.app/"
+          },
+          {
+            "requestId": "6765.21",
+            "url": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/webfonts/fa-brands-400.woff2",
+            "host": "cdnjs.cloudflare.com",
+            "method": "GET",
+            "resourceType": "Font",
+            "tMs": 4746,
+            "status": 200,
+            "setCookie": [],
+            "entity": "cdnjs",
+            "category": "cdn",
+            "firstParty": false,
+            "initiator": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+          },
+          {
+            "requestId": "6765.76",
+            "url": "https://optimusrex.web.app/assets/favicon.svg",
+            "host": "optimusrex.web.app",
+            "method": "GET",
+            "resourceType": "Other",
+            "tMs": 5626,
+            "status": 200,
+            "setCookie": [],
+            "category": "unclassified",
+            "firstParty": true,
+            "initiator": "(other)"
+          }
+        ],
+        "cookies": [],
+        "storage": []
+      },
+      "cmp": {
+        "detected": true,
+        "tcfApi": false,
+        "bannerVisible": true,
+        "acceptInFirstLayer": true,
+        "rejectInFirstLayer": true,
+        "acceptLabel": "Accept",
+        "rejectLabel": "Decline",
+        "notes": []
+      },
+      "a11y": {
+        "ran": true,
+        "stops": [
+          {
+            "index": 1,
+            "role": "link",
+            "name": "Home",
+            "tag": "a",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 2,
+            "role": "button",
+            "name": "Products",
+            "tag": "summary",
+            "inBanner": false,
+            "focusVisible": false,
+            "offscreen": false
+          },
+          {
+            "index": 3,
+            "role": "link",
+            "name": "Products",
+            "tag": "a",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 4,
+            "role": "link",
+            "name": "TrainerPass",
+            "tag": "a",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 5,
+            "role": "link",
+            "name": "My cart: 0",
+            "tag": "a",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 6,
+            "role": "link",
+            "name": "Tracking",
+            "tag": "a",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 7,
+            "role": "button",
+            "name": "Shop Now",
+            "tag": "a",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 8,
+            "role": "button",
+            "name": "TrainerPass",
+            "tag": "a",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 9,
+            "role": "textbox",
+            "name": "View details for Core - Zero",
+            "tag": "input",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 10,
+            "role": "textbox",
+            "name": "View details for Ring - 12 custom free-spin",
+            "tag": "input",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 11,
+            "role": "textbox",
+            "name": "View details for Metal X adapter",
+            "tag": "input",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 12,
+            "role": "link",
+            "name": "Instagram",
+            "tag": "a",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 13,
+            "role": "link",
+            "name": "TikTok",
+            "tag": "a",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 14,
+            "role": "link",
+            "name": "YouTube",
+            "tag": "a",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 15,
+            "role": "link",
+            "name": "Linktree",
+            "tag": "a",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 16,
+            "role": "link",
+            "name": "Contact",
+            "tag": "a",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 17,
+            "role": "link",
+            "name": "About us",
+            "tag": "a",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 18,
+            "role": "link",
+            "name": "Legal notice",
+            "tag": "a",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 19,
+            "role": "link",
+            "name": "Privacy policy",
+            "tag": "a",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 20,
+            "role": "link",
+            "name": "Cookie policy",
+            "tag": "a",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 21,
+            "role": "link",
+            "name": "firezenk",
+            "tag": "a",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 22,
+            "role": "button",
+            "name": "Accept",
+            "tag": "button",
+            "inBanner": true,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 23,
+            "role": "button",
+            "name": "Decline",
+            "tag": "button",
+            "inBanner": true,
+            "focusVisible": true,
+            "offscreen": false
+          }
+        ],
+        "reachedBanner": true,
+        "stopsBeforeBanner": 21,
+        "findings": [
+          {
+            "code": "BANNER_LATE_IN_FOCUS_ORDER",
+            "severity": "medium",
+            "title": "The banner is 21 tab stops deep",
+            "detail": "A modal layer that blocks the page should receive focus immediately. Here the keyboard user must traverse the page behind the banner before reaching it.",
+            "reference": "EN 301 549 §9.2.4.3 / WCAG 2.1 SC 2.4.3 (Focus Order)",
+            "evidence": [
+              "1. link \"Home\"",
+              "2. button \"Products\"",
+              "3. link \"Products\"",
+              "4. link \"TrainerPass\"",
+              "5. link \"My cart: 0\""
+            ]
+          }
+        ]
+      },
+      "findings": [
+        {
+          "code": "BANNER_LATE_IN_FOCUS_ORDER",
+          "severity": "medium",
+          "title": "The banner is 21 tab stops deep",
+          "detail": "A modal layer that blocks the page should receive focus immediately. Here the keyboard user must traverse the page behind the banner before reaching it.",
+          "reference": "EN 301 549 §9.2.4.3 / WCAG 2.1 SC 2.4.3 (Focus Order)",
+          "evidence": [
+            "1. link \"Home\"",
+            "2. button \"Products\"",
+            "3. link \"Products\"",
+            "4. link \"TrainerPass\"",
+            "5. link \"My cart: 0\""
+          ]
+        },
+        {
+          "code": "THIRD_COUNTRY_TRANSFER",
+          "severity": "low",
+          "title": "IP address disclosed to Google Fonts on load",
+          "detail": "These hosts are not trackers, but loading them discloses the visitor's IP to a third-country recipient. German courts have treated the Google Fonts case as actionable; self-hosting removes it.",
+          "reference": "GDPR Chapter V — disclosing an IP address to a third-country recipient is a transfer",
+          "evidence": [
+            "t=2964ms · GET https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&display=swap · loaded by https://optimusrex.web.app/css/styles.min.css",
+            "t=4053ms · GET https://fonts.gstatic.com/s/rajdhani/v17/LDI2apCSOBg7S-QT7pa8FvOreec.woff2 · loaded by https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&display=swap",
+            "t=4053ms · GET https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2 · loaded by https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&display=swap",
+            "t=4053ms · GET https://fonts.gstatic.com/s/rajdhani/v17/LDI2apCSOBg7S-QT7pbYF_Oreec.woff2 · loaded by https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"
+          ]
+        },
+        {
+          "code": "REJECT_HONOURED",
+          "severity": "none",
+          "title": "Reject-all was honoured for the observation window",
+          "detail": "No consent-requiring third-party requests were seen after the refusal.",
+          "reference": "ePrivacy Directive 2002/58/EC Art. 5(3) — storing or accessing information on a user's device requires prior consent unless strictly necessary",
+          "evidence": []
+        }
+      ],
+      "screenshots": [
+        "01-pre-consent.png",
+        "02-after-reject.png"
+      ],
+      "errors": [],
+      "proxy": {
+        "country": "es",
+        "tier": "residential",
+        "timezoneId": "Europe/Madrid"
+      },
+      "afterReject": {
+        "clicked": true,
+        "label": "Decline",
+        "requests": [],
+        "cookies": []
+      },
+      "replayUrl": "[redacted-presigned-url]"
+    },
+    {
+      "country": "de",
+      "sessionId": "ip-10-0-11-133:8b08dfc7-206c-48e1-b872-061061edc248:cmtirt4xl0230o101q6i2cb9k:1788277125833.vLUkEMS7dDPbUDmhUJD13w",
+      "startedAt": "2026-09-01T15:38:45.617Z",
+      "navigationMs": 2982,
+      "preConsent": {
+        "requests": [
+          {
+            "requestId": "86E2518EBBB161406C54426A400F7D3A",
+            "url": "https://optimusrex.web.app/",
+            "host": "optimusrex.web.app",
+            "method": "GET",
+            "resourceType": "Document",
+            "tMs": 216,
+            "status": 200,
+            "setCookie": [],
+            "category": "unclassified",
+            "firstParty": true,
+            "initiator": "(other)"
+          },
+          {
+            "requestId": "7957.2",
+            "url": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css",
+            "host": "cdnjs.cloudflare.com",
+            "method": "GET",
+            "resourceType": "Stylesheet",
+            "tMs": 1324,
+            "status": 200,
+            "setCookie": [],
+            "entity": "cdnjs",
+            "category": "cdn",
+            "firstParty": false,
+            "initiator": "https://optimusrex.web.app/"
+          },
+          {
+            "requestId": "7957.3",
+            "url": "https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css",
+            "host": "cdn.jsdelivr.net",
+            "method": "GET",
+            "resourceType": "Stylesheet",
+            "tMs": 1325,
+            "status": 200,
+            "setCookie": [],
+            "entity": "jsDelivr",
+            "category": "cdn",
+            "firstParty": false,
+            "initiator": "https://optimusrex.web.app/"
+          },
+          {
+            "requestId": "7957.4",
+            "url": "https://optimusrex.web.app/css/styles.min.css",
+            "host": "optimusrex.web.app",
+            "method": "GET",
+            "resourceType": "Stylesheet",
+            "tMs": 1325,
+            "status": 200,
+            "setCookie": [],
+            "category": "unclassified",
+            "firstParty": true,
+            "initiator": "https://optimusrex.web.app/"
+          },
+          {
+            "requestId": "7957.5",
+            "url": "https://unpkg.com/htmx.org@1.9.12/dist/htmx.min.js",
+            "host": "unpkg.com",
+            "method": "GET",
+            "resourceType": "Script",
+            "tMs": 2388,
+            "status": 200,
+            "setCookie": [],
+            "entity": "unpkg",
+            "category": "cdn",
+            "firstParty": false,
+            "initiator": "https://optimusrex.web.app/"
+          },
+          {
+            "requestId": "7957.6",
+            "url": "https://optimusrex.web.app/images/AbosluteZeroRatchetd.webp",
+            "host": "optimusrex.web.app",
+            "method": "GET",
+            "resourceType": "Image",
+            "tMs": 1328,
+            "status": 200,
+            "setCookie": [],
+            "category": "unclassified",
+            "firstParty": true,
+            "initiator": "https://optimusrex.web.app/"
+          },
+          {
+            "requestId": "7957.7",
+            "url": "https://optimusrex.web.app/images/Ring12FreeSpind.webp",
+            "host": "optimusrex.web.app",
+            "method": "GET",
+            "resourceType": "Image",
+            "tMs": 1328,
+            "status": 200,
+            "setCookie": [],
+            "category": "unclassified",
+            "firstParty": true,
+            "initiator": "https://optimusrex.web.app/"
+          },
+          {
+            "requestId": "7957.8",
+            "url": "https://optimusrex.web.app/images/MetalAdapterd.webp",
+            "host": "optimusrex.web.app",
+            "method": "GET",
+            "resourceType": "Image",
+            "tMs": 1328,
+            "status": 200,
+            "setCookie": [],
+            "category": "unclassified",
+            "firstParty": true,
+            "initiator": "https://optimusrex.web.app/"
+          },
+          {
+            "requestId": "7957.9",
+            "url": "https://optimusrex.web.app/scripts/cart.min.js",
+            "host": "optimusrex.web.app",
+            "method": "GET",
+            "resourceType": "Script",
+            "tMs": 1328,
+            "status": 200,
+            "setCookie": [],
+            "category": "unclassified",
+            "firstParty": true,
+            "initiator": "https://optimusrex.web.app/"
+          },
+          {
+            "requestId": "7957.10",
+            "url": "https://optimusrex.web.app/scripts/cookies.min.js",
+            "host": "optimusrex.web.app",
+            "method": "GET",
+            "resourceType": "Script",
+            "tMs": 1328,
+            "status": 200,
+            "setCookie": [],
+            "category": "unclassified",
+            "firstParty": true,
+            "initiator": "https://optimusrex.web.app/"
+          },
+          {
+            "requestId": "7957.15",
+            "url": "https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&display=swap",
+            "host": "fonts.googleapis.com",
+            "method": "GET",
+            "resourceType": "Stylesheet",
+            "tMs": 1771,
+            "status": 200,
+            "setCookie": [],
+            "entity": "Google Fonts",
+            "category": "data-transfer",
+            "firstParty": false,
+            "initiator": "https://optimusrex.web.app/css/styles.min.css"
+          },
+          {
+            "requestId": "7957.5",
+            "url": "https://unpkg.com/htmx.org@1.9.12/dist/htmx.min.js",
+            "host": "unpkg.com",
+            "method": "GET",
+            "resourceType": "Script",
+            "tMs": 2388,
+            "status": 200,
+            "setCookie": [],
+            "entity": "unpkg",
+            "category": "cdn",
+            "firstParty": false,
+            "initiator": "https://optimusrex.web.app/"
+          },
+          {
+            "requestId": "7957.70",
+            "url": "https://fonts.gstatic.com/s/rajdhani/v17/LDI2apCSOBg7S-QT7pa8FvOreec.woff2",
+            "host": "fonts.gstatic.com",
+            "method": "GET",
+            "resourceType": "Font",
+            "tMs": 2977,
+            "status": 200,
+            "setCookie": [],
+            "entity": "Google Fonts",
+            "category": "data-transfer",
+            "firstParty": false,
+            "initiator": "https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"
+          },
+          {
+            "requestId": "7957.47",
+            "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2",
+            "host": "fonts.gstatic.com",
+            "method": "GET",
+            "resourceType": "Font",
+            "tMs": 2977,
+            "status": 200,
+            "setCookie": [],
+            "entity": "Google Fonts",
+            "category": "data-transfer",
+            "firstParty": false,
+            "initiator": "https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"
+          },
+          {
+            "requestId": "7957.25",
+            "url": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/webfonts/fa-solid-900.woff2",
+            "host": "cdnjs.cloudflare.com",
+            "method": "GET",
+            "resourceType": "Font",
+            "tMs": 2977,
+            "status": 200,
+            "setCookie": [],
+            "entity": "cdnjs",
+            "category": "cdn",
+            "firstParty": false,
+            "initiator": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+          },
+          {
+            "requestId": "7957.67",
+            "url": "https://fonts.gstatic.com/s/rajdhani/v17/LDI2apCSOBg7S-QT7pbYF_Oreec.woff2",
+            "host": "fonts.gstatic.com",
+            "method": "GET",
+            "resourceType": "Font",
+            "tMs": 2977,
+            "status": 200,
+            "setCookie": [],
+            "entity": "Google Fonts",
+            "category": "data-transfer",
+            "firstParty": false,
+            "initiator": "https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"
+          },
+          {
+            "requestId": "7957.71",
+            "url": "https://optimusrex.web.app/header.html",
+            "host": "optimusrex.web.app",
+            "method": "GET",
+            "resourceType": "XHR",
+            "tMs": 2983,
+            "status": 200,
+            "setCookie": [],
+            "category": "unclassified",
+            "firstParty": true,
+            "initiator": "https://unpkg.com/htmx.org@1.9.12"
+          },
+          {
+            "requestId": "7957.72",
+            "url": "https://optimusrex.web.app/footer.html",
+            "host": "optimusrex.web.app",
+            "method": "GET",
+            "resourceType": "XHR",
+            "tMs": 2984,
+            "status": 200,
+            "setCookie": [],
+            "category": "unclassified",
+            "firstParty": true,
+            "initiator": "https://unpkg.com/htmx.org@1.9.12"
+          },
+          {
+            "requestId": "7957.73",
+            "url": "https://optimusrex.web.app/assets/logo.png",
+            "host": "optimusrex.web.app",
+            "method": "GET",
+            "resourceType": "Image",
+            "tMs": 3253,
+            "status": 200,
+            "setCookie": [],
+            "category": "unclassified",
+            "firstParty": true,
+            "initiator": "https://optimusrex.web.app/"
+          },
+          {
+            "requestId": "7957.21",
+            "url": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/webfonts/fa-brands-400.woff2",
+            "host": "cdnjs.cloudflare.com",
+            "method": "GET",
+            "resourceType": "Font",
+            "tMs": 3753,
+            "status": 200,
+            "setCookie": [],
+            "entity": "cdnjs",
+            "category": "cdn",
+            "firstParty": false,
+            "initiator": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+          },
+          {
+            "requestId": "7957.76",
+            "url": "https://optimusrex.web.app/assets/favicon.svg",
+            "host": "optimusrex.web.app",
+            "method": "GET",
+            "resourceType": "Other",
+            "tMs": 4581,
+            "status": 200,
+            "setCookie": [],
+            "category": "unclassified",
+            "firstParty": true,
+            "initiator": "(other)"
+          }
+        ],
+        "cookies": [],
+        "storage": []
+      },
+      "cmp": {
+        "detected": true,
+        "tcfApi": false,
+        "bannerVisible": true,
+        "acceptInFirstLayer": true,
+        "rejectInFirstLayer": true,
+        "acceptLabel": "Accept",
+        "rejectLabel": "Decline",
+        "notes": []
+      },
+      "a11y": {
+        "ran": true,
+        "stops": [
+          {
+            "index": 1,
+            "role": "link",
+            "name": "Home",
+            "tag": "a",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 2,
+            "role": "button",
+            "name": "Products",
+            "tag": "summary",
+            "inBanner": false,
+            "focusVisible": false,
+            "offscreen": false
+          },
+          {
+            "index": 3,
+            "role": "link",
+            "name": "Products",
+            "tag": "a",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 4,
+            "role": "link",
+            "name": "TrainerPass",
+            "tag": "a",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 5,
+            "role": "link",
+            "name": "My cart: 0",
+            "tag": "a",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 6,
+            "role": "link",
+            "name": "Tracking",
+            "tag": "a",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 7,
+            "role": "button",
+            "name": "Shop Now",
+            "tag": "a",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 8,
+            "role": "button",
+            "name": "TrainerPass",
+            "tag": "a",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 9,
+            "role": "textbox",
+            "name": "View details for Core - Zero",
+            "tag": "input",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 10,
+            "role": "textbox",
+            "name": "View details for Ring - 12 custom free-spin",
+            "tag": "input",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 11,
+            "role": "textbox",
+            "name": "View details for Metal X adapter",
+            "tag": "input",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 12,
+            "role": "link",
+            "name": "Instagram",
+            "tag": "a",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 13,
+            "role": "link",
+            "name": "TikTok",
+            "tag": "a",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 14,
+            "role": "link",
+            "name": "YouTube",
+            "tag": "a",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 15,
+            "role": "link",
+            "name": "Linktree",
+            "tag": "a",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 16,
+            "role": "link",
+            "name": "Contact",
+            "tag": "a",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 17,
+            "role": "link",
+            "name": "About us",
+            "tag": "a",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 18,
+            "role": "link",
+            "name": "Legal notice",
+            "tag": "a",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 19,
+            "role": "link",
+            "name": "Privacy policy",
+            "tag": "a",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 20,
+            "role": "link",
+            "name": "Cookie policy",
+            "tag": "a",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 21,
+            "role": "link",
+            "name": "firezenk",
+            "tag": "a",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 22,
+            "role": "button",
+            "name": "Accept",
+            "tag": "button",
+            "inBanner": true,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 23,
+            "role": "button",
+            "name": "Decline",
+            "tag": "button",
+            "inBanner": true,
+            "focusVisible": true,
+            "offscreen": false
+          }
+        ],
+        "reachedBanner": true,
+        "stopsBeforeBanner": 21,
+        "findings": [
+          {
+            "code": "BANNER_LATE_IN_FOCUS_ORDER",
+            "severity": "medium",
+            "title": "The banner is 21 tab stops deep",
+            "detail": "A modal layer that blocks the page should receive focus immediately. Here the keyboard user must traverse the page behind the banner before reaching it.",
+            "reference": "EN 301 549 §9.2.4.3 / WCAG 2.1 SC 2.4.3 (Focus Order)",
+            "evidence": [
+              "1. link \"Home\"",
+              "2. button \"Products\"",
+              "3. link \"Products\"",
+              "4. link \"TrainerPass\"",
+              "5. link \"My cart: 0\""
+            ]
+          }
+        ]
+      },
+      "findings": [
+        {
+          "code": "BANNER_LATE_IN_FOCUS_ORDER",
+          "severity": "medium",
+          "title": "The banner is 21 tab stops deep",
+          "detail": "A modal layer that blocks the page should receive focus immediately. Here the keyboard user must traverse the page behind the banner before reaching it.",
+          "reference": "EN 301 549 §9.2.4.3 / WCAG 2.1 SC 2.4.3 (Focus Order)",
+          "evidence": [
+            "1. link \"Home\"",
+            "2. button \"Products\"",
+            "3. link \"Products\"",
+            "4. link \"TrainerPass\"",
+            "5. link \"My cart: 0\""
+          ]
+        },
+        {
+          "code": "THIRD_COUNTRY_TRANSFER",
+          "severity": "low",
+          "title": "IP address disclosed to Google Fonts on load",
+          "detail": "These hosts are not trackers, but loading them discloses the visitor's IP to a third-country recipient. German courts have treated the Google Fonts case as actionable; self-hosting removes it.",
+          "reference": "GDPR Chapter V — disclosing an IP address to a third-country recipient is a transfer",
+          "evidence": [
+            "t=1771ms · GET https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&display=swap · loaded by https://optimusrex.web.app/css/styles.min.css",
+            "t=2977ms · GET https://fonts.gstatic.com/s/rajdhani/v17/LDI2apCSOBg7S-QT7pa8FvOreec.woff2 · loaded by https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&display=swap",
+            "t=2977ms · GET https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2 · loaded by https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&display=swap",
+            "t=2977ms · GET https://fonts.gstatic.com/s/rajdhani/v17/LDI2apCSOBg7S-QT7pbYF_Oreec.woff2 · loaded by https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"
+          ]
+        },
+        {
+          "code": "REJECT_HONOURED",
+          "severity": "none",
+          "title": "Reject-all was honoured for the observation window",
+          "detail": "No consent-requiring third-party requests were seen after the refusal.",
+          "reference": "ePrivacy Directive 2002/58/EC Art. 5(3) — storing or accessing information on a user's device requires prior consent unless strictly necessary",
+          "evidence": []
+        }
+      ],
+      "screenshots": [
+        "01-pre-consent.png",
+        "02-after-reject.png"
+      ],
+      "errors": [],
+      "proxy": {
+        "country": "de",
+        "tier": "residential",
+        "timezoneId": "Europe/Berlin"
+      },
+      "afterReject": {
+        "clicked": true,
+        "label": "Decline",
+        "requests": [],
+        "cookies": []
+      },
+      "replayUrl": "[redacted-presigned-url]"
+    },
+    {
+      "country": "fr",
+      "sessionId": "ip-10-0-10-243:dd69056c-05d3-4ab8-862e-1c15ec8c10bd:cmtirt4xl0230o101q6i2cb9k:1788277155164.jpnrEzm87xlAMsDE0SdHag",
+      "startedAt": "2026-09-01T15:39:14.923Z",
+      "navigationMs": 2969,
+      "preConsent": {
+        "requests": [
+          {
+            "requestId": "6685B9DADFA971E07A99BFA1D5762207",
+            "url": "https://optimusrex.web.app/",
+            "host": "optimusrex.web.app",
+            "method": "GET",
+            "resourceType": "Document",
+            "tMs": 205,
+            "status": 200,
+            "setCookie": [],
+            "category": "unclassified",
+            "firstParty": true,
+            "initiator": "(other)"
+          },
+          {
+            "requestId": "6887.2",
+            "url": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css",
+            "host": "cdnjs.cloudflare.com",
+            "method": "GET",
+            "resourceType": "Stylesheet",
+            "tMs": 1415,
+            "status": 200,
+            "setCookie": [],
+            "entity": "cdnjs",
+            "category": "cdn",
+            "firstParty": false,
+            "initiator": "https://optimusrex.web.app/"
+          },
+          {
+            "requestId": "6887.3",
+            "url": "https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css",
+            "host": "cdn.jsdelivr.net",
+            "method": "GET",
+            "resourceType": "Stylesheet",
+            "tMs": 1415,
+            "status": 200,
+            "setCookie": [],
+            "entity": "jsDelivr",
+            "category": "cdn",
+            "firstParty": false,
+            "initiator": "https://optimusrex.web.app/"
+          },
+          {
+            "requestId": "6887.4",
+            "url": "https://optimusrex.web.app/css/styles.min.css",
+            "host": "optimusrex.web.app",
+            "method": "GET",
+            "resourceType": "Stylesheet",
+            "tMs": 1415,
+            "status": 200,
+            "setCookie": [],
+            "category": "unclassified",
+            "firstParty": true,
+            "initiator": "https://optimusrex.web.app/"
+          },
+          {
+            "requestId": "6887.5",
+            "url": "https://unpkg.com/htmx.org@1.9.12/dist/htmx.min.js",
+            "host": "unpkg.com",
+            "method": "GET",
+            "resourceType": "Script",
+            "tMs": 2616,
+            "status": 200,
+            "setCookie": [],
+            "entity": "unpkg",
+            "category": "cdn",
+            "firstParty": false,
+            "initiator": "https://optimusrex.web.app/"
+          },
+          {
+            "requestId": "6887.6",
+            "url": "https://optimusrex.web.app/images/AbosluteZeroRatchetd.webp",
+            "host": "optimusrex.web.app",
+            "method": "GET",
+            "resourceType": "Image",
+            "tMs": 1415,
+            "status": 200,
+            "setCookie": [],
+            "category": "unclassified",
+            "firstParty": true,
+            "initiator": "https://optimusrex.web.app/"
+          },
+          {
+            "requestId": "6887.7",
+            "url": "https://optimusrex.web.app/images/Ring12FreeSpind.webp",
+            "host": "optimusrex.web.app",
+            "method": "GET",
+            "resourceType": "Image",
+            "tMs": 1415,
+            "status": 200,
+            "setCookie": [],
+            "category": "unclassified",
+            "firstParty": true,
+            "initiator": "https://optimusrex.web.app/"
+          },
+          {
+            "requestId": "6887.12",
+            "url": "https://optimusrex.web.app/images/MetalAdapterd.webp",
+            "host": "optimusrex.web.app",
+            "method": "GET",
+            "resourceType": "Image",
+            "tMs": 1474,
+            "status": 200,
+            "setCookie": [],
+            "category": "unclassified",
+            "firstParty": true,
+            "initiator": "https://optimusrex.web.app/"
+          },
+          {
+            "requestId": "6887.13",
+            "url": "https://optimusrex.web.app/scripts/cart.min.js",
+            "host": "optimusrex.web.app",
+            "method": "GET",
+            "resourceType": "Script",
+            "tMs": 1474,
+            "status": 200,
+            "setCookie": [],
+            "category": "unclassified",
+            "firstParty": true,
+            "initiator": "https://optimusrex.web.app/"
+          },
+          {
+            "requestId": "6887.14",
+            "url": "https://optimusrex.web.app/scripts/cookies.min.js",
+            "host": "optimusrex.web.app",
+            "method": "GET",
+            "resourceType": "Script",
+            "tMs": 1474,
+            "status": 200,
+            "setCookie": [],
+            "category": "unclassified",
+            "firstParty": true,
+            "initiator": "https://optimusrex.web.app/"
+          },
+          {
+            "requestId": "6887.15",
+            "url": "https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&display=swap",
+            "host": "fonts.googleapis.com",
+            "method": "GET",
+            "resourceType": "Stylesheet",
+            "tMs": 1724,
+            "status": 200,
+            "setCookie": [],
+            "entity": "Google Fonts",
+            "category": "data-transfer",
+            "firstParty": false,
+            "initiator": "https://optimusrex.web.app/css/styles.min.css"
+          },
+          {
+            "requestId": "6887.5",
+            "url": "https://unpkg.com/htmx.org@1.9.12/dist/htmx.min.js",
+            "host": "unpkg.com",
+            "method": "GET",
+            "resourceType": "Script",
+            "tMs": 2616,
+            "status": 200,
+            "setCookie": [],
+            "entity": "unpkg",
+            "category": "cdn",
+            "firstParty": false,
+            "initiator": "https://optimusrex.web.app/"
+          },
+          {
+            "requestId": "6887.70",
+            "url": "https://fonts.gstatic.com/s/rajdhani/v17/LDI2apCSOBg7S-QT7pa8FvOreec.woff2",
+            "host": "fonts.gstatic.com",
+            "method": "GET",
+            "resourceType": "Font",
+            "tMs": 2957,
+            "status": 200,
+            "setCookie": [],
+            "entity": "Google Fonts",
+            "category": "data-transfer",
+            "firstParty": false,
+            "initiator": "https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"
+          },
+          {
+            "requestId": "6887.47",
+            "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2",
+            "host": "fonts.gstatic.com",
+            "method": "GET",
+            "resourceType": "Font",
+            "tMs": 2957,
+            "status": 200,
+            "setCookie": [],
+            "entity": "Google Fonts",
+            "category": "data-transfer",
+            "firstParty": false,
+            "initiator": "https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"
+          },
+          {
+            "requestId": "6887.25",
+            "url": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/webfonts/fa-solid-900.woff2",
+            "host": "cdnjs.cloudflare.com",
+            "method": "GET",
+            "resourceType": "Font",
+            "tMs": 2957,
+            "status": 200,
+            "setCookie": [],
+            "entity": "cdnjs",
+            "category": "cdn",
+            "firstParty": false,
+            "initiator": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+          },
+          {
+            "requestId": "6887.67",
+            "url": "https://fonts.gstatic.com/s/rajdhani/v17/LDI2apCSOBg7S-QT7pbYF_Oreec.woff2",
+            "host": "fonts.gstatic.com",
+            "method": "GET",
+            "resourceType": "Font",
+            "tMs": 2957,
+            "status": 200,
+            "setCookie": [],
+            "entity": "Google Fonts",
+            "category": "data-transfer",
+            "firstParty": false,
+            "initiator": "https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"
+          },
+          {
+            "requestId": "6887.71",
+            "url": "https://optimusrex.web.app/header.html",
+            "host": "optimusrex.web.app",
+            "method": "GET",
+            "resourceType": "XHR",
+            "tMs": 2970,
+            "status": 200,
+            "setCookie": [],
+            "category": "unclassified",
+            "firstParty": true,
+            "initiator": "https://unpkg.com/htmx.org@1.9.12"
+          },
+          {
+            "requestId": "6887.72",
+            "url": "https://optimusrex.web.app/footer.html",
+            "host": "optimusrex.web.app",
+            "method": "GET",
+            "resourceType": "XHR",
+            "tMs": 2971,
+            "status": 200,
+            "setCookie": [],
+            "category": "unclassified",
+            "firstParty": true,
+            "initiator": "https://unpkg.com/htmx.org@1.9.12"
+          },
+          {
+            "requestId": "6887.73",
+            "url": "https://optimusrex.web.app/assets/logo.png",
+            "host": "optimusrex.web.app",
+            "method": "GET",
+            "resourceType": "Image",
+            "tMs": 3275,
+            "status": 200,
+            "setCookie": [],
+            "category": "unclassified",
+            "firstParty": true,
+            "initiator": "https://optimusrex.web.app/"
+          },
+          {
+            "requestId": "6887.21",
+            "url": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/webfonts/fa-brands-400.woff2",
+            "host": "cdnjs.cloudflare.com",
+            "method": "GET",
+            "resourceType": "Font",
+            "tMs": 3398,
+            "status": 200,
+            "setCookie": [],
+            "entity": "cdnjs",
+            "category": "cdn",
+            "firstParty": false,
+            "initiator": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+          },
+          {
+            "requestId": "6887.76",
+            "url": "https://optimusrex.web.app/assets/favicon.svg",
+            "host": "optimusrex.web.app",
+            "method": "GET",
+            "resourceType": "Other",
+            "tMs": 4327,
+            "status": 200,
+            "setCookie": [],
+            "category": "unclassified",
+            "firstParty": true,
+            "initiator": "(other)"
+          }
+        ],
+        "cookies": [],
+        "storage": []
+      },
+      "cmp": {
+        "detected": true,
+        "tcfApi": false,
+        "bannerVisible": true,
+        "acceptInFirstLayer": true,
+        "rejectInFirstLayer": true,
+        "acceptLabel": "Accept",
+        "rejectLabel": "Decline",
+        "notes": []
+      },
+      "a11y": {
+        "ran": true,
+        "stops": [
+          {
+            "index": 1,
+            "role": "link",
+            "name": "Home",
+            "tag": "a",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 2,
+            "role": "button",
+            "name": "Products",
+            "tag": "summary",
+            "inBanner": false,
+            "focusVisible": false,
+            "offscreen": false
+          },
+          {
+            "index": 3,
+            "role": "link",
+            "name": "Products",
+            "tag": "a",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 4,
+            "role": "link",
+            "name": "TrainerPass",
+            "tag": "a",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 5,
+            "role": "link",
+            "name": "My cart: 0",
+            "tag": "a",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 6,
+            "role": "link",
+            "name": "Tracking",
+            "tag": "a",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 7,
+            "role": "button",
+            "name": "Shop Now",
+            "tag": "a",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 8,
+            "role": "button",
+            "name": "TrainerPass",
+            "tag": "a",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 9,
+            "role": "textbox",
+            "name": "View details for Core - Zero",
+            "tag": "input",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 10,
+            "role": "textbox",
+            "name": "View details for Ring - 12 custom free-spin",
+            "tag": "input",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 11,
+            "role": "textbox",
+            "name": "View details for Metal X adapter",
+            "tag": "input",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 12,
+            "role": "link",
+            "name": "Instagram",
+            "tag": "a",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 13,
+            "role": "link",
+            "name": "TikTok",
+            "tag": "a",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 14,
+            "role": "link",
+            "name": "YouTube",
+            "tag": "a",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 15,
+            "role": "link",
+            "name": "Linktree",
+            "tag": "a",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 16,
+            "role": "link",
+            "name": "Contact",
+            "tag": "a",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 17,
+            "role": "link",
+            "name": "About us",
+            "tag": "a",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 18,
+            "role": "link",
+            "name": "Legal notice",
+            "tag": "a",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 19,
+            "role": "link",
+            "name": "Privacy policy",
+            "tag": "a",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 20,
+            "role": "link",
+            "name": "Cookie policy",
+            "tag": "a",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 21,
+            "role": "link",
+            "name": "firezenk",
+            "tag": "a",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 22,
+            "role": "button",
+            "name": "Accept",
+            "tag": "button",
+            "inBanner": true,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 23,
+            "role": "button",
+            "name": "Decline",
+            "tag": "button",
+            "inBanner": true,
+            "focusVisible": true,
+            "offscreen": false
+          }
+        ],
+        "reachedBanner": true,
+        "stopsBeforeBanner": 21,
+        "findings": [
+          {
+            "code": "BANNER_LATE_IN_FOCUS_ORDER",
+            "severity": "medium",
+            "title": "The banner is 21 tab stops deep",
+            "detail": "A modal layer that blocks the page should receive focus immediately. Here the keyboard user must traverse the page behind the banner before reaching it.",
+            "reference": "EN 301 549 §9.2.4.3 / WCAG 2.1 SC 2.4.3 (Focus Order)",
+            "evidence": [
+              "1. link \"Home\"",
+              "2. button \"Products\"",
+              "3. link \"Products\"",
+              "4. link \"TrainerPass\"",
+              "5. link \"My cart: 0\""
+            ]
+          }
+        ]
+      },
+      "findings": [
+        {
+          "code": "BANNER_LATE_IN_FOCUS_ORDER",
+          "severity": "medium",
+          "title": "The banner is 21 tab stops deep",
+          "detail": "A modal layer that blocks the page should receive focus immediately. Here the keyboard user must traverse the page behind the banner before reaching it.",
+          "reference": "EN 301 549 §9.2.4.3 / WCAG 2.1 SC 2.4.3 (Focus Order)",
+          "evidence": [
+            "1. link \"Home\"",
+            "2. button \"Products\"",
+            "3. link \"Products\"",
+            "4. link \"TrainerPass\"",
+            "5. link \"My cart: 0\""
+          ]
+        },
+        {
+          "code": "THIRD_COUNTRY_TRANSFER",
+          "severity": "low",
+          "title": "IP address disclosed to Google Fonts on load",
+          "detail": "These hosts are not trackers, but loading them discloses the visitor's IP to a third-country recipient. German courts have treated the Google Fonts case as actionable; self-hosting removes it.",
+          "reference": "GDPR Chapter V — disclosing an IP address to a third-country recipient is a transfer",
+          "evidence": [
+            "t=1724ms · GET https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&display=swap · loaded by https://optimusrex.web.app/css/styles.min.css",
+            "t=2957ms · GET https://fonts.gstatic.com/s/rajdhani/v17/LDI2apCSOBg7S-QT7pa8FvOreec.woff2 · loaded by https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&display=swap",
+            "t=2957ms · GET https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2 · loaded by https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&display=swap",
+            "t=2957ms · GET https://fonts.gstatic.com/s/rajdhani/v17/LDI2apCSOBg7S-QT7pbYF_Oreec.woff2 · loaded by https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"
+          ]
+        },
+        {
+          "code": "REJECT_HONOURED",
+          "severity": "none",
+          "title": "Reject-all was honoured for the observation window",
+          "detail": "No consent-requiring third-party requests were seen after the refusal.",
+          "reference": "ePrivacy Directive 2002/58/EC Art. 5(3) — storing or accessing information on a user's device requires prior consent unless strictly necessary",
+          "evidence": []
+        }
+      ],
+      "screenshots": [
+        "01-pre-consent.png",
+        "02-after-reject.png"
+      ],
+      "errors": [],
+      "proxy": {
+        "country": "fr",
+        "tier": "residential",
+        "timezoneId": "Europe/Paris"
+      },
+      "afterReject": {
+        "clicked": true,
+        "label": "Decline",
+        "requests": [],
+        "cookies": []
+      },
+      "replayUrl": "[redacted-presigned-url]"
+    },
+    {
+      "country": "it",
+      "sessionId": "ip-10-0-11-133:221da86e-ac7a-4622-9732-fa61e95a366e:cmtirt4xl0230o101q6i2cb9k:1788277186186.TEHciW3bAXIvULufOE7BeQ",
+      "startedAt": "2026-09-01T15:39:45.589Z",
+      "navigationMs": 6094,
+      "preConsent": {
+        "requests": [
+          {
+            "requestId": "3FA2304713D5905C6BEB12A70EB4772D",
+            "url": "https://optimusrex.web.app/",
+            "host": "optimusrex.web.app",
+            "method": "GET",
+            "resourceType": "Document",
+            "tMs": 183,
+            "status": 200,
+            "setCookie": [],
+            "category": "unclassified",
+            "firstParty": true,
+            "initiator": "(other)"
+          },
+          {
+            "requestId": "8061.2",
+            "url": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css",
+            "host": "cdnjs.cloudflare.com",
+            "method": "GET",
+            "resourceType": "Stylesheet",
+            "tMs": 4426,
+            "status": 200,
+            "setCookie": [],
+            "entity": "cdnjs",
+            "category": "cdn",
+            "firstParty": false,
+            "initiator": "https://optimusrex.web.app/"
+          },
+          {
+            "requestId": "8061.3",
+            "url": "https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css",
+            "host": "cdn.jsdelivr.net",
+            "method": "GET",
+            "resourceType": "Stylesheet",
+            "tMs": 4426,
+            "status": 200,
+            "setCookie": [],
+            "entity": "jsDelivr",
+            "category": "cdn",
+            "firstParty": false,
+            "initiator": "https://optimusrex.web.app/"
+          },
+          {
+            "requestId": "8061.4",
+            "url": "https://optimusrex.web.app/css/styles.min.css",
+            "host": "optimusrex.web.app",
+            "method": "GET",
+            "resourceType": "Stylesheet",
+            "tMs": 4426,
+            "status": 200,
+            "setCookie": [],
+            "category": "unclassified",
+            "firstParty": true,
+            "initiator": "https://optimusrex.web.app/"
+          },
+          {
+            "requestId": "8061.5",
+            "url": "https://unpkg.com/htmx.org@1.9.12/dist/htmx.min.js",
+            "host": "unpkg.com",
+            "method": "GET",
+            "resourceType": "Script",
+            "tMs": 5559,
+            "status": 200,
+            "setCookie": [],
+            "entity": "unpkg",
+            "category": "cdn",
+            "firstParty": false,
+            "initiator": "https://optimusrex.web.app/"
+          },
+          {
+            "requestId": "8061.6",
+            "url": "https://optimusrex.web.app/images/AbosluteZeroRatchetd.webp",
+            "host": "optimusrex.web.app",
+            "method": "GET",
+            "resourceType": "Image",
+            "tMs": 4426,
+            "status": 200,
+            "setCookie": [],
+            "category": "unclassified",
+            "firstParty": true,
+            "initiator": "https://optimusrex.web.app/"
+          },
+          {
+            "requestId": "8061.7",
+            "url": "https://optimusrex.web.app/images/Ring12FreeSpind.webp",
+            "host": "optimusrex.web.app",
+            "method": "GET",
+            "resourceType": "Image",
+            "tMs": 4426,
+            "status": 200,
+            "setCookie": [],
+            "category": "unclassified",
+            "firstParty": true,
+            "initiator": "https://optimusrex.web.app/"
+          },
+          {
+            "requestId": "8061.8",
+            "url": "https://optimusrex.web.app/images/MetalAdapterd.webp",
+            "host": "optimusrex.web.app",
+            "method": "GET",
+            "resourceType": "Image",
+            "tMs": 4426,
+            "status": 200,
+            "setCookie": [],
+            "category": "unclassified",
+            "firstParty": true,
+            "initiator": "https://optimusrex.web.app/"
+          },
+          {
+            "requestId": "8061.9",
+            "url": "https://optimusrex.web.app/scripts/cart.min.js",
+            "host": "optimusrex.web.app",
+            "method": "GET",
+            "resourceType": "Script",
+            "tMs": 4426,
+            "status": 200,
+            "setCookie": [],
+            "category": "unclassified",
+            "firstParty": true,
+            "initiator": "https://optimusrex.web.app/"
+          },
+          {
+            "requestId": "8061.10",
+            "url": "https://optimusrex.web.app/scripts/cookies.min.js",
+            "host": "optimusrex.web.app",
+            "method": "GET",
+            "resourceType": "Script",
+            "tMs": 4426,
+            "status": 200,
+            "setCookie": [],
+            "category": "unclassified",
+            "firstParty": true,
+            "initiator": "https://optimusrex.web.app/"
+          },
+          {
+            "requestId": "8061.15",
+            "url": "https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&display=swap",
+            "host": "fonts.googleapis.com",
+            "method": "GET",
+            "resourceType": "Stylesheet",
+            "tMs": 4706,
+            "status": 200,
+            "setCookie": [],
+            "entity": "Google Fonts",
+            "category": "data-transfer",
+            "firstParty": false,
+            "initiator": "https://optimusrex.web.app/css/styles.min.css"
+          },
+          {
+            "requestId": "8061.5",
+            "url": "https://unpkg.com/htmx.org@1.9.12/dist/htmx.min.js",
+            "host": "unpkg.com",
+            "method": "GET",
+            "resourceType": "Script",
+            "tMs": 5559,
+            "status": 200,
+            "setCookie": [],
+            "entity": "unpkg",
+            "category": "cdn",
+            "firstParty": false,
+            "initiator": "https://optimusrex.web.app/"
+          },
+          {
+            "requestId": "8061.70",
+            "url": "https://fonts.gstatic.com/s/rajdhani/v17/LDI2apCSOBg7S-QT7pa8FvOreec.woff2",
+            "host": "fonts.gstatic.com",
+            "method": "GET",
+            "resourceType": "Font",
+            "tMs": 6083,
+            "status": 200,
+            "setCookie": [],
+            "entity": "Google Fonts",
+            "category": "data-transfer",
+            "firstParty": false,
+            "initiator": "https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"
+          },
+          {
+            "requestId": "8061.47",
+            "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2",
+            "host": "fonts.gstatic.com",
+            "method": "GET",
+            "resourceType": "Font",
+            "tMs": 6084,
+            "status": 200,
+            "setCookie": [],
+            "entity": "Google Fonts",
+            "category": "data-transfer",
+            "firstParty": false,
+            "initiator": "https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"
+          },
+          {
+            "requestId": "8061.25",
+            "url": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/webfonts/fa-solid-900.woff2",
+            "host": "cdnjs.cloudflare.com",
+            "method": "GET",
+            "resourceType": "Font",
+            "tMs": 6084,
+            "status": 200,
+            "setCookie": [],
+            "entity": "cdnjs",
+            "category": "cdn",
+            "firstParty": false,
+            "initiator": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+          },
+          {
+            "requestId": "8061.67",
+            "url": "https://fonts.gstatic.com/s/rajdhani/v17/LDI2apCSOBg7S-QT7pbYF_Oreec.woff2",
+            "host": "fonts.gstatic.com",
+            "method": "GET",
+            "resourceType": "Font",
+            "tMs": 6084,
+            "status": 200,
+            "setCookie": [],
+            "entity": "Google Fonts",
+            "category": "data-transfer",
+            "firstParty": false,
+            "initiator": "https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"
+          },
+          {
+            "requestId": "8061.71",
+            "url": "https://optimusrex.web.app/header.html",
+            "host": "optimusrex.web.app",
+            "method": "GET",
+            "resourceType": "XHR",
+            "tMs": 6094,
+            "status": 200,
+            "setCookie": [],
+            "category": "unclassified",
+            "firstParty": true,
+            "initiator": "https://unpkg.com/htmx.org@1.9.12"
+          },
+          {
+            "requestId": "8061.72",
+            "url": "https://optimusrex.web.app/footer.html",
+            "host": "optimusrex.web.app",
+            "method": "GET",
+            "resourceType": "XHR",
+            "tMs": 6094,
+            "status": 200,
+            "setCookie": [],
+            "category": "unclassified",
+            "firstParty": true,
+            "initiator": "https://unpkg.com/htmx.org@1.9.12"
+          },
+          {
+            "requestId": "8061.73",
+            "url": "https://optimusrex.web.app/assets/logo.png",
+            "host": "optimusrex.web.app",
+            "method": "GET",
+            "resourceType": "Image",
+            "tMs": 6342,
+            "status": 200,
+            "setCookie": [],
+            "category": "unclassified",
+            "firstParty": true,
+            "initiator": "https://optimusrex.web.app/"
+          },
+          {
+            "requestId": "8061.21",
+            "url": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/webfonts/fa-brands-400.woff2",
+            "host": "cdnjs.cloudflare.com",
+            "method": "GET",
+            "resourceType": "Font",
+            "tMs": 6455,
+            "status": 200,
+            "setCookie": [],
+            "entity": "cdnjs",
+            "category": "cdn",
+            "firstParty": false,
+            "initiator": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+          },
+          {
+            "requestId": "8061.76",
+            "url": "https://optimusrex.web.app/assets/favicon.svg",
+            "host": "optimusrex.web.app",
+            "method": "GET",
+            "resourceType": "Other",
+            "tMs": 7718,
+            "status": 200,
+            "setCookie": [],
+            "category": "unclassified",
+            "firstParty": true,
+            "initiator": "(other)"
+          }
+        ],
+        "cookies": [],
+        "storage": []
+      },
+      "cmp": {
+        "detected": true,
+        "tcfApi": false,
+        "bannerVisible": true,
+        "acceptInFirstLayer": true,
+        "rejectInFirstLayer": true,
+        "acceptLabel": "Accept",
+        "rejectLabel": "Decline",
+        "notes": []
+      },
+      "a11y": {
+        "ran": true,
+        "stops": [
+          {
+            "index": 1,
+            "role": "link",
+            "name": "Home",
+            "tag": "a",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 2,
+            "role": "button",
+            "name": "Products",
+            "tag": "summary",
+            "inBanner": false,
+            "focusVisible": false,
+            "offscreen": false
+          },
+          {
+            "index": 3,
+            "role": "link",
+            "name": "Products",
+            "tag": "a",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 4,
+            "role": "link",
+            "name": "TrainerPass",
+            "tag": "a",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 5,
+            "role": "link",
+            "name": "My cart: 0",
+            "tag": "a",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 6,
+            "role": "link",
+            "name": "Tracking",
+            "tag": "a",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 7,
+            "role": "button",
+            "name": "Shop Now",
+            "tag": "a",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 8,
+            "role": "button",
+            "name": "TrainerPass",
+            "tag": "a",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 9,
+            "role": "textbox",
+            "name": "View details for Core - Zero",
+            "tag": "input",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 10,
+            "role": "textbox",
+            "name": "View details for Ring - 12 custom free-spin",
+            "tag": "input",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 11,
+            "role": "textbox",
+            "name": "View details for Metal X adapter",
+            "tag": "input",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 12,
+            "role": "link",
+            "name": "Instagram",
+            "tag": "a",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 13,
+            "role": "link",
+            "name": "TikTok",
+            "tag": "a",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 14,
+            "role": "link",
+            "name": "YouTube",
+            "tag": "a",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 15,
+            "role": "link",
+            "name": "Linktree",
+            "tag": "a",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 16,
+            "role": "link",
+            "name": "Contact",
+            "tag": "a",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 17,
+            "role": "link",
+            "name": "About us",
+            "tag": "a",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 18,
+            "role": "link",
+            "name": "Legal notice",
+            "tag": "a",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 19,
+            "role": "link",
+            "name": "Privacy policy",
+            "tag": "a",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 20,
+            "role": "link",
+            "name": "Cookie policy",
+            "tag": "a",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 21,
+            "role": "link",
+            "name": "firezenk",
+            "tag": "a",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 22,
+            "role": "button",
+            "name": "Accept",
+            "tag": "button",
+            "inBanner": true,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 23,
+            "role": "button",
+            "name": "Decline",
+            "tag": "button",
+            "inBanner": true,
+            "focusVisible": true,
+            "offscreen": false
+          }
+        ],
+        "reachedBanner": true,
+        "stopsBeforeBanner": 21,
+        "findings": [
+          {
+            "code": "BANNER_LATE_IN_FOCUS_ORDER",
+            "severity": "medium",
+            "title": "The banner is 21 tab stops deep",
+            "detail": "A modal layer that blocks the page should receive focus immediately. Here the keyboard user must traverse the page behind the banner before reaching it.",
+            "reference": "EN 301 549 §9.2.4.3 / WCAG 2.1 SC 2.4.3 (Focus Order)",
+            "evidence": [
+              "1. link \"Home\"",
+              "2. button \"Products\"",
+              "3. link \"Products\"",
+              "4. link \"TrainerPass\"",
+              "5. link \"My cart: 0\""
+            ]
+          }
+        ]
+      },
+      "findings": [
+        {
+          "code": "BANNER_LATE_IN_FOCUS_ORDER",
+          "severity": "medium",
+          "title": "The banner is 21 tab stops deep",
+          "detail": "A modal layer that blocks the page should receive focus immediately. Here the keyboard user must traverse the page behind the banner before reaching it.",
+          "reference": "EN 301 549 §9.2.4.3 / WCAG 2.1 SC 2.4.3 (Focus Order)",
+          "evidence": [
+            "1. link \"Home\"",
+            "2. button \"Products\"",
+            "3. link \"Products\"",
+            "4. link \"TrainerPass\"",
+            "5. link \"My cart: 0\""
+          ]
+        },
+        {
+          "code": "THIRD_COUNTRY_TRANSFER",
+          "severity": "low",
+          "title": "IP address disclosed to Google Fonts on load",
+          "detail": "These hosts are not trackers, but loading them discloses the visitor's IP to a third-country recipient. German courts have treated the Google Fonts case as actionable; self-hosting removes it.",
+          "reference": "GDPR Chapter V — disclosing an IP address to a third-country recipient is a transfer",
+          "evidence": [
+            "t=4706ms · GET https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&display=swap · loaded by https://optimusrex.web.app/css/styles.min.css",
+            "t=6083ms · GET https://fonts.gstatic.com/s/rajdhani/v17/LDI2apCSOBg7S-QT7pa8FvOreec.woff2 · loaded by https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&display=swap",
+            "t=6084ms · GET https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2 · loaded by https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&display=swap",
+            "t=6084ms · GET https://fonts.gstatic.com/s/rajdhani/v17/LDI2apCSOBg7S-QT7pbYF_Oreec.woff2 · loaded by https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"
+          ]
+        },
+        {
+          "code": "REJECT_HONOURED",
+          "severity": "none",
+          "title": "Reject-all was honoured for the observation window",
+          "detail": "No consent-requiring third-party requests were seen after the refusal.",
+          "reference": "ePrivacy Directive 2002/58/EC Art. 5(3) — storing or accessing information on a user's device requires prior consent unless strictly necessary",
+          "evidence": []
+        }
+      ],
+      "screenshots": [
+        "01-pre-consent.png",
+        "02-after-reject.png"
+      ],
+      "errors": [],
+      "proxy": {
+        "country": "it",
+        "tier": "residential",
+        "timezoneId": "Europe/Rome"
+      },
+      "afterReject": {
+        "clicked": true,
+        "label": "Decline",
+        "requests": [],
+        "cookies": []
+      },
+      "replayUrl": "[redacted-presigned-url]"
+    },
+    {
+      "country": "nl",
+      "sessionId": "ip-10-0-11-133:b6091163-2212-4924-ba8b-418dce44a04f:cmtirt4xl0230o101q6i2cb9k:1788277216114.GdWQ5tYNmsJ6fk36e2rF6Q",
+      "startedAt": "2026-09-01T15:40:15.786Z",
+      "navigationMs": 2588,
+      "preConsent": {
+        "requests": [
+          {
+            "requestId": "6E423CA2C15A6B5D5EA43D7ACD94E52E",
+            "url": "https://optimusrex.web.app/",
+            "host": "optimusrex.web.app",
+            "method": "GET",
+            "resourceType": "Document",
+            "tMs": 190,
+            "status": 200,
+            "setCookie": [],
+            "category": "unclassified",
+            "firstParty": true,
+            "initiator": "(other)"
+          },
+          {
+            "requestId": "8243.2",
+            "url": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css",
+            "host": "cdnjs.cloudflare.com",
+            "method": "GET",
+            "resourceType": "Stylesheet",
+            "tMs": 1226,
+            "status": 200,
+            "setCookie": [],
+            "entity": "cdnjs",
+            "category": "cdn",
+            "firstParty": false,
+            "initiator": "https://optimusrex.web.app/"
+          },
+          {
+            "requestId": "8243.3",
+            "url": "https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css",
+            "host": "cdn.jsdelivr.net",
+            "method": "GET",
+            "resourceType": "Stylesheet",
+            "tMs": 1226,
+            "status": 200,
+            "setCookie": [],
+            "entity": "jsDelivr",
+            "category": "cdn",
+            "firstParty": false,
+            "initiator": "https://optimusrex.web.app/"
+          },
+          {
+            "requestId": "8243.4",
+            "url": "https://optimusrex.web.app/css/styles.min.css",
+            "host": "optimusrex.web.app",
+            "method": "GET",
+            "resourceType": "Stylesheet",
+            "tMs": 1226,
+            "status": 200,
+            "setCookie": [],
+            "category": "unclassified",
+            "firstParty": true,
+            "initiator": "https://optimusrex.web.app/"
+          },
+          {
+            "requestId": "8243.5",
+            "url": "https://unpkg.com/htmx.org@1.9.12/dist/htmx.min.js",
+            "host": "unpkg.com",
+            "method": "GET",
+            "resourceType": "Script",
+            "tMs": 2226,
+            "status": 200,
+            "setCookie": [],
+            "entity": "unpkg",
+            "category": "cdn",
+            "firstParty": false,
+            "initiator": "https://optimusrex.web.app/"
+          },
+          {
+            "requestId": "8243.6",
+            "url": "https://optimusrex.web.app/images/AbosluteZeroRatchetd.webp",
+            "host": "optimusrex.web.app",
+            "method": "GET",
+            "resourceType": "Image",
+            "tMs": 1226,
+            "status": 200,
+            "setCookie": [],
+            "category": "unclassified",
+            "firstParty": true,
+            "initiator": "https://optimusrex.web.app/"
+          },
+          {
+            "requestId": "8243.7",
+            "url": "https://optimusrex.web.app/images/Ring12FreeSpind.webp",
+            "host": "optimusrex.web.app",
+            "method": "GET",
+            "resourceType": "Image",
+            "tMs": 1226,
+            "status": 200,
+            "setCookie": [],
+            "category": "unclassified",
+            "firstParty": true,
+            "initiator": "https://optimusrex.web.app/"
+          },
+          {
+            "requestId": "8243.8",
+            "url": "https://optimusrex.web.app/images/MetalAdapterd.webp",
+            "host": "optimusrex.web.app",
+            "method": "GET",
+            "resourceType": "Image",
+            "tMs": 1226,
+            "status": 200,
+            "setCookie": [],
+            "category": "unclassified",
+            "firstParty": true,
+            "initiator": "https://optimusrex.web.app/"
+          },
+          {
+            "requestId": "8243.13",
+            "url": "https://optimusrex.web.app/scripts/cart.min.js",
+            "host": "optimusrex.web.app",
+            "method": "GET",
+            "resourceType": "Script",
+            "tMs": 1286,
+            "status": 200,
+            "setCookie": [],
+            "category": "unclassified",
+            "firstParty": true,
+            "initiator": "https://optimusrex.web.app/"
+          },
+          {
+            "requestId": "8243.14",
+            "url": "https://optimusrex.web.app/scripts/cookies.min.js",
+            "host": "optimusrex.web.app",
+            "method": "GET",
+            "resourceType": "Script",
+            "tMs": 1286,
+            "status": 200,
+            "setCookie": [],
+            "category": "unclassified",
+            "firstParty": true,
+            "initiator": "https://optimusrex.web.app/"
+          },
+          {
+            "requestId": "8243.15",
+            "url": "https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&display=swap",
+            "host": "fonts.googleapis.com",
+            "method": "GET",
+            "resourceType": "Stylesheet",
+            "tMs": 1463,
+            "status": 200,
+            "setCookie": [],
+            "entity": "Google Fonts",
+            "category": "data-transfer",
+            "firstParty": false,
+            "initiator": "https://optimusrex.web.app/css/styles.min.css"
+          },
+          {
+            "requestId": "8243.5",
+            "url": "https://unpkg.com/htmx.org@1.9.12/dist/htmx.min.js",
+            "host": "unpkg.com",
+            "method": "GET",
+            "resourceType": "Script",
+            "tMs": 2226,
+            "status": 200,
+            "setCookie": [],
+            "entity": "unpkg",
+            "category": "cdn",
+            "firstParty": false,
+            "initiator": "https://optimusrex.web.app/"
+          },
+          {
+            "requestId": "8243.70",
+            "url": "https://fonts.gstatic.com/s/rajdhani/v17/LDI2apCSOBg7S-QT7pa8FvOreec.woff2",
+            "host": "fonts.gstatic.com",
+            "method": "GET",
+            "resourceType": "Font",
+            "tMs": 2580,
+            "status": 200,
+            "setCookie": [],
+            "entity": "Google Fonts",
+            "category": "data-transfer",
+            "firstParty": false,
+            "initiator": "https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"
+          },
+          {
+            "requestId": "8243.47",
+            "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2",
+            "host": "fonts.gstatic.com",
+            "method": "GET",
+            "resourceType": "Font",
+            "tMs": 2580,
+            "status": 200,
+            "setCookie": [],
+            "entity": "Google Fonts",
+            "category": "data-transfer",
+            "firstParty": false,
+            "initiator": "https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"
+          },
+          {
+            "requestId": "8243.25",
+            "url": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/webfonts/fa-solid-900.woff2",
+            "host": "cdnjs.cloudflare.com",
+            "method": "GET",
+            "resourceType": "Font",
+            "tMs": 2580,
+            "status": 200,
+            "setCookie": [],
+            "entity": "cdnjs",
+            "category": "cdn",
+            "firstParty": false,
+            "initiator": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+          },
+          {
+            "requestId": "8243.67",
+            "url": "https://fonts.gstatic.com/s/rajdhani/v17/LDI2apCSOBg7S-QT7pbYF_Oreec.woff2",
+            "host": "fonts.gstatic.com",
+            "method": "GET",
+            "resourceType": "Font",
+            "tMs": 2580,
+            "status": 200,
+            "setCookie": [],
+            "entity": "Google Fonts",
+            "category": "data-transfer",
+            "firstParty": false,
+            "initiator": "https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"
+          },
+          {
+            "requestId": "8243.71",
+            "url": "https://optimusrex.web.app/header.html",
+            "host": "optimusrex.web.app",
+            "method": "GET",
+            "resourceType": "XHR",
+            "tMs": 2589,
+            "status": 200,
+            "setCookie": [],
+            "category": "unclassified",
+            "firstParty": true,
+            "initiator": "https://unpkg.com/htmx.org@1.9.12"
+          },
+          {
+            "requestId": "8243.72",
+            "url": "https://optimusrex.web.app/footer.html",
+            "host": "optimusrex.web.app",
+            "method": "GET",
+            "resourceType": "XHR",
+            "tMs": 2590,
+            "status": 200,
+            "setCookie": [],
+            "category": "unclassified",
+            "firstParty": true,
+            "initiator": "https://unpkg.com/htmx.org@1.9.12"
+          },
+          {
+            "requestId": "8243.73",
+            "url": "https://optimusrex.web.app/assets/logo.png",
+            "host": "optimusrex.web.app",
+            "method": "GET",
+            "resourceType": "Image",
+            "tMs": 2850,
+            "status": 200,
+            "setCookie": [],
+            "category": "unclassified",
+            "firstParty": true,
+            "initiator": "https://optimusrex.web.app/"
+          },
+          {
+            "requestId": "8243.21",
+            "url": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/webfonts/fa-brands-400.woff2",
+            "host": "cdnjs.cloudflare.com",
+            "method": "GET",
+            "resourceType": "Font",
+            "tMs": 2951,
+            "status": 200,
+            "setCookie": [],
+            "entity": "cdnjs",
+            "category": "cdn",
+            "firstParty": false,
+            "initiator": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+          },
+          {
+            "requestId": "8243.76",
+            "url": "https://optimusrex.web.app/assets/favicon.svg",
+            "host": "optimusrex.web.app",
+            "method": "GET",
+            "resourceType": "Other",
+            "tMs": 3797,
+            "status": 200,
+            "setCookie": [],
+            "category": "unclassified",
+            "firstParty": true,
+            "initiator": "(other)"
+          }
+        ],
+        "cookies": [],
+        "storage": []
+      },
+      "cmp": {
+        "detected": true,
+        "tcfApi": false,
+        "bannerVisible": true,
+        "acceptInFirstLayer": true,
+        "rejectInFirstLayer": true,
+        "acceptLabel": "Accept",
+        "rejectLabel": "Decline",
+        "notes": []
+      },
+      "a11y": {
+        "ran": true,
+        "stops": [
+          {
+            "index": 1,
+            "role": "link",
+            "name": "Home",
+            "tag": "a",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 2,
+            "role": "button",
+            "name": "Products",
+            "tag": "summary",
+            "inBanner": false,
+            "focusVisible": false,
+            "offscreen": false
+          },
+          {
+            "index": 3,
+            "role": "link",
+            "name": "Products",
+            "tag": "a",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 4,
+            "role": "link",
+            "name": "TrainerPass",
+            "tag": "a",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 5,
+            "role": "link",
+            "name": "My cart: 0",
+            "tag": "a",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 6,
+            "role": "link",
+            "name": "Tracking",
+            "tag": "a",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 7,
+            "role": "button",
+            "name": "Shop Now",
+            "tag": "a",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 8,
+            "role": "button",
+            "name": "TrainerPass",
+            "tag": "a",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 9,
+            "role": "textbox",
+            "name": "View details for Core - Zero",
+            "tag": "input",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 10,
+            "role": "textbox",
+            "name": "View details for Ring - 12 custom free-spin",
+            "tag": "input",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 11,
+            "role": "textbox",
+            "name": "View details for Metal X adapter",
+            "tag": "input",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 12,
+            "role": "link",
+            "name": "Instagram",
+            "tag": "a",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 13,
+            "role": "link",
+            "name": "TikTok",
+            "tag": "a",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 14,
+            "role": "link",
+            "name": "YouTube",
+            "tag": "a",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 15,
+            "role": "link",
+            "name": "Linktree",
+            "tag": "a",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 16,
+            "role": "link",
+            "name": "Contact",
+            "tag": "a",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 17,
+            "role": "link",
+            "name": "About us",
+            "tag": "a",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 18,
+            "role": "link",
+            "name": "Legal notice",
+            "tag": "a",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 19,
+            "role": "link",
+            "name": "Privacy policy",
+            "tag": "a",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 20,
+            "role": "link",
+            "name": "Cookie policy",
+            "tag": "a",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 21,
+            "role": "link",
+            "name": "firezenk",
+            "tag": "a",
+            "inBanner": false,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 22,
+            "role": "button",
+            "name": "Accept",
+            "tag": "button",
+            "inBanner": true,
+            "focusVisible": true,
+            "offscreen": false
+          },
+          {
+            "index": 23,
+            "role": "button",
+            "name": "Decline",
+            "tag": "button",
+            "inBanner": true,
+            "focusVisible": true,
+            "offscreen": false
+          }
+        ],
+        "reachedBanner": true,
+        "stopsBeforeBanner": 21,
+        "findings": [
+          {
+            "code": "BANNER_LATE_IN_FOCUS_ORDER",
+            "severity": "medium",
+            "title": "The banner is 21 tab stops deep",
+            "detail": "A modal layer that blocks the page should receive focus immediately. Here the keyboard user must traverse the page behind the banner before reaching it.",
+            "reference": "EN 301 549 §9.2.4.3 / WCAG 2.1 SC 2.4.3 (Focus Order)",
+            "evidence": [
+              "1. link \"Home\"",
+              "2. button \"Products\"",
+              "3. link \"Products\"",
+              "4. link \"TrainerPass\"",
+              "5. link \"My cart: 0\""
+            ]
+          }
+        ]
+      },
+      "findings": [
+        {
+          "code": "BANNER_LATE_IN_FOCUS_ORDER",
+          "severity": "medium",
+          "title": "The banner is 21 tab stops deep",
+          "detail": "A modal layer that blocks the page should receive focus immediately. Here the keyboard user must traverse the page behind the banner before reaching it.",
+          "reference": "EN 301 549 §9.2.4.3 / WCAG 2.1 SC 2.4.3 (Focus Order)",
+          "evidence": [
+            "1. link \"Home\"",
+            "2. button \"Products\"",
+            "3. link \"Products\"",
+            "4. link \"TrainerPass\"",
+            "5. link \"My cart: 0\""
+          ]
+        },
+        {
+          "code": "THIRD_COUNTRY_TRANSFER",
+          "severity": "low",
+          "title": "IP address disclosed to Google Fonts on load",
+          "detail": "These hosts are not trackers, but loading them discloses the visitor's IP to a third-country recipient. German courts have treated the Google Fonts case as actionable; self-hosting removes it.",
+          "reference": "GDPR Chapter V — disclosing an IP address to a third-country recipient is a transfer",
+          "evidence": [
+            "t=1463ms · GET https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&display=swap · loaded by https://optimusrex.web.app/css/styles.min.css",
+            "t=2580ms · GET https://fonts.gstatic.com/s/rajdhani/v17/LDI2apCSOBg7S-QT7pa8FvOreec.woff2 · loaded by https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&display=swap",
+            "t=2580ms · GET https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2 · loaded by https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&display=swap",
+            "t=2580ms · GET https://fonts.gstatic.com/s/rajdhani/v17/LDI2apCSOBg7S-QT7pbYF_Oreec.woff2 · loaded by https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"
+          ]
+        },
+        {
+          "code": "REJECT_HONOURED",
+          "severity": "none",
+          "title": "Reject-all was honoured for the observation window",
+          "detail": "No consent-requiring third-party requests were seen after the refusal.",
+          "reference": "ePrivacy Directive 2002/58/EC Art. 5(3) — storing or accessing information on a user's device requires prior consent unless strictly necessary",
+          "evidence": []
+        }
+      ],
+      "screenshots": [
+        "01-pre-consent.png",
+        "02-after-reject.png"
+      ],
+      "errors": [],
+      "proxy": {
+        "country": "nl",
+        "tier": "residential",
+        "timezoneId": "Europe/Amsterdam"
+      },
+      "afterReject": {
+        "clicked": true,
+        "label": "Decline",
+        "requests": [],
+        "cookies": []
+      },
+      "replayUrl": "[redacted-presigned-url]"
+    }
+  ],
+  "evidenceDigest": "288cc9a43976aefecf5f9dbaaf9ba289edebc9aae9d5944a6b506f1e9ebaae8a"
+}

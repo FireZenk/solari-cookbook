@@ -1,0 +1,72 @@
+{
+  "target": "https://optimusrex.web.app/",
+  "startedAt": "2026-09-01T15:38:15.623Z",
+  "gauntletVersion": "0.1.0",
+  "trackerListVersion": "2026-09-01",
+  "files": [
+    {
+      "file": "run.json",
+      "sha256": "e04131b15f79fac229b300d92d54ef63fe9284a6c133ad3cc3fada0994faf7a5"
+    },
+    {
+      "file": "es/findings.json",
+      "sha256": "ab7f105451a323662fd2e115f344baf7cc3f7b53db63f7e4809f7627562506aa"
+    },
+    {
+      "file": "es/requests-pre-consent.json",
+      "sha256": "f0a704b0623174249929340e0ab9c0e7e592f64682b86748e7989c2bf8dfabca"
+    },
+    {
+      "file": "es/network-pre-consent.har",
+      "sha256": "4ddbec519b30f657578887e338da955a8a689fed5a43521b5106f3a5d61fcc28"
+    },
+    {
+      "file": "de/findings.json",
+      "sha256": "67c003fe4fe48f3a4d6905136317c06cd1fa4a9013fed8324c7d3cd88ca51353"
+    },
+    {
+      "file": "de/requests-pre-consent.json",
+      "sha256": "4e2f4a56fcb54d29547d60d7ddd0e2fbd730bb57570a58621427e0b9cd5fcf60"
+    },
+    {
+      "file": "de/network-pre-consent.har",
+      "sha256": "b594fb0c1c3dfab79d34fe8b06313fd81514df3da3426a2c1bbc8b43a9602f1b"
+    },
+    {
+      "file": "fr/findings.json",
+      "sha256": "a3b547219cda20dd53a9b8315a706ba202931adeae4a9d863f2dd9706451ef51"
+    },
+    {
+      "file": "fr/requests-pre-consent.json",
+      "sha256": "81c0ae3ea786fcda1e440bec47733b817bf7c8c7bab101dda92fb4ca5246a212"
+    },
+    {
+      "file": "fr/network-pre-consent.har",
+      "sha256": "aa64c0424d2b82bba8ab487f1a2a0ac7888ae8aff4f533edb2193e524239f836"
+    },
+    {
+      "file": "it/findings.json",
+      "sha256": "c5fbde80c7756769d953ed38512739b6dc571c477dddff538bc9806e78a7813d"
+    },
+    {
+      "file": "it/requests-pre-consent.json",
+      "sha256": "252396195ff2d1b3ddac43839328064fca3626cb46c5d34519cb4750549da0c9"
+    },
+    {
+      "file": "it/network-pre-consent.har",
+      "sha256": "387ae57e3e7790f286dffa5c4350801d4fa7a074c8942b243ce868f3f1b41048"
+    },
+    {
+      "file": "nl/findings.json",
+      "sha256": "3d30774e0b5e90c8b86da81421774cc8f058139895e4da697639d02072317240"
+    },
+    {
+      "file": "nl/requests-pre-consent.json",
+      "sha256": "962d74645f8c79571c58329d10f8cd5903ed53478bd9b6b4df0beff38eefe95a"
+    },
+    {
+      "file": "nl/network-pre-consent.har",
+      "sha256": "ef12daf420930af82bd6d7e6401536dc0e229418a71d3c6b3f64d7c35fd1a1de"
+    }
+  ]
+}

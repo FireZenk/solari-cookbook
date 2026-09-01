@@ -131,6 +131,21 @@ function countryBlock(c: CountryAudit): string {
     <h3>Keyboard walk</h3>
     ${walk}
 
+    <h3>Evidence</h3>
+    <p class="files">${[
+      ["network-pre-consent.har", "HAR"],
+      ["requests-pre-consent.json", "requests"],
+      ["cookies-pre-consent.json", "cookies"],
+      ["web-storage-pre-consent.json", "web storage"],
+      ["keyboard-walk.json", "keyboard walk"],
+      ["ax-tree.json", "AX tree"],
+      ["cmp.json", "consent layer"],
+      ["findings.json", "findings"],
+      ...c.screenshots.map((s) => [s, s.replace(/\.png$/, "")] as [string, string]),
+    ]
+      .map(([file, label]) => `<a href="${esc(c.country)}/${esc(file)}">${esc(label)}</a>`)
+      .join(" · ")}</p>
+
     <h3>Findings</h3>
     ${c.findings.length ? c.findings.map(findingBlock).join("") : '<p class="muted">No findings.</p>'}
 
@@ -181,6 +196,7 @@ export function renderReport(run: AuditRun): string {
   table.walk th { text-align:left; color:var(--muted); font-weight:500; border-bottom:1px solid var(--line); padding:6px 8px }
   table.walk td { padding:5px 8px; border-bottom:1px solid #1b2230 }
   ul.cmp { padding-left:18px; margin:0 }
+  .files { font-size:13px; line-height:2 } .files a { margin-right:2px }
   footer { color:var(--muted); font-size:12px; border-top:1px solid var(--line); margin-top:40px; padding-top:20px }
   .blocked { border:1px solid #4a5568; border-left:3px solid #8a94a6; border-radius:8px; padding:14px 16px; background:#0d1117 }
   .blocked h4 { margin:0 0 8px }

@@ -1,0 +1,37 @@
+[
+  {
+    "code": "BANNER_LATE_IN_FOCUS_ORDER",
+    "severity": "medium",
+    "title": "The banner is 21 tab stops deep",
+    "detail": "A modal layer that blocks the page should receive focus immediately. Here the keyboard user must traverse the page behind the banner before reaching it.",
+    "reference": "EN 301 549 §9.2.4.3 / WCAG 2.1 SC 2.4.3 (Focus Order)",
+    "evidence": [
+      "1. link \"Home\"",
+      "2. button \"Products\"",
+      "3. link \"Products\"",
+      "4. link \"TrainerPass\"",
+      "5. link \"My cart: 0\""
+    ]
+  },
+  {
+    "code": "THIRD_COUNTRY_TRANSFER",
+    "severity": "low",
+    "title": "IP address disclosed to Google Fonts on load",
+    "detail": "These hosts are not trackers, but loading them discloses the visitor's IP to a third-country recipient. German courts have treated the Google Fonts case as actionable; self-hosting removes it.",
+    "reference": "GDPR Chapter V — disclosing an IP address to a third-country recipient is a transfer",
+    "evidence": [
+      "t=1724ms · GET https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&display=swap · loaded by https://optimusrex.web.app/css/styles.min.css",
+      "t=2957ms · GET https://fonts.gstatic.com/s/rajdhani/v17/LDI2apCSOBg7S-QT7pa8FvOreec.woff2 · loaded by https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&display=swap",
+      "t=2957ms · GET https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2 · loaded by https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&display=swap",
+      "t=2957ms · GET https://fonts.gstatic.com/s/rajdhani/v17/LDI2apCSOBg7S-QT7pbYF_Oreec.woff2 · loaded by https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"
+    ]
+  },
+  {
+    "code": "REJECT_HONOURED",
+    "severity": "none",
+    "title": "Reject-all was honoured for the observation window",
+    "detail": "No consent-requiring third-party requests were seen after the refusal.",
+    "reference": "ePrivacy Directive 2002/58/EC Art. 5(3) — storing or accessing information on a user's device requires prior consent unless strictly necessary",
+    "evidence": []
+  }
+]

@@ -1,0 +1,209 @@
+[
+  {
+    "index": 1,
+    "role": "link",
+    "name": "Home",
+    "tag": "a",
+    "inBanner": false,
+    "focusVisible": true,
+    "offscreen": false
+  },
+  {
+    "index": 2,
+    "role": "button",
+    "name": "Products",
+    "tag": "summary",
+    "inBanner": false,
+    "focusVisible": false,
+    "offscreen": false
+  },
+  {
+    "index": 3,
+    "role": "link",
+    "name": "Products",
+    "tag": "a",
+    "inBanner": false,
+    "focusVisible": true,
+    "offscreen": false
+  },
+  {
+    "index": 4,
+    "role": "link",
+    "name": "TrainerPass",
+    "tag": "a",
+    "inBanner": false,
+    "focusVisible": true,
+    "offscreen": false
+  },
+  {
+    "index": 5,
+    "role": "link",
+    "name": "My cart: 0",
+    "tag": "a",
+    "inBanner": false,
+    "focusVisible": true,
+    "offscreen": false
+  },
+  {
+    "index": 6,
+    "role": "link",
+    "name": "Tracking",
+    "tag": "a",
+    "inBanner": false,
+    "focusVisible": true,
+    "offscreen": false
+  },
+  {
+    "index": 7,
+    "role": "button",
+    "name": "Shop Now",
+    "tag": "a",
+    "inBanner": false,
+    "focusVisible": true,
+    "offscreen": false
+  },
+  {
+    "index": 8,
+    "role": "button",
+    "name": "TrainerPass",
+    "tag": "a",
+    "inBanner": false,
+    "focusVisible": true,
+    "offscreen": false
+  },
+  {
+    "index": 9,
+    "role": "textbox",
+    "name": "View details for Core - Zero",
+    "tag": "input",
+    "inBanner": false,
+    "focusVisible": true,
+    "offscreen": false
+  },
+  {
+    "index": 10,
+    "role": "textbox",
+    "name": "View details for Ring - 12 custom free-spin",
+    "tag": "input",
+    "inBanner": false,
+    "focusVisible": true,
+    "offscreen": false
+  },
+  {
+    "index": 11,
+    "role": "textbox",
+    "name": "View details for Metal X adapter",
+    "tag": "input",
+    "inBanner": false,
+    "focusVisible": true,
+    "offscreen": false
+  },
+  {
+    "index": 12,
+    "role": "link",
+    "name": "Instagram",
+    "tag": "a",
+    "inBanner": false,
+    "focusVisible": true,
+    "offscreen": false
+  },
+  {
+    "index": 13,
+    "role": "link",
+    "name": "TikTok",
+    "tag": "a",
+    "inBanner": false,
+    "focusVisible": true,
+    "offscreen": false
+  },
+  {
+    "index": 14,
+    "role": "link",
+    "name": "YouTube",
+    "tag": "a",
+    "inBanner": false,
+    "focusVisible": true,
+    "offscreen": false
+  },
+  {
+    "index": 15,
+    "role": "link",
+    "name": "Linktree",
+    "tag": "a",
+    "inBanner": false,
+    "focusVisible": true,
+    "offscreen": false
+  },
+  {
+    "index": 16,
+    "role": "link",
+    "name": "Contact",
+    "tag": "a",
+    "inBanner": false,
+    "focusVisible": true,
+    "offscreen": false
+  },
+  {
+    "index": 17,
+    "role": "link",
+    "name": "About us",
+    "tag": "a",
+    "inBanner": false,
+    "focusVisible": true,
+    "offscreen": false
+  },
+  {
+    "index": 18,
+    "role": "link",
+    "name": "Legal notice",
+    "tag": "a",
+    "inBanner": false,
+    "focusVisible": true,
+    "offscreen": false
+  },
+  {
+    "index": 19,
+    "role": "link",
+    "name": "Privacy policy",
+    "tag": "a",
+    "inBanner": false,
+    "focusVisible": true,
+    "offscreen": false
+  },
+  {
+    "index": 20,
+    "role": "link",
+    "name": "Cookie policy",
+    "tag": "a",
+    "inBanner": false,
+    "focusVisible": true,
+    "offscreen": false
+  },
+  {
+    "index": 21,
+    "role": "link",
+    "name": "firezenk",
+    "tag": "a",
+    "inBanner": false,
+    "focusVisible": true,
+    "offscreen": false
+  },
+  {
+    "index": 22,
+    "role": "button",
+    "name": "Accept",
+    "tag": "button",
+    "inBanner": true,
+    "focusVisible": true,
+    "offscreen": false
+  },
+  {
+    "index": 23,
+    "role": "button",
+    "name": "Decline",
+    "tag": "button",
+    "inBanner": true,
+    "focusVisible": true,
+    "offscreen": false
+  }
+]

@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gauntlet — https://optimusrex.web.app/</title>
+<style>
+  :root { color-scheme: dark; --bg:#0d1117; --panel:#161b22; --line:#26303d; --fg:#e6edf3; --muted:#8a94a6; }
+  * { box-sizing:border-box }
+  body { margin:0; background:var(--bg); color:var(--fg); font:15px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+  .wrap { max-width:980px; margin:0 auto; padding:40px 24px 80px }
+  h1 { font-size:26px; margin:0 0 4px } h2 { font-size:20px; margin:0 0 6px }
+  h3 { font-size:14px; text-transform:uppercase; letter-spacing:.08em; color:var(--muted); margin:28px 0 10px }
+  h4 { margin:0; font-size:15px; font-weight:600 }
+  code { font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:.88em; color:#9fd0ff }
+  a { color:#7bc4ff }
+  .muted { color:var(--muted) } .bad { color:#ff8c42 }
+  .lede { color:var(--muted); margin:0 0 24px }
+  .country { background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:24px; margin:24px 0 }
+  .meta { color:var(--muted); font-size:13px; margin:0 0 18px }
+  .stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:12px; margin:16px 0 }
+  .stats div { background:#0d1117; border:1px solid var(--line); border-radius:8px; padding:12px }
+  .stats b { display:block; font-size:24px; line-height:1.2 } .stats span { font-size:12px; color:var(--muted) }
+  .badge { display:inline-block; border:1px solid var(--c); color:var(--c); border-radius:999px;
+           padding:1px 10px; font-size:11px; text-transform:uppercase; letter-spacing:.06em; vertical-align:middle }
+  .timeline { margin:12px 0 }
+  .track { position:relative; height:44px; background:#0d1117; border:1px solid var(--line); border-radius:8px; overflow:hidden }
+  .track i { position:absolute; top:6px; width:3px; height:32px; border-radius:2px; opacity:.9 }
+  .axis { display:flex; justify-content:space-between; font-size:11px; color:var(--muted); margin-top:4px }
+  .finding { border:1px solid var(--line); border-left:3px solid var(--c); border-radius:8px; padding:14px 16px; margin:10px 0; background:#0d1117 }
+  .finding header { display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:6px }
+  .finding header code { margin-left:auto; color:var(--muted) }
+  .finding p { margin:6px 0 } .ref { font-size:12px; color:var(--muted) }
+  details { margin-top:8px } summary { cursor:pointer; font-size:13px; color:var(--muted) }
+  pre { background:#0a0e14; border:1px solid var(--line); border-radius:6px; padding:10px; overflow-x:auto; font-size:12px; white-space:pre-wrap; word-break:break-all }
+  table.walk { width:100%; border-collapse:collapse; font-size:13px }
+  table.walk th { text-align:left; color:var(--muted); font-weight:500; border-bottom:1px solid var(--line); padding:6px 8px }
+  table.walk td { padding:5px 8px; border-bottom:1px solid #1b2230 }
+  ul.cmp { padding-left:18px; margin:0 }
+  .files { font-size:13px; line-height:2 } .files a { margin-right:2px }
+  footer { color:var(--muted); font-size:12px; border-top:1px solid var(--line); margin-top:40px; padding-top:20px }
+  .blocked { border:1px solid #4a5568; border-left:3px solid #8a94a6; border-radius:8px; padding:14px 16px; background:#0d1117 }
+  .blocked h4 { margin:0 0 8px }
+  @media print { body { background:#fff; color:#000 } .country { break-inside:avoid } }
+</style></head><body><div class="wrap">
+  <h1>Gauntlet report</h1>
+  <p class="lede">
+    <code>https://optimusrex.web.app/</code> · 2026-09-01T15:38:15.623Z ·
+    5 vantage points ·
+    tracker list <code>2026-09-01</code>
+    · bundle <code>288cc9a43976aefe…</code>
+  </p>
+  <p class="lede">
+    Highest finding: <span class="badge" style="--c:#ffc93c">medium</span> — 0 critical, 0 high, 5 medium, 5 low.
+  </p>
+  
+  <section class="country">
+    <h2>ES <span class="badge" style="--c:#ffc93c">medium</span></h2>
+    <p class="meta">egress ES · residential · tz Europe/Madrid · session <code>…2.bnthbhRb9KlGyNE_wOB5dA</code> · navigation 4064ms
+       · <a href="[redacted-presigned-url]">session replay</a></p>
+
+    <div class="stats">
+      <div><b>10</b><span>third-party requests before consent</span></div>
+      <div><b>1</b><span>distinct third parties</span></div>
+      <div><b>0</b><span>third-party cookies</span></div>
+      <div><b>0</b><span>web-storage keys</span></div>
+    </div>
+
+    <h3>Before any interaction</h3>
+    
+    <div class="timeline"><div class="track"><i style="left:52.00%;background:#4a5568" title="2468ms · cdnjs · cdn"></i><i style="left:52.00%;background:#4a5568" title="2468ms · jsDelivr · cdn"></i><i style="left:72.88%;background:#4a5568" title="3459ms · unpkg · cdn"></i><i style="left:62.45%;background:#7bc4ff" title="2964ms · Google Fonts · data-transfer"></i><i style="left:72.88%;background:#4a5568" title="3459ms · unpkg · cdn"></i><i style="left:85.40%;background:#7bc4ff" title="4053ms · Google Fonts · data-transfer"></i><i style="left:85.40%;background:#7bc4ff" title="4053ms · Google Fonts · data-transfer"></i><i style="left:85.40%;background:#4a5568" title="4053ms · cdnjs · cdn"></i><i style="left:85.40%;background:#7bc4ff" title="4053ms · Google Fonts · data-transfer"></i><i style="left:100.00%;background:#4a5568" title="4746ms · cdnjs · cdn"></i></div>
+      <div class="axis"><span>0 ms</span><span>4746 ms since navigation started</span></div>
+    </div>
+
+    <h3>Consent layer</h3>
+    <ul class="cmp">
+      <li>Banner detected: <b>yes</b></li>
+      <li>Accept in first layer: <b>Accept</b></li>
+      <li>Reject in first layer: <b class="">Decline</b></li>
+      <li>Reject clicked: <b>yes</b> — 0 third-party requests observed afterwards</li>
+    </ul>
+
+    <h3>Keyboard walk</h3>
+    <table class="walk"><thead><tr><th>#</th><th>role</th><th>accessible name</th><th>focus visible</th><th>in banner</th></tr></thead><tbody><tr><td>1</td><td><code>link</code></td><td>Home</td><td>yes</td><td></td></tr><tr><td>2</td><td><code>button</code></td><td>Products</td><td><span class="bad">no</span></td><td></td></tr><tr><td>3</td><td><code>link</code></td><td>Products</td><td>yes</td><td></td></tr><tr><td>4</td><td><code>link</code></td><td>TrainerPass</td><td>yes</td><td></td></tr><tr><td>5</td><td><code>link</code></td><td>My cart: 0</td><td>yes</td><td></td></tr><tr><td>6</td><td><code>link</code></td><td>Tracking</td><td>yes</td><td></td></tr><tr><td>7</td><td><code>button</code></td><td>Shop Now</td><td>yes</td><td></td></tr><tr><td>8</td><td><code>button</code></td><td>TrainerPass</td><td>yes</td><td></td></tr><tr><td>9</td><td><code>textbox</code></td><td>View details for Core - Zero</td><td>yes</td><td></td></tr><tr><td>10</td><td><code>textbox</code></td><td>View details for Ring - 12 custom free-spin</td><td>yes</td><td></td></tr><tr><td>11</td><td><code>textbox</code></td><td>View details for Metal X adapter</td><td>yes</td><td></td></tr><tr><td>12</td><td><code>link</code></td><td>Instagram</td><td>yes</td><td></td></tr><tr><td>13</td><td><code>link</code></td><td>TikTok</td><td>yes</td><td></td></tr><tr><td>14</td><td><code>link</code></td><td>YouTube</td><td>yes</td><td></td></tr><tr><td>15</td><td><code>link</code></td><td>Linktree</td><td>yes</td><td></td></tr><tr><td>16</td><td><code>link</code></td><td>Contact</td><td>yes</td><td></td></tr><tr><td>17</td><td><code>link</code></td><td>About us</td><td>yes</td><td></td></tr><tr><td>18</td><td><code>link</code></td><td>Legal notice</td><td>yes</td><td></td></tr><tr><td>19</td><td><code>link</code></td><td>Privacy policy</td><td>yes</td><td></td></tr><tr><td>20</td><td><code>link</code></td><td>Cookie policy</td><td>yes</td><td></td></tr><tr><td>21</td><td><code>link</code></td><td>firezenk</td><td>yes</td><td></td></tr><tr><td>22</td><td><code>button</code></td><td>Accept</td><td>yes</td><td>yes</td></tr><tr><td>23</td><td><code>button</code></td><td>Decline</td><td>yes</td><td>yes</td></tr></tbody></table>
+
+    <h3>Evidence</h3>
+    <p class="files"><a href="es/network-pre-consent.har">HAR</a> · <a href="es/requests-pre-consent.json">requests</a> · <a href="es/cookies-pre-consent.json">cookies</a> · <a href="es/web-storage-pre-consent.json">web storage</a> · <a href="es/keyboard-walk.json">keyboard walk</a> · <a href="es/ax-tree.json">AX tree</a> · <a href="es/cmp.json">consent layer</a> · <a href="es/findings.json">findings</a> · <a href="es/01-pre-consent.png">01-pre-consent</a> · <a href="es/02-after-reject.png">02-after-reject</a></p>
+
+    <h3>Findings</h3>
+    
+    <article class="finding" style="--c:#ffc93c">
+      <header><span class="badge" style="--c:#ffc93c">medium</span><h4>The banner is 21 tab stops deep</h4><code>BANNER_LATE_IN_FOCUS_ORDER</code></header>
+      <p>A modal layer that blocks the page should receive focus immediately. Here the keyboard user must traverse the page behind the banner before reaching it.</p>
+      <p class="ref">EN 301 549 §9.2.4.3 / WCAG 2.1 SC 2.4.3 (Focus Order)</p>
+      <details><summary>Evidence (5)</summary><pre>1. link &quot;Home&quot;
+2. button &quot;Products&quot;
+3. link &quot;Products&quot;
+4. link &quot;TrainerPass&quot;
+5. link &quot;My cart: 0&quot;</pre></details>
+    </article>
+    <article class="finding" style="--c:#7bc4ff">
+      <header><span class="badge" style="--c:#7bc4ff">low</span><h4>IP address disclosed to Google Fonts on load</h4><code>THIRD_COUNTRY_TRANSFER</code></header>
+      <p>These hosts are not trackers, but loading them discloses the visitor&#39;s IP to a third-country recipient. German courts have treated the Google Fonts case as actionable; self-hosting removes it.</p>
+      <p class="ref">GDPR Chapter V — disclosing an IP address to a third-country recipient is a transfer</p>
+      <details><summary>Evidence (4)</summary><pre>t=2964ms · GET https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap · loaded by https://optimusrex.web.app/css/styles.min.css
+t=4053ms · GET https://fonts.gstatic.com/s/rajdhani/v17/LDI2apCSOBg7S-QT7pa8FvOreec.woff2 · loaded by https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap
+t=4053ms · GET https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2 · loaded by https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap
+t=4053ms · GET https://fonts.gstatic.com/s/rajdhani/v17/LDI2apCSOBg7S-QT7pbYF_Oreec.woff2 · loaded by https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap</pre></details>
+    </article>
+    <article class="finding" style="--c:#5fd68a">
+      <header><span class="badge" style="--c:#5fd68a">none</span><h4>Reject-all was honoured for the observation window</h4><code>REJECT_HONOURED</code></header>
+      <p>No consent-requiring third-party requests were seen after the refusal.</p>
+      <p class="ref">ePrivacy Directive 2002/58/EC Art. 5(3) — storing or accessing information on a user&#39;s device requires prior consent unless strictly necessary</p>
+      
+    </article>
+
+    
+  </section>
+  <section class="country">
+    <h2>DE <span class="badge" style="--c:#ffc93c">medium</span></h2>
+    <p class="meta">egress DE · residential · tz Europe/Berlin · session <code>…3.vLUkEMS7dDPbUDmhUJD13w</code> · navigation 2982ms
+       · <a href="[redacted-presigned-url]">session replay</a></p>
+
+    <div class="stats">
+      <div><b>10</b><span>third-party requests before consent</span></div>
+      <div><b>1</b><span>distinct third parties</span></div>
+      <div><b>0</b><span>third-party cookies</span></div>
+      <div><b>0</b><span>web-storage keys</span></div>
+    </div>
+
+    <h3>Before any interaction</h3>
+    
+    <div class="timeline"><div class="track"><i style="left:35.28%;background:#4a5568" title="1324ms · cdnjs · cdn"></i><i style="left:35.31%;background:#4a5568" title="1325ms · jsDelivr · cdn"></i><i style="left:63.63%;background:#4a5568" title="2388ms · unpkg · cdn"></i><i style="left:47.19%;background:#7bc4ff" title="1771ms · Google Fonts · data-transfer"></i><i style="left:63.63%;background:#4a5568" title="2388ms · unpkg · cdn"></i><i style="left:79.32%;background:#7bc4ff" title="2977ms · Google Fonts · data-transfer"></i><i style="left:79.32%;background:#7bc4ff" title="2977ms · Google Fonts · data-transfer"></i><i style="left:79.32%;background:#4a5568" title="2977ms · cdnjs · cdn"></i><i style="left:79.32%;background:#7bc4ff" title="2977ms · Google Fonts · data-transfer"></i><i style="left:100.00%;background:#4a5568" title="3753ms · cdnjs · cdn"></i></div>
+      <div class="axis"><span>0 ms</span><span>3753 ms since navigation started</span></div>
+    </div>
+
+    <h3>Consent layer</h3>
+    <ul class="cmp">
+      <li>Banner detected: <b>yes</b></li>
+      <li>Accept in first layer: <b>Accept</b></li>
+      <li>Reject in first layer: <b class="">Decline</b></li>
+      <li>Reject clicked: <b>yes</b> — 0 third-party requests observed afterwards</li>
+    </ul>
+
+    <h3>Keyboard walk</h3>
+    <table class="walk"><thead><tr><th>#</th><th>role</th><th>accessible name</th><th>focus visible</th><th>in banner</th></tr></thead><tbody><tr><td>1</td><td><code>link</code></td><td>Home</td><td>yes</td><td></td></tr><tr><td>2</td><td><code>button</code></td><td>Products</td><td><span class="bad">no</span></td><td></td></tr><tr><td>3</td><td><code>link</code></td><td>Products</td><td>yes</td><td></td></tr><tr><td>4</td><td><code>link</code></td><td>TrainerPass</td><td>yes</td><td></td></tr><tr><td>5</td><td><code>link</code></td><td>My cart: 0</td><td>yes</td><td></td></tr><tr><td>6</td><td><code>link</code></td><td>Tracking</td><td>yes</td><td></td></tr><tr><td>7</td><td><code>button</code></td><td>Shop Now</td><td>yes</td><td></td></tr><tr><td>8</td><td><code>button</code></td><td>TrainerPass</td><td>yes</td><td></td></tr><tr><td>9</td><td><code>textbox</code></td><td>View details for Core - Zero</td><td>yes</td><td></td></tr><tr><td>10</td><td><code>textbox</code></td><td>View details for Ring - 12 custom free-spin</td><td>yes</td><td></td></tr><tr><td>11</td><td><code>textbox</code></td><td>View details for Metal X adapter</td><td>yes</td><td></td></tr><tr><td>12</td><td><code>link</code></td><td>Instagram</td><td>yes</td><td></td></tr><tr><td>13</td><td><code>link</code></td><td>TikTok</td><td>yes</td><td></td></tr><tr><td>14</td><td><code>link</code></td><td>YouTube</td><td>yes</td><td></td></tr><tr><td>15</td><td><code>link</code></td><td>Linktree</td><td>yes</td><td></td></tr><tr><td>16</td><td><code>link</code></td><td>Contact</td><td>yes</td><td></td></tr><tr><td>17</td><td><code>link</code></td><td>About us</td><td>yes</td><td></td></tr><tr><td>18</td><td><code>link</code></td><td>Legal notice</td><td>yes</td><td></td></tr><tr><td>19</td><td><code>link</code></td><td>Privacy policy</td><td>yes</td><td></td></tr><tr><td>20</td><td><code>link</code></td><td>Cookie policy</td><td>yes</td><td></td></tr><tr><td>21</td><td><code>link</code></td><td>firezenk</td><td>yes</td><td></td></tr><tr><td>22</td><td><code>button</code></td><td>Accept</td><td>yes</td><td>yes</td></tr><tr><td>23</td><td><code>button</code></td><td>Decline</td><td>yes</td><td>yes</td></tr></tbody></table>
+
+    <h3>Evidence</h3>
+    <p class="files"><a href="de/network-pre-consent.har">HAR</a> · <a href="de/requests-pre-consent.json">requests</a> · <a href="de/cookies-pre-consent.json">cookies</a> · <a href="de/web-storage-pre-consent.json">web storage</a> · <a href="de/keyboard-walk.json">keyboard walk</a> · <a href="de/ax-tree.json">AX tree</a> · <a href="de/cmp.json">consent layer</a> · <a href="de/findings.json">findings</a> · <a href="de/01-pre-consent.png">01-pre-consent</a> · <a href="de/02-after-reject.png">02-after-reject</a></p>
+
+    <h3>Findings</h3>
+    
+    <article class="finding" style="--c:#ffc93c">
+      <header><span class="badge" style="--c:#ffc93c">medium</span><h4>The banner is 21 tab stops deep</h4><code>BANNER_LATE_IN_FOCUS_ORDER</code></header>
+      <p>A modal layer that blocks the page should receive focus immediately. Here the keyboard user must traverse the page behind the banner before reaching it.</p>
+      <p class="ref">EN 301 549 §9.2.4.3 / WCAG 2.1 SC 2.4.3 (Focus Order)</p>
+      <details><summary>Evidence (5)</summary><pre>1. link &quot;Home&quot;
+2. button &quot;Products&quot;
+3. link &quot;Products&quot;
+4. link &quot;TrainerPass&quot;
+5. link &quot;My cart: 0&quot;</pre></details>
+    </article>
+    <article class="finding" style="--c:#7bc4ff">
+      <header><span class="badge" style="--c:#7bc4ff">low</span><h4>IP address disclosed to Google Fonts on load</h4><code>THIRD_COUNTRY_TRANSFER</code></header>
+      <p>These hosts are not trackers, but loading them discloses the visitor&#39;s IP to a third-country recipient. German courts have treated the Google Fonts case as actionable; self-hosting removes it.</p>
+      <p class="ref">GDPR Chapter V — disclosing an IP address to a third-country recipient is a transfer</p>
+      <details><summary>Evidence (4)</summary><pre>t=1771ms · GET https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap · loaded by https://optimusrex.web.app/css/styles.min.css
+t=2977ms · GET https://fonts.gstatic.com/s/rajdhani/v17/LDI2apCSOBg7S-QT7pa8FvOreec.woff2 · loaded by https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap
+t=2977ms · GET https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2 · loaded by https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap
+t=2977ms · GET https://fonts.gstatic.com/s/rajdhani/v17/LDI2apCSOBg7S-QT7pbYF_Oreec.woff2 · loaded by https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap</pre></details>
+    </article>
+    <article class="finding" style="--c:#5fd68a">
+      <header><span class="badge" style="--c:#5fd68a">none</span><h4>Reject-all was honoured for the observation window</h4><code>REJECT_HONOURED</code></header>
+      <p>No consent-requiring third-party requests were seen after the refusal.</p>
+      <p class="ref">ePrivacy Directive 2002/58/EC Art. 5(3) — storing or accessing information on a user&#39;s device requires prior consent unless strictly necessary</p>
+      
+    </article>
+
+    
+  </section>
+  <section class="country">
+    <h2>FR <span class="badge" style="--c:#ffc93c">medium</span></h2>
+    <p class="meta">egress FR · residential · tz Europe/Paris · session <code>…4.jpnrEzm87xlAMsDE0SdHag</code> · navigation 2969ms
+       · <a href="[redacted-presigned-url]">session replay</a></p>
+
+    <div class="stats">
+      <div><b>10</b><span>third-party requests before consent</span></div>
+      <div><b>1</b><span>distinct third parties</span></div>
+      <div><b>0</b><span>third-party cookies</span></div>
+      <div><b>0</b><span>web-storage keys</span></div>
+    </div>
+
+    <h3>Before any interaction</h3>
+    
+    <div class="timeline"><div class="track"><i style="left:41.64%;background:#4a5568" title="1415ms · cdnjs · cdn"></i><i style="left:41.64%;background:#4a5568" title="1415ms · jsDelivr · cdn"></i><i style="left:76.99%;background:#4a5568" title="2616ms · unpkg · cdn"></i><i style="left:50.74%;background:#7bc4ff" title="1724ms · Google Fonts · data-transfer"></i><i style="left:76.99%;background:#4a5568" title="2616ms · unpkg · cdn"></i><i style="left:87.02%;background:#7bc4ff" title="2957ms · Google Fonts · data-transfer"></i><i style="left:87.02%;background:#7bc4ff" title="2957ms · Google Fonts · data-transfer"></i><i style="left:87.02%;background:#4a5568" title="2957ms · cdnjs · cdn"></i><i style="left:87.02%;background:#7bc4ff" title="2957ms · Google Fonts · data-transfer"></i><i style="left:100.00%;background:#4a5568" title="3398ms · cdnjs · cdn"></i></div>
+      <div class="axis"><span>0 ms</span><span>3398 ms since navigation started</span></div>
+    </div>
+
+    <h3>Consent layer</h3>
+    <ul class="cmp">
+      <li>Banner detected: <b>yes</b></li>
+      <li>Accept in first layer: <b>Accept</b></li>
+      <li>Reject in first layer: <b class="">Decline</b></li>
+      <li>Reject clicked: <b>yes</b> — 0 third-party requests observed afterwards</li>
+    </ul>
+
+    <h3>Keyboard walk</h3>
+    <table class="walk"><thead><tr><th>#</th><th>role</th><th>accessible name</th><th>focus visible</th><th>in banner</th></tr></thead><tbody><tr><td>1</td><td><code>link</code></td><td>Home</td><td>yes</td><td></td></tr><tr><td>2</td><td><code>button</code></td><td>Products</td><td><span class="bad">no</span></td><td></td></tr><tr><td>3</td><td><code>link</code></td><td>Products</td><td>yes</td><td></td></tr><tr><td>4</td><td><code>link</code></td><td>TrainerPass</td><td>yes</td><td></td></tr><tr><td>5</td><td><code>link</code></td><td>My cart: 0</td><td>yes</td><td></td></tr><tr><td>6</td><td><code>link</code></td><td>Tracking</td><td>yes</td><td></td></tr><tr><td>7</td><td><code>button</code></td><td>Shop Now</td><td>yes</td><td></td></tr><tr><td>8</td><td><code>button</code></td><td>TrainerPass</td><td>yes</td><td></td></tr><tr><td>9</td><td><code>textbox</code></td><td>View details for Core - Zero</td><td>yes</td><td></td></tr><tr><td>10</td><td><code>textbox</code></td><td>View details for Ring - 12 custom free-spin</td><td>yes</td><td></td></tr><tr><td>11</td><td><code>textbox</code></td><td>View details for Metal X adapter</td><td>yes</td><td></td></tr><tr><td>12</td><td><code>link</code></td><td>Instagram</td><td>yes</td><td></td></tr><tr><td>13</td><td><code>link</code></td><td>TikTok</td><td>yes</td><td></td></tr><tr><td>14</td><td><code>link</code></td><td>YouTube</td><td>yes</td><td></td></tr><tr><td>15</td><td><code>link</code></td><td>Linktree</td><td>yes</td><td></td></tr><tr><td>16</td><td><code>link</code></td><td>Contact</td><td>yes</td><td></td></tr><tr><td>17</td><td><code>link</code></td><td>About us</td><td>yes</td><td></td></tr><tr><td>18</td><td><code>link</code></td><td>Legal notice</td><td>yes</td><td></td></tr><tr><td>19</td><td><code>link</code></td><td>Privacy policy</td><td>yes</td><td></td></tr><tr><td>20</td><td><code>link</code></td><td>Cookie policy</td><td>yes</td><td></td></tr><tr><td>21</td><td><code>link</code></td><td>firezenk</td><td>yes</td><td></td></tr><tr><td>22</td><td><code>button</code></td><td>Accept</td><td>yes</td><td>yes</td></tr><tr><td>23</td><td><code>button</code></td><td>Decline</td><td>yes</td><td>yes</td></tr></tbody></table>
+
+    <h3>Evidence</h3>
+    <p class="files"><a href="fr/network-pre-consent.har">HAR</a> · <a href="fr/requests-pre-consent.json">requests</a> · <a href="fr/cookies-pre-consent.json">cookies</a> · <a href="fr/web-storage-pre-consent.json">web storage</a> · <a href="fr/keyboard-walk.json">keyboard walk</a> · <a href="fr/ax-tree.json">AX tree</a> · <a href="fr/cmp.json">consent layer</a> · <a href="fr/findings.json">findings</a> · <a href="fr/01-pre-consent.png">01-pre-consent</a> · <a href="fr/02-after-reject.png">02-after-reject</a></p>
+
+    <h3>Findings</h3>
+    
+    <article class="finding" style="--c:#ffc93c">
+      <header><span class="badge" style="--c:#ffc93c">medium</span><h4>The banner is 21 tab stops deep</h4><code>BANNER_LATE_IN_FOCUS_ORDER</code></header>
+      <p>A modal layer that blocks the page should receive focus immediately. Here the keyboard user must traverse the page behind the banner before reaching it.</p>
+      <p class="ref">EN 301 549 §9.2.4.3 / WCAG 2.1 SC 2.4.3 (Focus Order)</p>
+      <details><summary>Evidence (5)</summary><pre>1. link &quot;Home&quot;
+2. button &quot;Products&quot;
+3. link &quot;Products&quot;
+4. link &quot;TrainerPass&quot;
+5. link &quot;My cart: 0&quot;</pre></details>
+    </article>
+    <article class="finding" style="--c:#7bc4ff">
+      <header><span class="badge" style="--c:#7bc4ff">low</span><h4>IP address disclosed to Google Fonts on load</h4><code>THIRD_COUNTRY_TRANSFER</code></header>
+      <p>These hosts are not trackers, but loading them discloses the visitor&#39;s IP to a third-country recipient. German courts have treated the Google Fonts case as actionable; self-hosting removes it.</p>
+      <p class="ref">GDPR Chapter V — disclosing an IP address to a third-country recipient is a transfer</p>
+      <details><summary>Evidence (4)</summary><pre>t=1724ms · GET https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap · loaded by https://optimusrex.web.app/css/styles.min.css
+t=2957ms · GET https://fonts.gstatic.com/s/rajdhani/v17/LDI2apCSOBg7S-QT7pa8FvOreec.woff2 · loaded by https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap
+t=2957ms · GET https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2 · loaded by https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap
+t=2957ms · GET https://fonts.gstatic.com/s/rajdhani/v17/LDI2apCSOBg7S-QT7pbYF_Oreec.woff2 · loaded by https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap</pre></details>
+    </article>
+    <article class="finding" style="--c:#5fd68a">
+      <header><span class="badge" style="--c:#5fd68a">none</span><h4>Reject-all was honoured for the observation window</h4><code>REJECT_HONOURED</code></header>
+      <p>No consent-requiring third-party requests were seen after the refusal.</p>
+      <p class="ref">ePrivacy Directive 2002/58/EC Art. 5(3) — storing or accessing information on a user&#39;s device requires prior consent unless strictly necessary</p>
+      
+    </article>
+
+    
+  </section>
+  <section class="country">
+    <h2>IT <span class="badge" style="--c:#ffc93c">medium</span></h2>
+    <p class="meta">egress IT · residential · tz Europe/Rome · session <code>…6.TEHciW3bAXIvULufOE7BeQ</code> · navigation 6094ms
+       · <a href="[redacted-presigned-url]">session replay</a></p>
+
+    <div class="stats">
+      <div><b>10</b><span>third-party requests before consent</span></div>
+      <div><b>1</b><span>distinct third parties</span></div>
+      <div><b>0</b><span>third-party cookies</span></div>
+      <div><b>0</b><span>web-storage keys</span></div>
+    </div>
+
+    <h3>Before any interaction</h3>
+    
+    <div class="timeline"><div class="track"><i style="left:68.57%;background:#4a5568" title="4426ms · cdnjs · cdn"></i><i style="left:68.57%;background:#4a5568" title="4426ms · jsDelivr · cdn"></i><i style="left:86.12%;background:#4a5568" title="5559ms · unpkg · cdn"></i><i style="left:72.90%;background:#7bc4ff" title="4706ms · Google Fonts · data-transfer"></i><i style="left:86.12%;background:#4a5568" title="5559ms · unpkg · cdn"></i><i style="left:94.24%;background:#7bc4ff" title="6083ms · Google Fonts · data-transfer"></i><i style="left:94.25%;background:#7bc4ff" title="6084ms · Google Fonts · data-transfer"></i><i style="left:94.25%;background:#4a5568" title="6084ms · cdnjs · cdn"></i><i style="left:94.25%;background:#7bc4ff" title="6084ms · Google Fonts · data-transfer"></i><i style="left:100.00%;background:#4a5568" title="6455ms · cdnjs · cdn"></i></div>
+      <div class="axis"><span>0 ms</span><span>6455 ms since navigation started</span></div>
+    </div>
+
+    <h3>Consent layer</h3>
+    <ul class="cmp">
+      <li>Banner detected: <b>yes</b></li>
+      <li>Accept in first layer: <b>Accept</b></li>
+      <li>Reject in first layer: <b class="">Decline</b></li>
+      <li>Reject clicked: <b>yes</b> — 0 third-party requests observed afterwards</li>
+    </ul>
+
+    <h3>Keyboard walk</h3>
+    <table class="walk"><thead><tr><th>#</th><th>role</th><th>accessible name</th><th>focus visible</th><th>in banner</th></tr></thead><tbody><tr><td>1</td><td><code>link</code></td><td>Home</td><td>yes</td><td></td></tr><tr><td>2</td><td><code>button</code></td><td>Products</td><td><span class="bad">no</span></td><td></td></tr><tr><td>3</td><td><code>link</code></td><td>Products</td><td>yes</td><td></td></tr><tr><td>4</td><td><code>link</code></td><td>TrainerPass</td><td>yes</td><td></td></tr><tr><td>5</td><td><code>link</code></td><td>My cart: 0</td><td>yes</td><td></td></tr><tr><td>6</td><td><code>link</code></td><td>Tracking</td><td>yes</td><td></td></tr><tr><td>7</td><td><code>button</code></td><td>Shop Now</td><td>yes</td><td></td></tr><tr><td>8</td><td><code>button</code></td><td>TrainerPass</td><td>yes</td><td></td></tr><tr><td>9</td><td><code>textbox</code></td><td>View details for Core - Zero</td><td>yes</td><td></td></tr><tr><td>10</td><td><code>textbox</code></td><td>View details for Ring - 12 custom free-spin</td><td>yes</td><td></td></tr><tr><td>11</td><td><code>textbox</code></td><td>View details for Metal X adapter</td><td>yes</td><td></td></tr><tr><td>12</td><td><code>link</code></td><td>Instagram</td><td>yes</td><td></td></tr><tr><td>13</td><td><code>link</code></td><td>TikTok</td><td>yes</td><td></td></tr><tr><td>14</td><td><code>link</code></td><td>YouTube</td><td>yes</td><td></td></tr><tr><td>15</td><td><code>link</code></td><td>Linktree</td><td>yes</td><td></td></tr><tr><td>16</td><td><code>link</code></td><td>Contact</td><td>yes</td><td></td></tr><tr><td>17</td><td><code>link</code></td><td>About us</td><td>yes</td><td></td></tr><tr><td>18</td><td><code>link</code></td><td>Legal notice</td><td>yes</td><td></td></tr><tr><td>19</td><td><code>link</code></td><td>Privacy policy</td><td>yes</td><td></td></tr><tr><td>20</td><td><code>link</code></td><td>Cookie policy</td><td>yes</td><td></td></tr><tr><td>21</td><td><code>link</code></td><td>firezenk</td><td>yes</td><td></td></tr><tr><td>22</td><td><code>button</code></td><td>Accept</td><td>yes</td><td>yes</td></tr><tr><td>23</td><td><code>button</code></td><td>Decline</td><td>yes</td><td>yes</td></tr></tbody></table>
+
+    <h3>Evidence</h3>
+    <p class="files"><a href="it/network-pre-consent.har">HAR</a> · <a href="it/requests-pre-consent.json">requests</a> · <a href="it/cookies-pre-consent.json">cookies</a> · <a href="it/web-storage-pre-consent.json">web storage</a> · <a href="it/keyboard-walk.json">keyboard walk</a> · <a href="it/ax-tree.json">AX tree</a> · <a href="it/cmp.json">consent layer</a> · <a href="it/findings.json">findings</a> · <a href="it/01-pre-consent.png">01-pre-consent</a> · <a href="it/02-after-reject.png">02-after-reject</a></p>
+
+    <h3>Findings</h3>
+    
+    <article class="finding" style="--c:#ffc93c">
+      <header><span class="badge" style="--c:#ffc93c">medium</span><h4>The banner is 21 tab stops deep</h4><code>BANNER_LATE_IN_FOCUS_ORDER</code></header>
+      <p>A modal layer that blocks the page should receive focus immediately. Here the keyboard user must traverse the page behind the banner before reaching it.</p>
+      <p class="ref">EN 301 549 §9.2.4.3 / WCAG 2.1 SC 2.4.3 (Focus Order)</p>
+      <details><summary>Evidence (5)</summary><pre>1. link &quot;Home&quot;
+2. button &quot;Products&quot;
+3. link &quot;Products&quot;
+4. link &quot;TrainerPass&quot;
+5. link &quot;My cart: 0&quot;</pre></details>
+    </article>
+    <article class="finding" style="--c:#7bc4ff">
+      <header><span class="badge" style="--c:#7bc4ff">low</span><h4>IP address disclosed to Google Fonts on load</h4><code>THIRD_COUNTRY_TRANSFER</code></header>
+      <p>These hosts are not trackers, but loading them discloses the visitor&#39;s IP to a third-country recipient. German courts have treated the Google Fonts case as actionable; self-hosting removes it.</p>
+      <p class="ref">GDPR Chapter V — disclosing an IP address to a third-country recipient is a transfer</p>
+      <details><summary>Evidence (4)</summary><pre>t=4706ms · GET https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap · loaded by https://optimusrex.web.app/css/styles.min.css
+t=6083ms · GET https://fonts.gstatic.com/s/rajdhani/v17/LDI2apCSOBg7S-QT7pa8FvOreec.woff2 · loaded by https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap
+t=6084ms · GET https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2 · loaded by https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap
+t=6084ms · GET https://fonts.gstatic.com/s/rajdhani/v17/LDI2apCSOBg7S-QT7pbYF_Oreec.woff2 · loaded by https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap</pre></details>
+    </article>
+    <article class="finding" style="--c:#5fd68a">
+      <header><span class="badge" style="--c:#5fd68a">none</span><h4>Reject-all was honoured for the observation window</h4><code>REJECT_HONOURED</code></header>
+      <p>No consent-requiring third-party requests were seen after the refusal.</p>
+      <p class="ref">ePrivacy Directive 2002/58/EC Art. 5(3) — storing or accessing information on a user&#39;s device requires prior consent unless strictly necessary</p>
+      
+    </article>
+
+    
+  </section>
+  <section class="country">
+    <h2>NL <span class="badge" style="--c:#ffc93c">medium</span></h2>
+    <p class="meta">egress NL · residential · tz Europe/Amsterdam · session <code>…4.GdWQ5tYNmsJ6fk36e2rF6Q</code> · navigation 2588ms
+       · <a href="[redacted-presigned-url]">session replay</a></p>
+
+    <div class="stats">
+      <div><b>10</b><span>third-party requests before consent</span></div>
+      <div><b>1</b><span>distinct third parties</span></div>
+      <div><b>0</b><span>third-party cookies</span></div>
+      <div><b>0</b><span>web-storage keys</span></div>
+    </div>
+
+    <h3>Before any interaction</h3>
+    
+    <div class="timeline"><div class="track"><i style="left:41.55%;background:#4a5568" title="1226ms · cdnjs · cdn"></i><i style="left:41.55%;background:#4a5568" title="1226ms · jsDelivr · cdn"></i><i style="left:75.43%;background:#4a5568" title="2226ms · unpkg · cdn"></i><i style="left:49.58%;background:#7bc4ff" title="1463ms · Google Fonts · data-transfer"></i><i style="left:75.43%;background:#4a5568" title="2226ms · unpkg · cdn"></i><i style="left:87.43%;background:#7bc4ff" title="2580ms · Google Fonts · data-transfer"></i><i style="left:87.43%;background:#7bc4ff" title="2580ms · Google Fonts · data-transfer"></i><i style="left:87.43%;background:#4a5568" title="2580ms · cdnjs · cdn"></i><i style="left:87.43%;background:#7bc4ff" title="2580ms · Google Fonts · data-transfer"></i><i style="left:100.00%;background:#4a5568" title="2951ms · cdnjs · cdn"></i></div>
+      <div class="axis"><span>0 ms</span><span>2951 ms since navigation started</span></div>
+    </div>
+
+    <h3>Consent layer</h3>
+    <ul class="cmp">
+      <li>Banner detected: <b>yes</b></li>
+      <li>Accept in first layer: <b>Accept</b></li>
+      <li>Reject in first layer: <b class="">Decline</b></li>
+      <li>Reject clicked: <b>yes</b> — 0 third-party requests observed afterwards</li>
+    </ul>
+
+    <h3>Keyboard walk</h3>
+    <table class="walk"><thead><tr><th>#</th><th>role</th><th>accessible name</th><th>focus visible</th><th>in banner</th></tr></thead><tbody><tr><td>1</td><td><code>link</code></td><td>Home</td><td>yes</td><td></td></tr><tr><td>2</td><td><code>button</code></td><td>Products</td><td><span class="bad">no</span></td><td></td></tr><tr><td>3</td><td><code>link</code></td><td>Products</td><td>yes</td><td></td></tr><tr><td>4</td><td><code>link</code></td><td>TrainerPass</td><td>yes</td><td></td></tr><tr><td>5</td><td><code>link</code></td><td>My cart: 0</td><td>yes</td><td></td></tr><tr><td>6</td><td><code>link</code></td><td>Tracking</td><td>yes</td><td></td></tr><tr><td>7</td><td><code>button</code></td><td>Shop Now</td><td>yes</td><td></td></tr><tr><td>8</td><td><code>button</code></td><td>TrainerPass</td><td>yes</td><td></td></tr><tr><td>9</td><td><code>textbox</code></td><td>View details for Core - Zero</td><td>yes</td><td></td></tr><tr><td>10</td><td><code>textbox</code></td><td>View details for Ring - 12 custom free-spin</td><td>yes</td><td></td></tr><tr><td>11</td><td><code>textbox</code></td><td>View details for Metal X adapter</td><td>yes</td><td></td></tr><tr><td>12</td><td><code>link</code></td><td>Instagram</td><td>yes</td><td></td></tr><tr><td>13</td><td><code>link</code></td><td>TikTok</td><td>yes</td><td></td></tr><tr><td>14</td><td><code>link</code></td><td>YouTube</td><td>yes</td><td></td></tr><tr><td>15</td><td><code>link</code></td><td>Linktree</td><td>yes</td><td></td></tr><tr><td>16</td><td><code>link</code></td><td>Contact</td><td>yes</td><td></td></tr><tr><td>17</td><td><code>link</code></td><td>About us</td><td>yes</td><td></td></tr><tr><td>18</td><td><code>link</code></td><td>Legal notice</td><td>yes</td><td></td></tr><tr><td>19</td><td><code>link</code></td><td>Privacy policy</td><td>yes</td><td></td></tr><tr><td>20</td><td><code>link</code></td><td>Cookie policy</td><td>yes</td><td></td></tr><tr><td>21</td><td><code>link</code></td><td>firezenk</td><td>yes</td><td></td></tr><tr><td>22</td><td><code>button</code></td><td>Accept</td><td>yes</td><td>yes</td></tr><tr><td>23</td><td><code>button</code></td><td>Decline</td><td>yes</td><td>yes</td></tr></tbody></table>
+
+    <h3>Evidence</h3>
+    <p class="files"><a href="nl/network-pre-consent.har">HAR</a> · <a href="nl/requests-pre-consent.json">requests</a> · <a href="nl/cookies-pre-consent.json">cookies</a> · <a href="nl/web-storage-pre-consent.json">web storage</a> · <a href="nl/keyboard-walk.json">keyboard walk</a> · <a href="nl/ax-tree.json">AX tree</a> · <a href="nl/cmp.json">consent layer</a> · <a href="nl/findings.json">findings</a> · <a href="nl/01-pre-consent.png">01-pre-consent</a> · <a href="nl/02-after-reject.png">02-after-reject</a></p>
+
+    <h3>Findings</h3>
+    
+    <article class="finding" style="--c:#ffc93c">
+      <header><span class="badge" style="--c:#ffc93c">medium</span><h4>The banner is 21 tab stops deep</h4><code>BANNER_LATE_IN_FOCUS_ORDER</code></header>
+      <p>A modal layer that blocks the page should receive focus immediately. Here the keyboard user must traverse the page behind the banner before reaching it.</p>
+      <p class="ref">EN 301 549 §9.2.4.3 / WCAG 2.1 SC 2.4.3 (Focus Order)</p>
+      <details><summary>Evidence (5)</summary><pre>1. link &quot;Home&quot;
+2. button &quot;Products&quot;
+3. link &quot;Products&quot;
+4. link &quot;TrainerPass&quot;
+5. link &quot;My cart: 0&quot;</pre></details>
+    </article>
+    <article class="finding" style="--c:#7bc4ff">
+      <header><span class="badge" style="--c:#7bc4ff">low</span><h4>IP address disclosed to Google Fonts on load</h4><code>THIRD_COUNTRY_TRANSFER</code></header>
+      <p>These hosts are not trackers, but loading them discloses the visitor&#39;s IP to a third-country recipient. German courts have treated the Google Fonts case as actionable; self-hosting removes it.</p>
+      <p class="ref">GDPR Chapter V — disclosing an IP address to a third-country recipient is a transfer</p>
+      <details><summary>Evidence (4)</summary><pre>t=1463ms · GET https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap · loaded by https://optimusrex.web.app/css/styles.min.css
+t=2580ms · GET https://fonts.gstatic.com/s/rajdhani/v17/LDI2apCSOBg7S-QT7pa8FvOreec.woff2 · loaded by https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap
+t=2580ms · GET https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2 · loaded by https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap
+t=2580ms · GET https://fonts.gstatic.com/s/rajdhani/v17/LDI2apCSOBg7S-QT7pbYF_Oreec.woff2 · loaded by https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap</pre></details>
+    </article>
+    <article class="finding" style="--c:#5fd68a">
+      <header><span class="badge" style="--c:#5fd68a">none</span><h4>Reject-all was honoured for the observation window</h4><code>REJECT_HONOURED</code></header>
+      <p>No consent-requiring third-party requests were seen after the refusal.</p>
+      <p class="ref">ePrivacy Directive 2002/58/EC Art. 5(3) — storing or accessing information on a user&#39;s device requires prior consent unless strictly necessary</p>
+      
+    </article>
+
+    
+  </section>
+  <footer>
+    Gauntlet 0.1.0 — built on Solari cloud browsers. Measurements, not legal advice:
+    each finding states what was observed and the provision it is relevant to. Whether a given site is
+    compliant depends on facts this tool cannot see. Every number here is reproducible from the evidence
+    bundle next to this file.
+  </footer>
+</div></body></html>

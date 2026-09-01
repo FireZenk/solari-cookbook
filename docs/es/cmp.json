@@ -1,0 +1,10 @@
+{
+  "detected": true,
+  "tcfApi": false,
+  "bannerVisible": true,
+  "acceptInFirstLayer": true,
+  "rejectInFirstLayer": true,
+  "acceptLabel": "Accept",
+  "rejectLabel": "Decline",
+  "notes": []
+}
